@@ -1,0 +1,738 @@
+{
+  "name": "Biota",
+  "children": [
+    {
+      "name": "Archaea",
+      "children": [
+        {
+          "name": "Crenarchaeota",
+          "children": [
+            {
+              "name": "†unnamed_Crenarchaeota1",
+              "children": [
+                {
+                  "name": "†Thermofilum",
+                  "children": [{ "name": "†Thermofilum Pendens" }]
+                },
+                { "name": "†Thermoprotei" },
+                {
+                  "name": "†unnamed_Crenarchaeota2",
+                  "children": [
+                    {
+                      "name": "†Pyrobaculum",
+                      "children": [{ "name": "†Pyrobaculum Aerophilum" }]
+                    },
+                    {
+                      "name": "†Thermoproteus"
+                    }
+                  ]
+                }
+              ]
+            },
+            { "name": "CommunityStructure", "value": 3812 },
+            { "name": "HierarchicalCluster", "value": 6714 },
+            { "name": "MergeEdge", "value": 743 }
+          ]
+        },
+        {
+          "name": "Euryarchaeota",
+          "children": [
+            { "name": "†Archeoglobales" },
+            { "name": "†Methanobateriates" },
+            { "name": "†Methanococcales" },
+            { "name": "†Methanopyrales" },
+            { "name": "†Thermococcales" },
+            {
+              "name": "unnamed_Euryarchaeota1",
+              "children": [
+                {
+                  "name": "Halobacteriates",
+                  "children": [
+                    {
+                      "name": "Halobacteriales",
+                      "children": [
+                        {
+                          "name": "Halobacteriaceae",
+                          "children": [
+                            { "name": "Halomarina oriensis" },
+                            {
+                              "name": "Unnamed_Halobacteriaceae_1",
+                              "children": [
+                                { "name": "Natronomonas" },
+                                { "name": "Unnamed_Halobacteriaceae_2" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                { "name": "Methanomicrobiates" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Korarchaeota"
+        },
+        {
+          "name": "Thermoplasmales"
+        }
+      ]
+    },
+    {
+      "name": "Eubacteria",
+      "children": [
+        { "name": "Acidobacteria" },
+        { "name": "Aquificae" },
+        { "name": "Bacteroidetes" },
+        { "name": "Chlamydiae" },
+        { "name": "Chlorobi" },
+        { "name": "Chrysiogenetes" },
+        { "name": "Deferribacteres" },
+        { "name": "Dichtyoglomi" },
+        { "name": "Fibrobacteres" },
+        { "name": "Fusobacteria" },
+        { "name": "Gemmatimonadetes" },
+        { "name": "Gram Negative" },
+        { "name": "Nitrospera" },
+        { "name": "Planctomycetes" },
+        {
+          "name": "Proteobacteria",
+          "children": [
+            {
+              "name": "Alphaproteobacteria",
+              "children": [
+                {
+                  "name": "Rhodobacterales",
+                  "children": [
+                    {
+                      "name": "Rhodobacteraceae",
+                      "children": [
+                        {
+                          "name": "Pseudovibrio",
+                          "children": [
+                            { "name": "Pseudovibrio  hongkongensis" },
+                            { "name": "Pseudovibrio  stylochi" },
+                            { "name": "Pseudovibrio ascidiaceicoia" },
+                            { "name": "Pseudovibrio axinellae" },
+                            { "name": "Pseudovibrio denitrificans" },
+                            { "name": "Pseudovibrio japonicus" },
+                            { "name": "Pseudovibrio sp. Tun.PSC04-5.14" }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Betaproteobacteria",
+              "children": [
+                {
+                  "name": "Burkholderiales",
+                  "children": [
+                    {
+                      "name": "Burkholderiaceae",
+                      "children": [
+                        {
+                          "name": "Burkholderia",
+                          "children": [
+                            { "name": "Burkholderia alpina" },
+                            { "name": "Burkholderia ambifaria" },
+                            { "name": "Burkholderia arboris" },
+                            { "name": "Burkholderia cenocepacia" },
+                            { "name": "Burkholderia contaminans" },
+                            { "name": "Burkholderia diffusa" },
+                            { "name": "Burkholderia dolosa" },
+                            { "name": "Burkholderia gladioli" },
+                            { "name": "Burkholderia glumae" },
+                            { "name": "Burkholderia humptydooensis" },
+                            { "name": "Burkholderia lata" },
+                            { "name": "Burkholderia latens" },
+                            { "name": "Burkholderia mallei" },
+                            { "name": "Burkholderia metallica" },
+                            { "name": "Burkholderia multivorans" },
+                            { "name": "Burkholderia oklahomensis" },
+                            { "name": "Burkholderia plantarii" },
+                            { "name": "Burkholderia pseudomallei" },
+                            { "name": "Burkholderia pseudomultivorans" },
+                            { "name": "Burkholderia puraquae" },
+                            { "name": "Burkholderia pyrrocinia" },
+                            { "name": "Burkholderia seminalis" },
+                            { "name": "Burkholderia singularis" },
+                            { "name": "Burkholderia stabilis" },
+                            { "name": "Burkholderia stagnalis" },
+                            { "name": "Burkholderia territorii" },
+                            { "name": "Burkholderia thailandensis" },
+                            { "name": "Burkholderia ubonensis" },
+                            { "name": "Burkholderia vietnamensis" }
+                          ]
+                        },
+                        { "name": "Caballeronia" },
+                        { "name": "Chitinimonas" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        { "name": "Spirochaetes" },
+        {
+          "name": "Terrabacteria",
+          "children": [
+            { "name": "†Actinobacteria" },
+            { "name": "Chloroflexi" },
+            { "name": "Cyanobacteria" },
+            { "name": "Deinococcus-Thermus" },
+            { "name": "Firmicutes" }
+          ]
+        },
+        { "name": "Thermodesulfobacteria" },
+        { "name": "Thermomicrobia" },
+        { "name": "Thermotogae" },
+        { "name": "Verrucomicrobia" }
+      ]
+    },
+    {
+      "name": "Eukaryota",
+      "children": [
+        {
+          "name": "Bikonta",
+          "children": [
+            {
+              "name": "Archaeplastida",
+              "children": [
+                {
+                  "name": "†Glaucophytes",
+                  "children": [
+                    {
+                      "name": "Glaucophyceae",
+                      "children": [
+                        {
+                          "name": "Glaucocystales",
+                          "children": [
+                            {
+                              "name": "Glaucocystaceae",
+                              "children": [
+                                { "name": "Cyanophora" },
+                                { "name": "Glaucocystis" },
+                                { "name": "Gloeochaete" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Rhodophyta",
+                  "children": [
+                    {
+                      "name": "Cyanidiophytina",
+                      "children": [
+                        {
+                          "name": "Cyanidiophyceae",
+                          "children": [
+                            {
+                              "name": "Cyanidiales",
+                              "children": [
+                                { "name": "Cyanidiaceae" },
+                                { "name": "Galdieriaceae" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Eurhodophytina",
+                      "children": [
+                        {
+                          "name": "Bangiophyceae",
+                          "children": [
+                            {
+                              "name": "Bangiophycidae",
+                              "children": [
+                                { "name": "Bangiales" },
+                                { "name": "†Goniotrichales" },
+                                { "name": "†Porphyrales" }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Florideophyceae",
+                          "children": [
+                            {
+                              "name": "Ahnfeltiophycidae",
+                              "children": [
+                                { "name": "Ahnfeltiales" },
+                                { "name": "Pihiellales" }
+                              ]
+                            },
+                            {
+                              "name": "Corallinophycidae",
+                              "children": [
+                                { "name": "Corallinales" },
+                                { "name": "Rhodogorgonales" }
+                              ]
+                            },
+                            {
+                              "name": "Hildenbrandiophycidae",
+                              "children": [{ "name": "Hildenbrandiales" }]
+                            },
+                            {
+                              "name": "Nemaliophycidae",
+                              "children": [
+                                { "name": "Acrochaetiales" },
+                                { "name": "Balbianiales" },
+                                { "name": "Balliales" },
+                                { "name": "Batrachospermales" },
+                                { "name": "Nemaliales" },
+                                { "name": "Palmariales" }
+                              ]
+                            },
+                            {
+                              "name": "†Rhodymeniophycidae",
+                              "children": [
+                                { "name": "Acrosymphytales" },
+                                { "name": "Atractopherales" },
+                                { "name": "Bonnemaisoniales" },
+                                { "name": "Catenellopsidales" },
+                                { "name": "Ceramiales" },
+                                { "name": "Gellidiales" },
+                                { "name": "Gigartinales" },
+                                { "name": "Gracilariales" },
+                                { "name": "Halymeniales" },
+                                { "name": "Nemastomatales" },
+                                { "name": "Peyssonneliales" },
+                                { "name": "Plocamiales" },
+                                { "name": "Rhodymeniales" },
+                                { "name": "Sebdeniales" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Metarhodophytina",
+                      "children": [
+                        {
+                          "name": "Compsopogonophyceae",
+                          "children": [
+                            { "name": "Compsopogonales" },
+                            { "name": "Erythropeltales" },
+                            { "name": "Rhodochaetales" }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Rhodophytina",
+                      "children": [
+                        {
+                          "name": "Porphyridiophyceae",
+                          "children": [
+                            {
+                              "name": "Porphyridiales",
+                              "children": [
+                                { "name": "Phragmonemataceae" },
+                                { "name": "Porphyridiaceae" }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Rhodellophyceae",
+                          "children": [
+                            {
+                              "name": "Dixoniellales",
+                              "children": [{ "name": "Dixoniellaceae" }]
+                            },
+                            {
+                              "name": "Glaucosphaerales",
+                              "children": [{ "name": "Glaucosphaeraceae" }]
+                            },
+                            {
+                              "name": "Rhodellales",
+                              "children": [{ "name": "Rhodellaceae" }]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Stylonematophyceae",
+                          "children": [
+                            {
+                              "name": "Rufusiales",
+                              "children": [{ "name": "Refusiaceae" }]
+                            },
+                            {
+                              "name": "Stylonematales",
+                              "children": [{ "name": "Stylonemataceae" }]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Viridiplantae",
+                  "children": [
+                    {
+                      "name": "Chlorophyta",
+                      "children": [
+                        { "name": "Chlorodendrophyceae" },
+                        { "name": "Chlorophyceae" },
+                        {
+                          "name": "Prasinophytes",
+                          "children": [
+                            { "name": "Chlorodendrales" },
+                            { "name": "Dunalliellales" },
+                            { "name": "Halosphaerales" },
+                            { "name": "Mamiellales" }
+                          ]
+                        },
+                        { "name": "Trebouxiophyceae" },
+                        { "name": "Ulvophyceae" }
+                      ]
+                    },
+                    {
+                      "name": "Streptophyta",
+                      "children": [
+                        {
+                          "name": "Charophyta",
+                          "children": [
+                            {
+                              "name": "Charophyceae",
+                              "children": [{ "name": "Charales" }]
+                            },
+                            {
+                              "name": "Chlorokybophyceae",
+                              "children": [{ "name": "Chlorokybales" }]
+                            },
+                            {
+                              "name": "Coleochaetophyceae",
+                              "children": [
+                                { "name": "Chaetospiridiales" },
+                                { "name": "Coleochaetales" }
+                              ]
+                            },
+                            {
+                              "name": "Conjugatophyceae",
+                              "children": [
+                                { "name": "Desmidiales" },
+                                { "name": "Zygnematales" }
+                              ]
+                            },
+                            {
+                              "name": "Klebsormidiophyceae",
+                              "children": [{ "name": "Klebsormidiales" }]
+                            },
+                            {
+                              "name": "Mesostigmatophyceae",
+                              "children": [{ "name": "Mesostigmatales" }]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Embryophyta",
+                          "children": [
+                            {
+                              "name": "Anthoceretophyta",
+                              "children": [
+                                { "name": "Anthocerotopsida" },
+                                { "name": "Leiosporocerotopsida" }
+                              ]
+                            },
+                            {
+                              "name": "Bryophyta",
+                              "children": [
+                                { "name": "Andreaeobryopsida" },
+                                { "name": "Andreaeopsida" },
+                                { "name": "Bryopsida" },
+                                { "name": "Oedipodiopsida" },
+                                { "name": "Polytrichopsida" },
+                                { "name": "Sphagnopsida" },
+                                { "name": "Takakiopsida" },
+                                { "name": "Tetraphidopsida" }
+                              ]
+                            },
+                            {
+                              "name": "Marchantiophyta",
+                              "children": [
+                                { "name": "Haplomitriopsida" },
+                                { "name": "Jungermanniopsida" },
+                                { "name": "Marchantiopsida" }
+                              ]
+                            },
+                            {
+                              "name": "Tracheophyta",
+                              "children": [{ "name": "Spermatophyta" }]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Chromalveolata",
+              "children": [
+                {
+                  "name": "Harosa",
+                  "children": [
+                    {
+                      "name": "Halvaria",
+                      "children": [
+                        { "name": "†Alveolates" },
+                        { "name": "†Stramenopiles" }
+                      ]
+                    },
+                    {
+                      "name": "Rhizaria",
+                      "children": [
+                        { "name": "Radiolaria" },
+                        {
+                          "name": "Retaria",
+                          "children": [
+                            {
+                              "name": "Cercozoa",
+                              "children": [
+                                { "name": "Endomyxa" },
+                                { "name": "Filosa" }
+                              ]
+                            },
+                            { "name": "Foraminifera" }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Hacrobia",
+                  "children": [
+                    {
+                      "name": "†Cryptista",
+                      "children": [
+                        { "name": "†Corbihelia" },
+                        { "name": "†Cryptista palpitia" }
+                      ]
+                    },
+                    {
+                      "name": "†Haptista",
+                      "children": [
+                        { "name": "†Centroheliozoa" },
+                        { "name": "†Haptophytina" }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Excavata",
+          "children": [
+            {
+              "name": "Discicristates",
+              "children": [
+                { "name": "Euglenozoa" },
+                { "name": "Heterolobosea" }
+              ]
+            },
+            {
+              "name": "Jakobida",
+              "children": [
+                { "name": "†Andaluciidae" },
+                {
+                  "name": "†Histionidae",
+                  "children": [
+                    {
+                      "name": "†Histiona",
+                      "children": [
+                        { "name": "†Histiona aroides" },
+                        { "name": "†Histiona velifera" },
+                        { "name": "†Histiona zachariasii" }
+                      ]
+                    },
+                    { "name": "†Reclinomonas" },
+                    { "name": "†Stenocodon" },
+                    { "name": "†Stomatochone" }
+                  ]
+                },
+                { "name": "†Jakoba libera" },
+                { "name": "†Moramonadidae" },
+                { "name": "†Stygiellidae" }
+              ]
+            },
+            {
+              "name": "†Malawimonadidae",
+              "children": [
+                { "name": "†Malawimonas californiana" },
+                { "name": "†Malawimonas jakobiformis" }
+              ]
+            },
+            {
+              "name": "Metamonada",
+              "children": [
+                { "name": "†Anaeromonada" },
+                {
+                  "name": "†Anaeromonadea",
+                  "children": [
+                    { "name": "†Trimastix" },
+                    {
+                      "name": "†Unnamed Anaeromonadea",
+                      "children": [
+                        { "name": "†Oxymonadida" },
+                        { "name": "†Paratrimastix" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "†Trichozoa",
+                  "children": [
+                    { "name": "Fornicata" },
+                    { "name": "Parabasalia" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Unikonta",
+          "children": [
+            {
+              "name": "Amoebozoa",
+              "children": [
+                { "name": "Archamoeba" },
+                {
+                  "name": "†Conosa",
+                  "children": [
+                    { "name": "†Archamoebae" },
+                    { "name": "†Macromycetozoa" },
+                    { "name": "†Mycetozoa" }
+                  ]
+                },
+                { "name": "Eumycetozoa" },
+                { "name": "Lobosea" }
+              ]
+            },
+            {
+              "name": "Obazoa",
+              "children": [
+                {
+                  "name": "†Apusozoa",
+                  "children": [
+                    { "name": "Diphyllatea" },
+                    { "name": "Hilomonadea" },
+                    {
+                      "name": "†Thecomonadea",
+                      "children": [
+                        { "name": "Ancyromonadida" },
+                        { "name": "Apusomonadida" },
+                        { "name": "Hemimastigida" },
+                        { "name": "Mantomonadida" }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Breviatidae",
+                  "children": [
+                    { "name": "Breviata anathema" },
+                    { "name": "Pygsuia biforma" },
+                    { "name": "Subulatomonas tetraspora" }
+                  ]
+                },
+                {
+                  "name": "Opisthokonta",
+                  "children": [
+                    {
+                      "name": "Holomycota",
+                      "children": [
+                        {
+                          "name": "Cristidiscoidea",
+                          "children": [
+                            { "name": "†Fonticulida" },
+                            { "name": "Nucleariida" }
+                          ]
+                        },
+                        {
+                          "name": "Fungus and Opisthosporidia",
+                          "children": [
+                            {
+                              "name": "Fungi",
+                              "children": [
+                                { "name": "Chytridiomycota" },
+                                { "name": "Unnamed Fungi 01" }
+                              ]
+                            },
+                            {
+                              "name": "†Opisthosporidia",
+                              "children": [
+                                { "name": "Aphelida" },
+                                { "name": "†Cryptomycota" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Holozoa",
+                      "children": [
+                        {
+                          "name": "Filozoa",
+                          "children": [
+                            {
+                              "name": "Apoikozoa",
+                              "children": [
+                                { "name": "Choanoflagellatea" },
+                                { "name": "Metazoa" }
+                              ]
+                            },
+                            {
+                              "name": "Filasterea",
+                              "children": [{ "name": "Ministeriida" }]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Teretosporea",
+                          "children": [
+                            { "name": "Corallochytrea" },
+                            {
+                              "name": "Ichthyosporea",
+                              "children": [
+                                { "name": "Dermocystida" },
+                                { "name": "Ichthyophonida" }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
