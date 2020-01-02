@@ -1,23 +1,24 @@
 import styled from 'styled-components';
+import { ButtonText } from '../../components/Typography';
 
 export const Wrapper = styled.div`
-  background-color: #06C9AF;
-  border-radius: 3px;
-  padding: 0 16px;
+  background-color: ${props => props.theme.primary};
+  border-radius: ${props => props.theme.borderRadius}px;
+  padding: 0 ${props => props.theme.largeSpacer}px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 40px;
+  height: ${props => props.theme.buttonHeight}px;
   ${props =>
     props.small &&
     `height: 24px;
-     padding: 0 8px;`}
-  ${props => props.dark && `background-color: black;`}
-  ${props => props.light && `background-color: white;`}
+     padding: 0 ${props.theme.spacer}px;`}
+  ${props => props.dark && `background-color: ${props.theme.black};`}
+  ${props => props.light && `background-color: ${props.theme.white};`}
   ${props =>
     props.disabled &&
-    `background-color: lgrey;
+    `background-color: ${props.theme.lgrey};
      pointer-events: none;`}
      cursor: pointer;
 
@@ -29,14 +30,9 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Text = styled.div`
-font-weight: 600;
-text-transform: uppercase;
-font-size: 14px;
-letter-spacing: 1.25px;
-
-  color: white;
+export const Text = styled(ButtonText)`
+  color: ${props => props.theme.white};
   ${props => props.small && 'font-size: 9px;'}
-  ${props => props.light && `color: black;`}
-  ${props => props.disabled && `color: vlgrey;`}
+  ${props => props.light && `color: ${props.theme.black};`}
+  ${props => props.disabled && `color: ${props.theme.vlgrey};`}
 `;

@@ -30,7 +30,7 @@ const Tree = ({ data }) => {
 
       const zoom = d3
         .zoom()
-        .scaleExtent([0.5, 2])
+        .scaleExtent([0.1, 2])
         .on('zoom', () => {
           svg.attr('transform', d3.event.transform);
         });

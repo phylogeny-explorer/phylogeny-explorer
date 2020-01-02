@@ -4,7 +4,6 @@ import { Wrapper, Text } from './Button.styled';
 const Button = ({
   children,
   small,
-  squishy,
   dark,
   light,
   disabled,
@@ -18,7 +17,6 @@ const Button = ({
       dark={dark}
       light={light}
       disabled={disabled}
-      squishy={squishy}
       {...props}
     >
       <Text small={small} light={light} disabled={disabled}>
