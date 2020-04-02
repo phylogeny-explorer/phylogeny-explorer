@@ -13,13 +13,16 @@ const Wrapper = styled.div`
 `;
 
 const Clades = () => {
-  const { loading, error, data } = useQuery(GET_TREE);
-  console.log(data);
+  const { loading, error, data, refetch } = useQuery(GET_TREE, {
+    variables: { id: 'ott93302' }
+  });
+
+  const handleLoadMore = id => refetch({ variables: { id } });
   return (
     <Wrapper>
       {loading && <HeadingLarge>Loading...</HeadingLarge>}
       {error && <HeadingLarge>Error :(</HeadingLarge>}
-      {data && data.tree && <Tree data={data.tree.root} />}
+      {data && <Tree data={data.tree} handleLoadMore={handleLoadMore} />}
     </Wrapper>
   );
 };

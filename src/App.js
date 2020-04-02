@@ -10,12 +10,21 @@ import theme from './theme';
 import Home from './pages/Home';
 import ErrorPage from './pages/Error';
 
-import Tree from './components/Tree/Tree';
-import data from './components/Tree/biota.json';
+const env = process.env.REACT_APP_API_BASE || 'dev';
 
-const client = new ApolloClient({
-  uri: 'https://phylogeny-graphql-server.herokuapp.com/'
-});
+export const APOLLO_LINK_CONFIG = {
+  local: {
+    uri: 'http://localhost:4000/'
+  },
+  dev: {
+    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
+  },
+  prod: {
+    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
+  }
+}[env];
+
+const client = new ApolloClient(APOLLO_LINK_CONFIG);
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -38,9 +47,6 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <Home />
-            </Route>
-            <Route path="/tree">
-              <Tree data={data} />
             </Route>
             <Route path="*">
               <ErrorPage />

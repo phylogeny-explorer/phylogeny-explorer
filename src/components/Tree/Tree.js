@@ -78,7 +78,7 @@ const Tree = ({ data }) => {
         const nodeEnter = node
           .enter()
           .append('g')
-          .attr('class', d => (d._children ? 'node parent' : 'node'))
+          .attr('class', d => (d.data.hasChildren ? 'node parent' : 'node'))
           .attr('transform', d => `translate(${source.y0},${source.x0})`)
           .attr('fill-opacity', 0)
           .attr('stroke-opacity', 0)
@@ -92,7 +92,7 @@ const Tree = ({ data }) => {
         nodeEnter
           .append('text')
           .attr('dy', '0.31em')
-          .attr('x', d => (d._children ? -10 : 8))
+          .attr('x', d => (d.data.hasChildren ? -10 : 8))
           .text(d => d.data.name)
           .clone(true)
           .lower()

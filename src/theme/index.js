@@ -29,7 +29,7 @@ const theme = {
   instagramPink: '#EF0176',
 
   // Shadows
-  shadows: `${1}px ${2}px ${4}px rgba(0, 0, 0, 0.12)`,
+  shadows: `1px 2px 4px rgba(0, 0, 0, 0.12)`,
   darkShadow: `0px 0px ${16}px rgba(0, 0, 0, 0.6)`,
 
   // Sizes

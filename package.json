@@ -19,6 +19,9 @@
     "styled-reset": "^4.0.8"
   },
   "scripts": {
+    "dev-with-local": "SKIP_PREFLIGHT_CHECK=true REACT_APP_API_BASE=local react-scripts start",
+    "dev": "SKIP_PREFLIGHT_CHECK=true REACT_APP_API_BASE=dev react-scripts start",
+    "prod": "REACT_APP_API_BASE=prod react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -5,11 +5,13 @@ const GET_TREE = gql`
     id
     name
     extant
+    hasChildren
   }
 
-  query getTree($id: ID) {
+  query getTree($id: ID!) {
     tree(id: $id, depth: 9) {
-      root {
+      ...clade
+      children {
         ...clade
         children {
           ...clade
@@ -25,9 +27,6 @@ const GET_TREE = gql`
                     ...clade
                     children {
                       ...clade
-                      children {
-                        ...clade
-                      }
                     }
                   }
                 }
