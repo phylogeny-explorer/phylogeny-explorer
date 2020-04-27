@@ -14,14 +14,14 @@ const env = process.env.REACT_APP_API_BASE || 'dev';
 
 export const APOLLO_LINK_CONFIG = {
   local: {
-    uri: 'http://localhost:4000/'
+    uri: 'http://localhost:4000/',
   },
   dev: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
+    uri: 'https://phylogeny-graphql-server.herokuapp.com/',
   },
   prod: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
-  }
+    uri: 'https://phylogeny-graphql-server.herokuapp.com/',
+  },
 }[env];
 
 const client = new ApolloClient(APOLLO_LINK_CONFIG);
