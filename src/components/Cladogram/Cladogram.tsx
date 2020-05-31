@@ -10,19 +10,30 @@ import GET_TREE from './graphql/getTree';
 const Wrapper = styled.div`
   height: calc(100% - ${(props) => props.theme.topbarHeight}px);
   padding: ${(props) => props.theme.largeSpacer}px;
+  position: relative;
 `;
 
-const Clades = () => {
+const Heading = styled(HeadingLarge)`
+  position: absolute;
+`;
+
+const Clades = ({ nodeId = 'ott93302' }) => {
   const { loading, error, data, refetch } = useQuery(GET_TREE, {
-    variables: { id: 'ott93302' },
+    variables: { id: nodeId },
   });
 
   const handleLoadMore = (id: string) => refetch({ id });
   return (
     <Wrapper>
-      {loading && <HeadingLarge>Loading...</HeadingLarge>}
-      {error && <HeadingLarge>Error :(</HeadingLarge>}
-      {data && <Tree data={data.tree} handleLoadMore={handleLoadMore} />}
+      {loading && <Heading>Loading...</Heading>}
+      {error && <Heading>Error :(</Heading>}
+      {data && (
+        <Tree
+          data={data.tree}
+          loading={loading}
+          handleLoadMore={handleLoadMore}
+        />
+      )}
     </Wrapper>
   );
 };

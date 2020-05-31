@@ -45,12 +45,8 @@ const App = () => {
         <GlobalStyle />
         <Router>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="*">
-              <ErrorPage />
-            </Route>
+            <Route path="/:nodeId?" component={Home} />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         </Router>
       </ThemeProvider>

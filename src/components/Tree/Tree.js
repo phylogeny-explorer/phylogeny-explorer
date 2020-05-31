@@ -1,15 +1,21 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import * as d3 from 'd3';
 
 import Button from '../Button/Button';
 import { Wrapper, ResetButton } from './Tree.styled';
 
-const Tree = ({ data, handleLoadMore }) => {
+const Tree = ({ data, history }) => {
+  const [newId, setNewId] = useState(data.id);
   const d3Container = useRef(null);
   const margin = { top: 32, right: 156, bottom: 32, left: 156 };
 
   useEffect(() => {
-    if (data && d3Container.current) {
+    if (data && data.id === newId && d3Container.current) {
+      // remove current group
+      d3.select(d3Container.current).selectAll('g').remove();
+
       const { width } = d3Container.current.getBoundingClientRect();
       const root = d3.hierarchy(data);
       const dy = width / 3;
@@ -78,21 +84,33 @@ const Tree = ({ data, handleLoadMore }) => {
         const nodeEnter = node
           .enter()
           .append('g')
-          .attr('class', (d) => (d.data.hasChildren ? 'node parent' : 'node'))
+          .attr(
+            'class',
+            (d) =>
+              `node ${d.data.hasChildren && 'parent'} ${
+                d.data.isRoot && 'root'
+              }`
+          )
           .attr('transform', () => `translate(${source.y0},${source.x0})`)
           .attr('fill-opacity', 0)
-          .attr('stroke-opacity', 0)
+          .attr('stroke-opacity', 0);
+
+        nodeEnter
+          .append('circle')
+          .attr('r', 4)
           .on('click', (d) => {
             d.children = d.children ? null : d._children;
             update(d);
           });
 
-        nodeEnter.append('circle').attr('r', 4);
-
         nodeEnter
           .append('text')
           .attr('dy', '0.31em')
           .attr('x', (d) => (d.data.hasChildren ? -10 : 8))
+          .on('click', (d) => {
+            setNewId(d.data.id);
+            history.push(d.data.id);
+          })
           .text((d) => d.data.name)
           .clone(true)
           .lower()
@@ -161,4 +179,4 @@ const Tree = ({ data, handleLoadMore }) => {
   );
 };
 
-export default Tree;
+export default withRouter(Tree);

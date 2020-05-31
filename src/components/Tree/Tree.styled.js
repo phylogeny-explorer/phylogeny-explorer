@@ -8,13 +8,10 @@ export const Wrapper = styled.div`
     user-select: none;
 
     .nodes {
-      cursor: pointer;
       pointer-events: all;
     }
 
     .node {
-      cursor: pointer;
-
       circle {
         fill: #06c9af;
       }
@@ -24,6 +21,8 @@ export const Wrapper = styled.div`
         font-size: 12px;
         font-family: sans-serif;
         text-anchor: start;
+        cursor: pointer;
+
         &.overlay {
           stroke-linejoin: round;
           stroke-width: 3;
@@ -36,11 +35,16 @@ export const Wrapper = styled.div`
           fill: #fff;
           stroke: #06c9af;
           stroke-width: 2px;
+          cursor: pointer;
         }
 
         text {
           text-anchor: end;
         }
+      }
+
+      &.root text {
+        cursor: default;
       }
     }
 
