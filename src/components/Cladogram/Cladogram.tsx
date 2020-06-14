@@ -23,6 +23,7 @@ const Clades = ({ nodeId = 'ott93302' }) => {
   });
 
   const handleLoadMore = (id: string) => refetch({ id });
+
   return (
     <Wrapper>
       {loading && <Heading>Loading...</Heading>}

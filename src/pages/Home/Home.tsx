@@ -11,7 +11,7 @@ const Clades = ({ match }) => {
   return (
     <Page>
       <HeaderBar />
-      <Cladogram nodeId={nodeId} />
+      <Cladogram key={nodeId} nodeId={nodeId} />
     </Page>
   );
 };

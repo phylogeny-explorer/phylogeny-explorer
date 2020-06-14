@@ -108,8 +108,8 @@ const Tree = ({ data, history }) => {
           .attr('dy', '0.31em')
           .attr('x', (d) => (d.data.hasChildren ? -10 : 8))
           .on('click', (d) => {
-            setNewId(d.data.id);
-            history.push(d.data.id);
+            setNewId(d.depth === 0 ? d.data.parentId : d.data.id);
+            history.push(d.depth === 0 ? d.data.parentId : d.data.id);
           })
           .text((d) => d.data.name)
           .clone(true)
@@ -167,7 +167,7 @@ const Tree = ({ data, history }) => {
 
       update(root);
     }
-  }, [data, margin, d3Container]);
+  }, [data, margin, d3Container, history, newId]);
 
   return (
     <Wrapper>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import PEPLogo from './PEPLogo';
 import PEPLogoFull from './PEPLogoFull';
@@ -11,6 +12,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
   height: ${(props) => props.size}px;
   width: ${(props) => (props.full ? props.size * 7.2 : props.size)}px;
+  cursor: pointer;
 `;
 
 interface Props {
@@ -18,10 +20,13 @@ interface Props {
   full?: boolean;
 }
 
-const Logo = ({ size = 40, full = true }: Props) => (
-  <Wrapper size={size} full={full}>
-    {full ? <PEPLogoFull /> : <PEPLogo />}
-  </Wrapper>
-);
+const Logo = ({ size = 40, full = false }: Props) => {
+  const history = useHistory();
+  return (
+    <Wrapper size={size} full={full} onClick={() => history.push('/ott93302')}>
+      {full ? <PEPLogoFull /> : <PEPLogo />}
+    </Wrapper>
+  );
+};
 
 export default Logo;
