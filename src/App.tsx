@@ -17,10 +17,10 @@ export const APOLLO_LINK_CONFIG = {
     uri: 'http://localhost:4000/',
   },
   dev: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/',
+    uri: 'https://api.phylogenyexplorerproject.co.uk/',
   },
   prod: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/',
+    uri: 'https://api.phylogenyexplorerproject.co.uk/',
   },
 }[env];
 
