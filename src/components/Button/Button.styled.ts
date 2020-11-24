@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken, lighten } from 'polished';
 import { ButtonText } from '../Typography';
 
 interface WrapperProps {
