@@ -18,7 +18,10 @@ export const APOLLO_LINK = {
   prod: 'https://api.phylogenyexplorerproject.co.uk/',
 }[env];
 
-const client = new ApolloClient({uri: APOLLO_LINK, cache: new InMemoryCache()});
+const client = new ApolloClient({
+  uri: APOLLO_LINK,
+  cache: new InMemoryCache(),
+});
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

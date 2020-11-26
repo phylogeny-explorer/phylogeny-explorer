@@ -22,15 +22,7 @@ const icons = [
   },
   {
     name: 'Management Icons',
-    icons: [
-      'cog',
-      'eye-off',
-      'eye',
-      'history',
-      'login',
-      'logout',
-      'account',
-    ],
+    icons: ['cog', 'eye-off', 'eye', 'history', 'login', 'logout', 'account'],
   },
   {
     name: 'Button Icons',
@@ -54,12 +46,7 @@ const icons = [
   },
   {
     name: 'Directional Icons',
-    icons: [
-      'down',
-      'left',
-      'right',
-      'up',
-    ],
+    icons: ['down', 'left', 'right', 'up'],
   },
   {
     name: 'Operators',
@@ -67,11 +54,7 @@ const icons = [
   },
   {
     name: 'Boolean Icons',
-    icons: [
-      'check',
-      'close-circle',
-      'close',
-    ],
+    icons: ['check', 'close-circle', 'close'],
   },
   {
     name: 'More Icons',
@@ -88,21 +71,21 @@ export default {
     spin: false,
     rotate: 0,
     horizontal: false,
-    vertical: false
+    vertical: false,
   },
   argTypes: {
     size: {
       control: {
         type: 'range',
         min: 1,
-        max: 10
+        max: 10,
       },
     },
     rotate: {
       control: {
         type: 'range',
         min: 0,
-        max: 360
+        max: 360,
       },
     },
     color: { control: { type: 'color' } },

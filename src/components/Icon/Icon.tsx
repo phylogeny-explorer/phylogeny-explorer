@@ -39,7 +39,7 @@ import {
   mdiLink,
   mdiLinkOff,
   mdiMagnify,
-  mdiUpload
+  mdiUpload,
 } from '@mdi/js';
 
 import { ClickWrapper } from './Icon.styled';
@@ -49,7 +49,13 @@ export interface IconProps extends Omit<MdiIconProps, 'path'> {
   clickHandler?: () => void;
 }
 
-const Icon = ({ name, clickHandler, size = 1, rotate, ...props }: IconProps) => {
+const Icon = ({
+  name,
+  clickHandler,
+  size = 1,
+  rotate,
+  ...props
+}: IconProps) => {
   const paths = {
     account: mdiAccount,
     check: mdiCheck,
@@ -68,8 +74,8 @@ const Icon = ({ name, clickHandler, size = 1, rotate, ...props }: IconProps) => 
     'eye-off': mdiEyeOff,
     help: mdiHelp,
     history: mdiHistory,
-    'login': mdiLogin,
-    'logout': mdiLogout,
+    login: mdiLogin,
+    logout: mdiLogout,
     image: mdiImage,
     edit: mdiPencil,
     undo: mdiUndo,

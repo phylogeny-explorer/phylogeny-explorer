@@ -54,9 +54,7 @@ const SocialButton = ({
           <Icon name="loading" spin size={small ? 0.75 : 1} />
         </LoaderWrapper>
       )}
-      <Text hidden={loading}>
-        {text}
-      </Text>
+      <Text hidden={loading}>{text}</Text>
     </Content>
   </Wrapper>
 );

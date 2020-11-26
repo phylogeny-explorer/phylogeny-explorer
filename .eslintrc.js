@@ -7,8 +7,8 @@ module.exports = {
   },
   extends: [
     'airbnb',
-    'prettier',
     'plugin:@typescript-eslint/eslint-recommended',
+    'prettier',
   ],
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
@@ -20,6 +20,7 @@ module.exports = {
     'react/prop-types': 0,
     'no-underscore-dangle': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/jsx-curly-newline': 0,
     'arrow-parens': [1, 'as-needed'],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'one-var': 0,

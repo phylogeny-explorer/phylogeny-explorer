@@ -59,9 +59,7 @@ const Button = ({
           </Text>
         </Content>
       )}
-      {icon ? (
-        <Icon name={icon} size={small ? 0.75 : 1} />
-      ) : null}
+      {icon ? <Icon name={icon} size={small ? 0.75 : 1} /> : null}
     </Wrapper>
   );
 };

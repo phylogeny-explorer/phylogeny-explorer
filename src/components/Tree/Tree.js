@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ import Button from '../Button/Button';
 import { Wrapper, ResetButton } from './Tree.styled';
 
 const Tree = ({ data, loading, handleLoadMore }) => {
+  console.log({ loading, handleLoadMore });
   const history = useHistory();
   const [newId, setNewId] = useState(data.id);
   const d3Container = useRef(null);
@@ -35,18 +37,17 @@ const Tree = ({ data, loading, handleLoadMore }) => {
         if (d.depth > 1) d.children = null;
       });
 
-      const zoom = d3
-        .zoom()
-        .scaleExtent([0.1, 2])
-        .on('zoom', () => {
-          svg.attr('transform', d3.event.transform);
-        });
+      const zoom = d3.zoom().scaleExtent([0.1, 2]);
 
       const svg = d3
         .select(d3Container.current)
         .attr('viewBox', [-margin.left, -margin.top, width, dx])
         .call(zoom)
         .append('g');
+
+      zoom.on('zoom', () => {
+        svg.attr('transform', d3.event.transform);
+      });
 
       const gLink = svg.append('g').attr('class', 'links');
 

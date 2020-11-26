@@ -47,19 +47,13 @@ const SocialIcon = ({
   const tileSize =
     platform === SOCIAL.LINKEDIN ||
     (variant === 'circle' &&
-      (platform === SOCIAL.INSTAGRAM ||
-        platform === SOCIAL.ITUNES_STORE))
+      (platform === SOCIAL.INSTAGRAM || platform === SOCIAL.ITUNES_STORE))
       ? '60%'
       : '66%';
 
   return variant === 'square' || variant === 'circle' ? (
     <Tile size={size} color={COLOURS[platform]} shape={variant} {...props}>
-      <SVG
-        width={tileSize}
-        height={tileSize}
-        tiled="true"
-        color="#fff"
-      />
+      <SVG width={tileSize} height={tileSize} tiled="true" color="#fff" />
     </Tile>
   ) : (
     <SVG

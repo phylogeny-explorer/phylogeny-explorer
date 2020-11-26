@@ -23,7 +23,7 @@ export const Wrapper = styled.button.attrs({
     props.small &&
     !props.squishy &&
     `min-width: ${props.theme.buttonMinWidthSmall}px;`}
-    cursor: pointer;
+  cursor: pointer;
   background-color: ${props =>
     props.light ? props.theme.white : COLOURS[props.platform]};
   color: ${props => (props.light ? props.theme.black : props.theme.white)};

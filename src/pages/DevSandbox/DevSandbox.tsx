@@ -41,7 +41,8 @@ const DevSandbox = () => {
         <Button
           text="toggle background"
           onClick={() =>
-            setBackground(background === 'light' ? 'dark' : 'light')}
+            setBackground(background === 'light' ? 'dark' : 'light')
+          }
         />
         <Button text="dark button" dark />
         <Button text="light button" light />

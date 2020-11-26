@@ -35,6 +35,7 @@ export const Wrapper = styled.button<WrapperProps>`
   justify-content: center;
   text-align: center;
   font-size: unset;
+  cursor: pointer;
   color: ${props =>
     props.light ? props.theme.foreground : props.theme.background};
   background: ${props => props.theme.primary};
