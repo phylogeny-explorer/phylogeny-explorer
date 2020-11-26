@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <h1>{uuidv4()}</h1>
+      <h1>UUID: {uuidv4()}</h1>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Router>
