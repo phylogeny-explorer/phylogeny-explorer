@@ -4,7 +4,6 @@ import reset from 'styled-reset';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { v4 as uuidv4 } from 'uuid';
 
 import theme from './theme';
 
@@ -42,7 +41,6 @@ const GlobalStyle = createGlobalStyle`
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <h1>UUID: {uuidv4()}</h1>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Router>
