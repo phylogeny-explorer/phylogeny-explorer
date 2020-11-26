@@ -6,7 +6,7 @@ const Main = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: ${(props) => props.theme.background};
+  background: ${props => props.theme.background};
 `;
 
 interface Props {

@@ -1,12 +1,12 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import Page from '../../components/Page';
 import HeaderBar from '../../components/HeaderBar';
 import Cladogram from '../../components/Cladogram';
 
-const Clades = ({ match }) => {
-  const { nodeId } = match.params;
+const Home = () => {
+  const { nodeId } = useParams<{ nodeId: string }>();
 
   return (
     <Page>
@@ -15,4 +15,5 @@ const Clades = ({ match }) => {
     </Page>
   );
 };
-export default withRouter(Clades);
+
+export default Home;

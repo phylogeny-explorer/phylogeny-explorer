@@ -5,17 +5,13 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['airbnb', 'prettier'],
-  plugins: ['prettier', 'babel'],
-  ignorePatterns: ['*.stories.tsx'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'plugin:@typescript-eslint/eslint-recommended',
+  ],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        singleQuote: true,
-        trailingComma: 'es5',
-      },
-    ],
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.tsx'] },
@@ -24,6 +20,7 @@ module.exports = {
     'react/prop-types': 0,
     'no-underscore-dangle': 0,
     'react/jsx-props-no-spreading': 0,
+    'arrow-parens': [1, 'as-needed'],
     'no-console': [1, { allow: ['warn', 'error'] }],
     'one-var': 0,
     'no-unused-expressions': [1, { allowShortCircuit: true }],

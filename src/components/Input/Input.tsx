@@ -9,7 +9,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 const TextInput = ({ label, handleChange, ...props }: Props) => (
   <>
     {label && <Label>{label}</Label>}
-    <Input {...props} onChange={(e) => handleChange(e.target.value)} />
+    <Input {...props} onChange={e => handleChange(e.target.value)} />
   </>
 );
 

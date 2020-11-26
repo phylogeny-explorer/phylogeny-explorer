@@ -36,6 +36,9 @@ const theme = {
   iconSize: 24,
   topbarHeight: 60,
   buttonHeight: 36,
+  buttonHeightSmall: 24,
+  buttonMinWidth: 160,
+  buttonMinWidthSmall: 90,
   sidebarWidth: 416,
 };
 

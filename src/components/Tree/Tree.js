@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import * as d3 from 'd3';
 
 import Button from '../Button/Button';
 import { Wrapper, ResetButton } from './Tree.styled';
 
-const Tree = ({ data, history }) => {
+const Tree = ({ data, loading, handleLoadMore }) => {
+  const history = useHistory();
   const [newId, setNewId] = useState(data.id);
   const d3Container = useRef(null);
   const margin = { top: 32, right: 156, bottom: 32, left: 156 };
@@ -23,8 +24,8 @@ const Tree = ({ data, history }) => {
       const tree = d3.tree().nodeSize([dx, dy]);
       const diagonal = d3
         .linkHorizontal()
-        .x((d) => d.y)
-        .y((d) => d.x);
+        .x(d => d.y)
+        .y(d => d.x);
 
       root.x0 = dy / 4;
       root.y0 = 0;
@@ -51,7 +52,7 @@ const Tree = ({ data, history }) => {
 
       const gNode = svg.append('g').attr('class', 'nodes');
 
-      const update = (source) => {
+      const update = source => {
         const duration = d3.event && d3.event.altKey ? 2500 : 250;
         const nodes = root.descendants().reverse();
         const links = root.links();
@@ -61,7 +62,7 @@ const Tree = ({ data, history }) => {
 
         let left = root;
         let right = root;
-        root.eachBefore((node) => {
+        root.eachBefore(node => {
           if (node.x < left.x) left = node;
           if (node.x > right.x) right = node;
         });
@@ -78,7 +79,7 @@ const Tree = ({ data, history }) => {
           );
 
         // Update the nodes…
-        const node = gNode.selectAll('g').data(nodes, (d) => d.id);
+        const node = gNode.selectAll('g').data(nodes, d => d.id);
 
         // Enter any new nodes at the parent's previous position.
         const nodeEnter = node
@@ -86,7 +87,7 @@ const Tree = ({ data, history }) => {
           .append('g')
           .attr(
             'class',
-            (d) =>
+            d =>
               `node ${d.data.hasChildren && 'parent'} ${
                 d.data.isRoot && 'root'
               }`
@@ -98,7 +99,7 @@ const Tree = ({ data, history }) => {
         nodeEnter
           .append('circle')
           .attr('r', 4)
-          .on('click', (d) => {
+          .on('click', d => {
             d.children = d.children ? null : d._children;
             update(d);
           });
@@ -106,12 +107,12 @@ const Tree = ({ data, history }) => {
         nodeEnter
           .append('text')
           .attr('dy', '0.31em')
-          .attr('x', (d) => (d.data.hasChildren ? -10 : 8))
-          .on('click', (d) => {
+          .attr('x', d => (d.data.hasChildren ? -10 : 8))
+          .on('click', d => {
             setNewId(d.depth === 0 ? d.data.parentId : d.data.id);
             history.push(d.depth === 0 ? d.data.parentId : d.data.id);
           })
-          .text((d) => d.data.name)
+          .text(d => d.data.name)
           .clone(true)
           .lower()
           .attr('class', 'overlay');
@@ -120,7 +121,7 @@ const Tree = ({ data, history }) => {
         node
           .merge(nodeEnter)
           .transition(transition)
-          .attr('transform', (d) => `translate(${d.y},${d.x})`)
+          .attr('transform', d => `translate(${d.y},${d.x})`)
           .attr('fill-opacity', 1)
           .attr('stroke-opacity', 1);
 
@@ -134,7 +135,7 @@ const Tree = ({ data, history }) => {
           .attr('stroke-opacity', 0);
 
         // Update the links…
-        const link = gLink.selectAll('path').data(links, (d) => d.target.id);
+        const link = gLink.selectAll('path').data(links, d => d.target.id);
 
         // Enter any new links at the parent's previous position.
         const linkEnter = link
@@ -159,7 +160,7 @@ const Tree = ({ data, history }) => {
           });
 
         // Stash the old positions for transition.
-        root.eachBefore((d) => {
+        root.eachBefore(d => {
           d.x0 = d.x;
           d.y0 = d.y;
         });
@@ -173,10 +174,10 @@ const Tree = ({ data, history }) => {
     <Wrapper>
       <svg className="Tree" width="100%" height="100%" ref={d3Container} />
       <ResetButton>
-        <Button>Reset</Button>
+        <Button icon="crosshairs" iconOnly dark />
       </ResetButton>
     </Wrapper>
   );
 };
 
-export default withRouter(Tree);
+export default Tree;

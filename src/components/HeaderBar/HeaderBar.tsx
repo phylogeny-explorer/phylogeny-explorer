@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { useHistory } from 'react-router-dom';
 
 import Logo from '../Logo';
@@ -36,7 +36,7 @@ const HeaderBar = () => {
               <BodyText>Loading...</BodyText>
             </Result>
           )}
-          {results.map((result) => (
+          {results.map(result => (
             <Result
               key={result.id}
               onClick={() => {
