@@ -25,7 +25,8 @@
     "react-spring": "^8.0.27",
     "styled-components": "^4.4.1",
     "styled-reset": "^4.0.8",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "uuid": "^8.3.1"
   },
   "scripts": {
     "dev-with-local": "SKIP_PREFLIGHT_CHECK=true REACT_APP_API_BASE=local react-scripts start",
