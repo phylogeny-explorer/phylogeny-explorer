@@ -1,6 +1,21 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+jobs:
+  branch:
+    docker:
+      - image: circleci/<language>:<version TAG>
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Dependencies
+          command: npm i
+
+      - run:
+          name: Lint
+          command: npm run lint
 workflows:
   node-tests:
     jobs:
