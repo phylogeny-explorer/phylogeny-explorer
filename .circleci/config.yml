@@ -4,15 +4,14 @@ orbs:
 jobs:
   branch:
     docker:
-      - image: circleci/<language>:<version TAG>
+      - image: cimg/node:<node-version>
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD
 
     steps:
       - checkout
-
-      - run:
-          name: Install Dependencies
-          command: npm i
-
+      - node/install-packages
       - run:
           name: Lint
           command: npm run lint
