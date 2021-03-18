@@ -4,9 +4,9 @@ orbs:
 jobs:
   branch:
     docker:
-      - image: cimg/node:<node-version>
+      - image: cimg/node:15.0
         auth:
-          username: mydockerhub-user
+          username: i2xzy
           password: $DOCKERHUB_PASSWORD
 
     steps:
