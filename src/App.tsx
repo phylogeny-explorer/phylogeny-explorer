@@ -14,14 +14,14 @@ const env = process.env.REACT_APP_API_BASE || 'dev';
 
 export const APOLLO_LINK_CONFIG = {
   local: {
-    uri: 'http://localhost:4000/'
+    uri: 'http://localhost:4000/',
   },
   dev: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
+    uri: 'https://api.phylogenyexplorerproject.co.uk/',
   },
   prod: {
-    uri: 'https://phylogeny-graphql-server.herokuapp.com/'
-  }
+    uri: 'https://api.phylogenyexplorerproject.co.uk/',
+  },
 }[env];
 
 const client = new ApolloClient(APOLLO_LINK_CONFIG);
@@ -45,12 +45,8 @@ const App = () => {
         <GlobalStyle />
         <Router>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="*">
-              <ErrorPage />
-            </Route>
+            <Route path="/:nodeId?" component={Home} />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         </Router>
       </ThemeProvider>

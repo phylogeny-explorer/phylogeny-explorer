@@ -1,5 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Wrapper, Text } from './Button.styled';
+
+interface Props {
+  children: ReactNode;
+  small?: boolean;
+  dark?: boolean;
+  light?: boolean;
+  disabled?: boolean;
+}
 
 const Button = ({
   children,
@@ -7,12 +15,10 @@ const Button = ({
   dark,
   light,
   disabled,
-  accessibilityRole = 'button',
   ...props
-}) => {
+}: Props) => {
   return (
     <Wrapper
-      accessibilityRole={accessibilityRole}
       small={small}
       dark={dark}
       light={light}

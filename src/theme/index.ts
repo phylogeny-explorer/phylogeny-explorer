@@ -36,7 +36,7 @@ const theme = {
   iconSize: 24,
   topbarHeight: 60,
   buttonHeight: 36,
-  sidebarWidth: 416
+  sidebarWidth: 416,
 };
 
 export default theme;
