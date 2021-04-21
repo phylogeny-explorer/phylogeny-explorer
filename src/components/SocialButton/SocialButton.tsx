@@ -1,6 +1,6 @@
 import React from 'react';
-import Icon from '../Icon';
-import SocialIcon from '../SocialIcon';
+import Icon from 'components/Icon';
+import SocialIcon from 'components/SocialIcon';
 
 import { Wrapper, Content, Text, LoaderWrapper } from './SocialButton.styled';
 

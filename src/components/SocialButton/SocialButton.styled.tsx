@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
-import { COLOURS } from '../../consts';
+import { COLOURS } from 'consts';
 
 interface WrapperProps {
   small?: boolean;

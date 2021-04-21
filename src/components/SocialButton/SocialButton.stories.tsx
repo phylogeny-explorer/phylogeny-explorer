@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SOCIAL } from '../../consts';
+import { SOCIAL } from 'consts';
 import SocialButton from './SocialButton';
 
 export default {
