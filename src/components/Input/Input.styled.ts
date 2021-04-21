@@ -1,17 +1,22 @@
 import styled from 'styled-components';
-import { HeadingLabel } from '../Typography';
+import { HeadingLabel } from 'components/Typography';
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const Label = styled(HeadingLabel)`
   margin-bottom: ${props => props.theme.spacer}px;
 `;
 
-export const Input = styled.input`
+export const StyledInput = styled.input`
   color: ${props => props.theme.black};
   font-size: 16px;
   padding: ${props => props.theme.spacer}px;
-  height: 40px;
+  height: ${props => props.theme.buttonHeight}px;
   box-sizing: border-box;
-  border-radius: 4px;
-  border: none;
+  border-radius: ${props => props.theme.borderRadius}px;
+  border: 1px solid ${props => props.theme.black};
   outline: none;
 `;
