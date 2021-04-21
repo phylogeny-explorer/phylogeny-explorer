@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 
-import { HeadingLarge } from '../Typography';
-import Tree from '../Tree';
+import { HeadingLarge } from 'components/Typography';
+import Tree from 'components/Tree';
 
 import GET_TREE from './graphql/getTree';
 

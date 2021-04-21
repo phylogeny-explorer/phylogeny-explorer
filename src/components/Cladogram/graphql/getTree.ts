@@ -7,6 +7,7 @@ const GET_TREE = gql`
     extant
     hasChildren
     parentId
+    leaves
   }
 
   query getTree($id: ID!) {
