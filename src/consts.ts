@@ -1,5 +1,6 @@
 export const SOCIAL = {
   FACEBOOK: 'facebook',
+  GITHUB: 'github',
   GOOGLE: 'google',
   GOOGLE_PLAY: 'googleStore',
   INSTAGRAM: 'instagram',
@@ -13,16 +14,26 @@ export const SOCIAL = {
 
 export const COLOURS = {
   primary: '#06C9AF',
+  dprimary: '#009780',
+  lprimary: '#61FDE1',
   secondary: '#AF996B',
+  dsecondary: '#7E6B3F',
+  lsecondary: '#E2CA9A',
+  warning: '#C90620',
+  success: '#06C94E',
   white: '#FFF',
-  vlgrey: '#EEE',
-  lgrey: '#AAA',
-  grey: '#777',
-  dgrey: '#484848',
-  vdgrey: '#303030',
-  vvdgrey: '#181818',
-  black: '#000',
+  offWhite: '#EEE',
+  vvlgrey: '#D5D6D8',
+  vlgrey: '#B6BCC1',
+  lgrey: '#97A1AA',
+  grey: '#7F8D98',
+  dgrey: '#687A87',
+  vdgrey: '#5C6B76',
+  vvdgrey: '#4C5760',
+  offBlack: '#3D454B',
+  black: '#2B3034',
   [SOCIAL.FACEBOOK]: '#1877F2',
+  [SOCIAL.GITHUB]: '#000',
   [SOCIAL.GOOGLE]: '#518EF8',
   [SOCIAL.GOOGLE_PLAY]: '#00D2FF',
   [SOCIAL.INSTAGRAM]: '#EF0176',
@@ -36,6 +47,7 @@ export const COLOURS = {
 
 export const SOCIAL_TITLES = {
   [SOCIAL.FACEBOOK]: 'Facebook',
+  [SOCIAL.GITHUB]: 'GitHub',
   [SOCIAL.GOOGLE]: 'Google',
   [SOCIAL.GOOGLE_PLAY]: 'Google Play',
   [SOCIAL.INSTAGRAM]: 'Instagram',
@@ -46,11 +58,3 @@ export const SOCIAL_TITLES = {
   [SOCIAL.TWITTER]: 'Twitter',
   [SOCIAL.YOUTUBE]: 'YouTube',
 };
-
-
-
-
-
-
-
-

@@ -1,10 +1,9 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import * as d3 from 'd3';
 
-import Button from '../Button/Button';
+import Button from 'components/Button';
 import { Wrapper, ResetButton } from './Tree.styled';
 
 const Tree = ({ data, loading, handleLoadMore }) => {
@@ -175,7 +174,7 @@ const Tree = ({ data, loading, handleLoadMore }) => {
     <Wrapper>
       <svg className="Tree" width="100%" height="100%" ref={d3Container} />
       <ResetButton>
-        <Button icon="crosshairs" iconOnly dark />
+        <Button icon="crosshairs" dark />
       </ResetButton>
     </Wrapper>
   );

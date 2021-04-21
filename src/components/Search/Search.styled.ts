@@ -22,7 +22,7 @@ export const Input = styled.input<InputProps>`
 
   ${props =>
     props.isContained &&
-    `border: 1px solid #D5D6D8;
+    `border: 1px solid ${props.theme.vvlgrey};
   `}
 `;
 
