@@ -1,10 +1,10 @@
 import React from 'react';
-import Icon from '../Icon';
+import Icon from 'components/Icon';
 
 import { Wrapper, Content, Text, Loader } from './Button.styled';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  text: string;
+  text?: string;
   small?: boolean;
   loading?: boolean;
   disabled?: boolean;
@@ -14,7 +14,6 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   secondary?: boolean;
   icon?: string;
   iconFirst?: boolean;
-  iconOnly?: boolean;
   type?: 'button' | 'submit' | 'reset';
 }
 
@@ -27,7 +26,6 @@ const Button = ({
   disabled,
   icon,
   iconFirst,
-  iconOnly,
   type = 'submit',
   ...props
 }: ButtonProps) => {
@@ -39,10 +37,10 @@ const Button = ({
       type={type}
       disabled={disabled || loading}
       visuallyDisabled={disabled}
-      iconOnly={iconOnly}
+      iconOnly={!text}
       {...props}
     >
-      {!iconOnly && (
+      {text && (
         <Content
           iconLast={!!icon && !iconFirst}
           iconFirst={!!icon && iconFirst}
@@ -54,7 +52,7 @@ const Button = ({
             </Loader>
           )}
 
-          <Text loading={loading} small={small}>
+          <Text isLoading={loading} small={small}>
             {text}
           </Text>
         </Content>

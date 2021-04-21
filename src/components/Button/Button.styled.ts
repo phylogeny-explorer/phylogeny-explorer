@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
-import { ButtonText } from '../Typography';
+import { ButtonText } from 'components/Typography';
 
 interface WrapperProps {
   small?: boolean;
@@ -95,12 +95,12 @@ export const Content = styled.div<ContentProps>`
 `;
 
 interface TextProps {
-  loading?: boolean;
+  isLoading?: boolean;
   small?: boolean;
 }
 
 export const Text = styled(ButtonText)<TextProps>`
-  ${props => props.loading && 'opacity: 0;'}
+  ${props => props.isLoading && 'opacity: 0;'}
   ${props => props.small && 'font-size: 11px;'}
 `;
 
