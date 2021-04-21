@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SOCIAL } from '../../consts';
+import { SOCIAL } from 'consts';
 import { StoryRow } from './SocialIcon.styled';
 import SocialIcon from './SocialIcon';
 

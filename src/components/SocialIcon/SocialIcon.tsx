@@ -1,8 +1,9 @@
 import React from 'react';
-import { SOCIAL, COLOURS } from '../../consts';
+import { SOCIAL, COLOURS } from 'consts';
 
 import {
   IconFacebook,
+  IconGithub,
   IconGoogle,
   IconGooglePlay,
   IconInstagram,
@@ -31,6 +32,7 @@ const SocialIcon = ({
 }: SocialIconProps) => {
   const icons = {
     [SOCIAL.FACEBOOK]: IconFacebook,
+    [SOCIAL.GITHUB]: IconGithub,
     [SOCIAL.GOOGLE]: IconGoogle,
     [SOCIAL.GOOGLE_PLAY]: IconGooglePlay,
     [SOCIAL.INSTAGRAM]: IconInstagram,
