@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import Page from '../../components/Page';
-import Logo from '../../components/Logo';
-import { HeadingLarge } from '../../components/Typography';
+import Page from 'components/Page';
+import Logo from 'components/Logo';
+import { HeadingLarge } from 'components/Typography';
 
 const Content = styled.div`
   height: 100%;
