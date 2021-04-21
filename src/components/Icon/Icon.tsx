@@ -40,25 +40,25 @@ import {
   mdiLinkOff,
   mdiMagnify,
   mdiUpload,
+  mdiCheckboxBlankOutline,
+  mdiCheckboxIntermediate,
+  mdiCheckboxMarked,
 } from '@mdi/js';
 
 import { ClickWrapper } from './Icon.styled';
 
 export interface IconProps extends Omit<MdiIconProps, 'path'> {
   name: string;
-  clickHandler?: () => void;
+  onClick?: () => void;
 }
 
-const Icon = ({
-  name,
-  clickHandler,
-  size = 1,
-  rotate,
-  ...props
-}: IconProps) => {
+const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
   const paths = {
     account: mdiAccount,
     check: mdiCheck,
+    checkbox: mdiCheckboxBlankOutline,
+    'checkbox-indeterminate': mdiCheckboxIntermediate,
+    'checkbox-marked': mdiCheckboxMarked,
     copy: mdiContentCopy,
     cog: mdiCog,
     crosshairs: mdiCrosshairsGps,
@@ -104,9 +104,9 @@ const Icon = ({
     relationships: 90,
   };
 
-  if (clickHandler)
+  if (onClick)
     return (
-      <ClickWrapper onClick={clickHandler}>
+      <ClickWrapper onClick={onClick}>
         <MdiIcon
           path={paths[name] || mdiHelp}
           rotate={rotations[name] || rotate}

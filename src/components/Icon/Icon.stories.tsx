@@ -54,7 +54,14 @@ const icons = [
   },
   {
     name: 'Boolean Icons',
-    icons: ['check', 'close-circle', 'close'],
+    icons: [
+      'check',
+      'close-circle',
+      'close',
+      'checkbox',
+      'checkbox-indeterminate',
+      'checkbox-marked',
+    ],
   },
   {
     name: 'More Icons',
@@ -72,6 +79,7 @@ export default {
     rotate: 0,
     horizontal: false,
     vertical: false,
+    onClick: undefined,
   },
   argTypes: {
     size: {
@@ -86,6 +94,7 @@ export default {
         type: 'range',
         min: 0,
         max: 360,
+        step: 90,
       },
     },
     color: { control: { type: 'color' } },
@@ -97,7 +106,7 @@ Simple.storyName = 'default';
 
 export const Clickable = args => <Icon {...args} />;
 Clickable.argTypes = {
-  clickHandler: { action: 'clickHandler' },
+  onClick: { action: 'onClick' },
 };
 
 export const Name = args => (

@@ -1,16 +1,24 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
-import { Heading, BodyText } from '../Typography';
+import { Heading, BodyText } from 'components/Typography';
 
-export const ClickWrapper = styled.span`
+export const ClickWrapper = styled.button`
   cursor: pointer;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  padding: ${props => props.theme.spacer}px;
+  margin: -${props => props.theme.spacer}px;
 
   &:hover {
-    background-color: ${props => transparentize(0.95, props.theme.vdgrey)};
+    outline: none;
+    background: ${props => transparentize(0.95, props.theme.vdgrey)};
     box-shadow: 0 0 0 3px ${props => transparentize(0.95, props.theme.vdgrey)};
+  }
+
+  &:focus {
+    outline: none;
   }
 `;
 
