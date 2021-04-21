@@ -1,16 +1,16 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import Page from '../../components/Page';
-import HeaderBar from '../../components/HeaderBar';
-import Cladogram from '../../components/Cladogram';
+import Page from 'components/Page';
+import NavBar from 'components/NavBar';
+import Cladogram from 'components/Cladogram';
 
 const Home = () => {
   const { nodeId } = useParams<{ nodeId: string }>();
 
   return (
     <Page>
-      <HeaderBar />
+      <NavBar />
       <Cladogram key={nodeId} nodeId={nodeId} />
     </Page>
   );
