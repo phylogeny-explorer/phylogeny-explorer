@@ -1,20 +1,20 @@
 import React, { InputHTMLAttributes } from 'react';
-import { Wrapper, Label, StyledInput } from './Input.styled';
+import { Wrapper, Label, StyledInput, ErrorMessage } from './Input.styled';
 
-export interface Props
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  onChange: (val: string) => void;
+  errorMessage?: string;
 }
 
-const Input = ({ label, onChange, name, ...props }: Props) => (
+const Input = ({ label, name, errorMessage, ...props }: InputProps) => (
   <Wrapper>
     {label && (
       <Label as="label" htmlFor={name}>
         {label}
       </Label>
     )}
-    <StyledInput {...props} onChange={e => onChange(e.target.value)} />
+    <StyledInput {...props} name={name} />
+    {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
   </Wrapper>
 );
 

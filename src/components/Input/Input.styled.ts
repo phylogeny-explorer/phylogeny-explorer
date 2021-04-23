@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeadingLabel } from 'components/Typography';
+import { HeadingLabel, SmallText } from 'components/Typography';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,4 +19,9 @@ export const StyledInput = styled.input`
   border-radius: ${props => props.theme.borderRadius}px;
   border: 1px solid ${props => props.theme.black};
   outline: none;
+`;
+
+export const ErrorMessage = styled(SmallText)`
+  margin-top: ${props => props.theme.smallSpacer}px;
+  color: ${props => props.theme.secondary};
 `;
