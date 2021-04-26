@@ -19,7 +19,7 @@ const theme = {
   secondary: COLOURS.secondary,
   dsecondary: COLOURS.dsecondary,
   lsecondary: COLOURS.lsecondary,
-  warning: COLOURS.white,
+  warning: COLOURS.warning,
   success: COLOURS.success,
   white: COLOURS.white,
   offWhite: COLOURS.offWhite,

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./lib",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom", "esnext"],
     "allowJs": true,
@@ -18,7 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "strict": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

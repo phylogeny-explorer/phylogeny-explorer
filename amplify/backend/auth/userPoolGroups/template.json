@@ -1,0 +1,55 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authreactAmplifyCognitoUserPoolId": {
+            "Type": "String",
+            "Default": "authreactAmplifyCognitoUserPoolId"
+        },
+        
+        "authreactAmplifyCognitoAppClientID": {
+            "Type": "String",
+            "Default": "authreactAmplifyCognitoAppClientID"
+        },
+        "authreactAmplifyCognitoAppClientIDWeb": {
+            "Type": "String",
+            "Default": "authreactAmplifyCognitoAppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "viewersGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "viewers",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authreactAmplifyCognitoUserPoolId"
+              }
+            }
+        },
+        
+    
+    
+    },
+    
+}

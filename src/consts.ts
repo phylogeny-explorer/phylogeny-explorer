@@ -1,3 +1,5 @@
+export const AUTH_USER_TOKEN_KEY = 'ReactAmplify.TokenKey';
+
 export const SOCIAL = {
   FACEBOOK: 'facebook',
   GITHUB: 'github',
