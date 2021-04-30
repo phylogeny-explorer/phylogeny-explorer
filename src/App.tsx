@@ -17,7 +17,6 @@ import DevSandbox from 'pages/DevSandbox';
 import ErrorPage from 'pages/Error';
 import Login from 'pages/Login';
 import Signup from 'pages/Signup';
-import ConfirmEmail from 'pages/ConfirmEmail';
 import Toast from 'components/Toast';
 
 const env = process.env.REACT_APP_API_BASE || 'dev';
@@ -66,7 +65,6 @@ const Routes = () => {
     <Switch>
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
-      <Route exact path="/verify-code/:email" component={ConfirmEmail} />
       <Redirect from="/" to="/login" />
     </Switch>
   );

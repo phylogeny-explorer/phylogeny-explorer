@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
@@ -26,6 +26,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const history = useHistory();
+  const query = new URLSearchParams(useLocation().search);
 
   const { setItem } = useContext(LoginContext);
 
@@ -77,14 +78,19 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            email: '',
-            password: '',
+            email: query.get('email') || '',
+            password: query.get('password') || '',
           }}
           onSubmit={onSubmit}
           validationSchema={validationSchema}
         >
           <Form>
-            <Field name="email" type="email" placeholder="Email" />
+            <Field
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email"
+            />
             <Field
               name="password"
               type="password"

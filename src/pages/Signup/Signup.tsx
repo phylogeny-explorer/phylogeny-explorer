@@ -37,8 +37,12 @@ const Signup = () => {
       },
     })
       .then(() => {
-        toast.success('Succesfully signed up user!');
-        history.push(`/verify-code/${email}`);
+        toast.success('Check your email for confirmation link.');
+        history.push(
+          `/login?email=${encodeURIComponent(
+            email
+          )}&password=${encodeURIComponent(password)}`
+        );
       })
       .catch(err => {
         setError(err.message);
@@ -93,7 +97,12 @@ const Signup = () => {
         >
           {() => (
             <Form>
-              <Field name="email" type="email" placeholder="Email" />
+              <Field
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder="Email"
+              />
               <Field
                 name="password"
                 type="password"
