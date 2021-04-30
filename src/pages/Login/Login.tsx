@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
+import jwt from 'jsonwebtoken';
 
 import backgroundImage from 'images/background-login.jpg';
 import { LoginContext } from 'context/LoginContext';
@@ -34,8 +35,17 @@ const Login = () => {
 
     Auth.signIn(email, password)
       .then(user => {
-        setItem(user.signInUserSession.accessToken.jwtToken);
-        history.push('/');
+        const token = user.signInUserSession.accessToken.jwtToken;
+        const decoded = jwt.decode(token);
+
+        if (decoded['cognito:groups']?.includes('viewers')) {
+          setItem(token);
+          history.push('/');
+        } else {
+          throw new Error(
+            'User is not approved to view. Contact dev team for beta access.'
+          );
+        }
       })
       .catch(err => {
         setError(err.message);
