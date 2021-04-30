@@ -1,20 +1,23 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const Main = styled.div`
+interface Props {
+  backgroundImage?: string;
+  children: ReactNode;
+}
+
+const Main = styled.div<Props>`
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: ${(props) => props.theme.background};
+  background: ${props => props.theme.background};
+  background-image: url(${props => props.backgroundImage});
+  background-size: cover;
 `;
 
-interface Props {
-  children: ReactNode;
-}
-
-const Page = ({ children }: Props) => {
-  return <Main>{children}</Main>;
+const Page = ({ backgroundImage, children }: Props) => {
+  return <Main backgroundImage={backgroundImage}>{children}</Main>;
 };
 
 export default Page;

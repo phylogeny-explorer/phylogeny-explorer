@@ -1,16 +1,21 @@
 import React, { InputHTMLAttributes } from 'react';
-import { Label, Input } from './Input.styled';
+import { Wrapper, Label, StyledInput, ErrorMessage } from './Input.styled';
 
-export interface Props extends InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  handleChange: (val: string) => void;
+  errorMessage?: string;
 }
 
-const TextInput = ({ label, handleChange, ...props }: Props) => (
-  <>
-    {label && <Label>{label}</Label>}
-    <Input {...props} onChange={(e) => handleChange(e.target.value)} />
-  </>
+const Input = ({ label, name, errorMessage, ...props }: InputProps) => (
+  <Wrapper>
+    {label && (
+      <Label as="label" htmlFor={name}>
+        {label}
+      </Label>
+    )}
+    <StyledInput {...props} name={name} />
+    {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+  </Wrapper>
 );
 
-export default TextInput;
+export default Input;

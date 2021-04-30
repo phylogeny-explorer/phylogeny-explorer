@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-phylogenyexplorer-dev-133250-authRole",
+      "UnauthRoleArn": "arn:aws:iam::709182791587:role/amplify-phylogenyexplorer-dev-133250-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::709182791587:role/amplify-phylogenyexplorer-dev-133250-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-phylogenyexplorer-dev-133250-deployment",
+      "UnauthRoleName": "amplify-phylogenyexplorer-dev-133250-unauthRole",
+      "StackName": "amplify-phylogenyexplorer-dev-133250",
+      "StackId": "arn:aws:cloudformation:us-east-1:709182791587:stack/amplify-phylogenyexplorer-dev-133250/868405f0-a1d4-11eb-a4a0-122ae4ce5d77",
+      "AmplifyAppId": "d1r8lfsmcmflqw"
+    },
+    "categories": {
+      "auth": {
+        "reactAmplifyCognito": {}
+      }
+    }
+  }
+}

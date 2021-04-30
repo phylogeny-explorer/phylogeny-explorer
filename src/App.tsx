@@ -1,30 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 import reset from 'styled-reset';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import theme from './theme';
-
-import Home from './pages/Home';
-import ErrorPage from './pages/Error';
+import theme from 'theme';
+import LoginProvider, { LoginContext } from 'context/LoginContext';
+import Home from 'pages/Home';
+import Relationships from 'pages/Relationships';
+import DevSandbox from 'pages/DevSandbox';
+import ErrorPage from 'pages/Error';
+import Login from 'pages/Login';
+import Signup from 'pages/Signup';
+import ConfirmEmail from 'pages/ConfirmEmail';
+import Toast from 'components/Toast';
 
 const env = process.env.REACT_APP_API_BASE || 'dev';
 
-export const APOLLO_LINK_CONFIG = {
-  local: {
-    uri: 'http://localhost:4000/',
-  },
-  dev: {
-    uri: 'https://api.phylogenyexplorerproject.co.uk/',
-  },
-  prod: {
-    uri: 'https://api.phylogenyexplorerproject.co.uk/',
-  },
+export const APOLLO_LINK = {
+  local: 'http://localhost:4000/',
+  dev: 'https://api.phylogenyexplorerproject.co.uk/',
+  prod: 'https://api.phylogenyexplorerproject.co.uk/',
 }[env];
 
-const client = new ApolloClient(APOLLO_LINK_CONFIG);
+const client = new ApolloClient({
+  uri: APOLLO_LINK,
+  cache: new InMemoryCache(),
+});
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -36,21 +43,48 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  a {
+    color: ${theme.primary};
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+  }
 `;
+
+const Routes = () => {
+  const { isLoggedIn } = useContext(LoginContext);
+  return isLoggedIn ? (
+    <Switch>
+      <Route exact path="/dev" component={DevSandbox} />
+      <Route exact path="/relationships/:nodeId?" component={Relationships} />
+      <Route exact path="/tree/:nodeId?" component={Home} />
+      <Redirect from="/" to="/tree" />
+      <Route path="*" component={ErrorPage} />
+    </Switch>
+  ) : (
+    <Switch>
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/verify-code/:email" component={ConfirmEmail} />
+      <Redirect from="/" to="/login" />
+    </Switch>
+  );
+};
 
 const App = () => {
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Router>
-          <Switch>
-            <Route path="/:nodeId?" component={Home} />
-            <Route path="*" component={ErrorPage} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </ApolloProvider>
+    <LoginProvider>
+      <ApolloProvider client={client}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Toast />
+          <Router>
+            <Routes />
+          </Router>
+        </ThemeProvider>
+      </ApolloProvider>
+    </LoginProvider>
   );
 };
 

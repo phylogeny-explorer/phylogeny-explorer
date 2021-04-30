@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 
-import { HeadingLarge } from '../Typography';
-import Tree from '../Tree';
+import { HeadingLarge } from 'components/Typography';
+import Tree from 'components/Tree';
 
 import GET_TREE from './graphql/getTree';
 
 const Wrapper = styled.div`
-  height: calc(100% - ${(props) => props.theme.topbarHeight}px);
-  padding: ${(props) => props.theme.largeSpacer}px;
+  height: calc(100% - ${props => props.theme.topbarHeight}px);
+  padding: ${props => props.theme.largeSpacer}px;
   position: relative;
 `;
 

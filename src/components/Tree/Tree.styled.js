@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 
     .node {
       circle {
-        fill: #06c9af;
+        fill: ${props => props.theme.primary};
       }
 
       text {
@@ -26,14 +26,14 @@ export const Wrapper = styled.div`
         &.overlay {
           stroke-linejoin: round;
           stroke-width: 3;
-          stroke: #fff;
+          stroke: ${props => props.theme.white};
         }
       }
 
       &.parent {
         circle {
-          fill: #fff;
-          stroke: #06c9af;
+          fill: ${props => props.theme.white};
+          stroke: ${props => props.theme.primary};
           stroke-width: 2px;
           cursor: pointer;
         }

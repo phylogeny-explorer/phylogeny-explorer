@@ -1,33 +1,63 @@
-import React, { ReactNode } from 'react';
-import { Wrapper, Text } from './Button.styled';
+import React from 'react';
+import Icon from 'components/Icon';
 
-interface Props {
-  children: ReactNode;
+import { Wrapper, Content, Text, Loader } from './Button.styled';
+
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  text?: string;
   small?: boolean;
+  loading?: boolean;
+  disabled?: boolean;
+  squishy?: boolean;
   dark?: boolean;
   light?: boolean;
-  disabled?: boolean;
+  secondary?: boolean;
+  icon?: string;
+  iconFirst?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button = ({
-  children,
+  text,
   small,
+  loading,
   dark,
   light,
   disabled,
+  icon,
+  iconFirst,
+  type = 'submit',
   ...props
-}: Props) => {
+}: ButtonProps) => {
   return (
     <Wrapper
       small={small}
       dark={dark}
       light={light}
-      disabled={disabled}
+      type={type}
+      disabled={disabled || loading}
+      visuallyDisabled={disabled}
+      iconOnly={!text}
       {...props}
     >
-      <Text small={small} light={light} disabled={disabled}>
-        {children}
-      </Text>
+      {text && (
+        <Content
+          iconLast={!!icon && !iconFirst}
+          iconFirst={!!icon && iconFirst}
+          small={small}
+        >
+          {loading && (
+            <Loader>
+              <Icon name="loading" spin size={small ? 0.75 : 1} />
+            </Loader>
+          )}
+
+          <Text isLoading={loading} small={small}>
+            {text}
+          </Text>
+        </Content>
+      )}
+      {icon ? <Icon name={icon} size={small ? 0.75 : 1} /> : null}
     </Wrapper>
   );
 };
