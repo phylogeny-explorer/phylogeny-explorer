@@ -57,6 +57,7 @@ typings/
 
 # dotenv environment variables file
 .env
+/src/react-app-env.d.ts
 
 # next.js build output
 .next
