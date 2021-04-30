@@ -110,7 +110,7 @@ const Tree = ({ data, loading, handleLoadMore }) => {
           .attr('x', d => (d.data.hasChildren ? -10 : 8))
           .on('click', d => {
             setNewId(d.depth === 0 ? d.data.parentId : d.data.id);
-            history.push(d.depth === 0 ? d.data.parentId : d.data.id);
+            history.push(`tree/${d.depth === 0 ? d.data.parentId : d.data.id}`);
           })
           .text(d => d.data.name)
           .clone(true)
