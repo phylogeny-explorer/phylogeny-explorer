@@ -51,7 +51,7 @@ const Search = ({ initialValue = '', handleSelect, isContained }: Props) => {
                   handleSelect(result.id);
                 } else {
                   setValue('');
-                  history.push(`/${result.id}`);
+                  history.push(`/tree/${result.id}`);
                 }
               }}
             >
