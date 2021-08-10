@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   position: relative;
   height: 100%;
+  display: flex;
 
   .Tree {
     user-select: none;
