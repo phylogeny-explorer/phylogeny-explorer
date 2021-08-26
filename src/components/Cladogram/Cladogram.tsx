@@ -3,26 +3,39 @@ import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 
 import { HeadingLarge } from 'components/Typography';
-import Tree from 'components/Tree';
+import Tree from 'components/TreeV2';
 
 import GET_TREE from './graphql/getTree';
 
 const Wrapper = styled.div`
-  height: calc(100% - ${props => props.theme.topbarHeight}px);
   padding: ${props => props.theme.largeSpacer}px;
   position: relative;
+  flex: 1;
 `;
 
 const Heading = styled(HeadingLarge)`
   position: absolute;
 `;
 
-const Clades = ({ nodeId = 'ott93302' }) => {
-  const { loading, error, data, refetch } = useQuery(GET_TREE, {
+interface Props {
+  nodeId: string;
+  onClickNode: (id: string) => void;
+}
+
+const Clades = ({ nodeId = 'ott93302', onClickNode }: Props) => {
+  const { loading, error, data } = useQuery(GET_TREE, {
     variables: { id: nodeId },
   });
 
-  const handleLoadMore = (id: string) => refetch({ id });
+  // const handleLoadMore = (id: string) => refetch({ id });
+
+  const traverse = clade => ({
+    name: clade.name,
+    attributes: { id: clade.id },
+    children: clade.children ? clade.children.map(traverse) : null,
+  });
+
+  const tree = traverse(data?.tree || {});
 
   return (
     <Wrapper>
@@ -30,9 +43,10 @@ const Clades = ({ nodeId = 'ott93302' }) => {
       {error && <Heading>Error :(</Heading>}
       {data && (
         <Tree
-          data={data.tree}
-          loading={loading}
-          handleLoadMore={handleLoadMore}
+          data={tree}
+          onClickNode={onClickNode}
+          // loading={loading}
+          // handleLoadMore={handleLoadMore}
         />
       )}
     </Wrapper>
