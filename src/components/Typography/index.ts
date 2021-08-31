@@ -2,29 +2,36 @@ import styled from 'styled-components';
 
 export const HeadingXLarge = styled.h3`
   font-size: 48px;
-  line-height: 56px;
 `;
 
 export const HeadingLarge = styled.h4`
   font-size: 34px;
-  line-height: 36px;
+  letter-spacing: 0.25px;
 `;
 
 export const Heading = styled.h5`
   font-size: 24px;
-  line-height: 24px;
 `;
 
 export const HeadingSmall = styled.h6`
   font-weight: 500;
   font-size: 20px;
-  line-height: 24px;
+  letter-spacing: 0.15px;
 `;
 
-export const HeadingLabel = styled.h6`
+export const Subtitle = styled.span`
+  font-size: 16px;
+  letter-spacing: 0.15px;
+`;
+
+export const SubtitleSmall = styled.span`
   font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+`;
+
+export const HeadingLabel = styled.span`
   font-size: 10px;
-  line-height: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 `;
@@ -32,6 +39,14 @@ export const HeadingLabel = styled.h6`
 export const ButtonText = styled.span`
   font-weight: 500;
   font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+`;
+
+export const ButtonTextSmall = styled.span`
+  font-weight: 500;
+  font-size: 11px;
   line-height: 16px;
   letter-spacing: 1.25px;
   text-transform: uppercase;
@@ -50,6 +65,7 @@ export const DescriptionText = styled.p`
 export const SmallText = styled.p`
   font-size: 12px;
   line-height: 16px;
+  letter-spacing: 0.4px;
 `;
 
 export const PlaceholderText = styled.span`

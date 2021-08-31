@@ -2,16 +2,18 @@ import { gql } from '@apollo/client';
 
 const GET_TREE = gql`
   fragment clade on Clade {
-    id
     name
-    extant
-    hasChildren
-    parentId
-    leaves
+    attributes {
+      id
+      extant
+      hasChildren
+      parentId
+      leaves
+    }
   }
 
   query getTree($id: ID!) {
-    tree(id: $id, depth: 9) {
+    tree(id: $id, depth: 5) {
       ...clade
       children {
         ...clade
@@ -21,18 +23,6 @@ const GET_TREE = gql`
             ...clade
             children {
               ...clade
-              children {
-                ...clade
-                children {
-                  ...clade
-                  children {
-                    ...clade
-                    children {
-                      ...clade
-                    }
-                  }
-                }
-              }
             }
           }
         }

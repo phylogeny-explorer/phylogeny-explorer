@@ -29,21 +29,13 @@ const Clades = ({ nodeId = 'ott93302', onClickNode }: Props) => {
 
   // const handleLoadMore = (id: string) => refetch({ id });
 
-  const traverse = clade => ({
-    name: clade.name,
-    attributes: { id: clade.id },
-    children: clade.children ? clade.children.map(traverse) : null,
-  });
-
-  const tree = traverse(data?.tree || {});
-
   return (
     <Wrapper>
       {loading && <Heading>Loading...</Heading>}
       {error && <Heading>Error :(</Heading>}
       {data && (
         <Tree
-          data={tree}
+          data={data.tree}
           onClickNode={onClickNode}
           // loading={loading}
           // handleLoadMore={handleLoadMore}

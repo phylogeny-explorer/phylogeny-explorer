@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   height: ${props => props.theme.topbarHeight}px;
   padding: ${props => props.theme.spacer}px
     ${props => props.theme.xlargeSpacer}px;
-  background: rgba(43, 48, 52, 0.96);
+  background: ${props => props.theme.black};
   box-sizing: border-box;
 
   & > button:last-child {
