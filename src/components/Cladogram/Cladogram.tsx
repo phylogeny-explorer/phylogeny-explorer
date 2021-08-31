@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 
@@ -23,8 +23,19 @@ interface Props {
 }
 
 const Clades = ({ nodeId = 'ott93302', onClickNode }: Props) => {
-  const { loading, error, data } = useQuery(GET_TREE, {
+  const [data, setData] = useState<any>()
+  const { loading, error } = useQuery(GET_TREE, {
     variables: { id: nodeId },
+    onCompleted: res => {
+      const traverse = clade => ({
+        name: clade.name,
+        attributes: { id: clade.id },
+        children: clade.children ? clade.children.map(traverse) : null,
+      });
+
+      const tree = traverse(res?.tree || {});
+      setData(tree)
+    }
   });
 
   // const handleLoadMore = (id: string) => refetch({ id });
@@ -35,7 +46,7 @@ const Clades = ({ nodeId = 'ott93302', onClickNode }: Props) => {
       {error && <Heading>Error :(</Heading>}
       {data && (
         <Tree
-          data={data.tree}
+          data={data}
           onClickNode={onClickNode}
           // loading={loading}
           // handleLoadMore={handleLoadMore}
