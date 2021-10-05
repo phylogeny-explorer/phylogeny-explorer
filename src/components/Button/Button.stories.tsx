@@ -1,4 +1,6 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
+
 import { StoryRow } from './Button.styled';
 import Button, { ButtonProps } from './Button';
 
@@ -15,7 +17,7 @@ export default {
     onClick: { action: 'onClick' },
     type: { control: { type: 'inline-radio' } },
   },
-};
+} as Meta;
 
 export const Simple = args => <Button {...args} />;
 Simple.storyName = 'default';

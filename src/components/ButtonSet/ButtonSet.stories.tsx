@@ -1,11 +1,13 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
+
 import Button from 'components/Button';
 import ButtonSet from './ButtonSet';
 
 export default {
   title: 'ButtonSet',
   component: ButtonSet,
-};
+} as Meta;
 
 export const Simple = args => (
   <ButtonSet {...args}>

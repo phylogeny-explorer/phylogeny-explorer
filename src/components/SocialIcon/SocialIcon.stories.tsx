@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 
 import { SOCIAL } from 'consts';
 import { StoryRow } from './SocialIcon.styled';
@@ -22,7 +23,7 @@ export default {
     size: { control: { type: 'range', min: 24, max: 90, step: 1 } },
     color: { control: { type: 'color' } },
   },
-};
+} as Meta;
 
 export const Simple = args => <SocialIcon {...args} />;
 Simple.storyName = 'default';

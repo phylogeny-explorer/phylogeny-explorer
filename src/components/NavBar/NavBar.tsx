@@ -20,10 +20,10 @@ const NavBar = () => {
     try {
       await Auth.signOut({ global: true }).then(() => {
         removeItem();
-        router.push('/');
+        router.push('/login');
       });
     } catch (err) {
-      toast.error(err.message);
+      toast.error(err as string);
     }
   };
 

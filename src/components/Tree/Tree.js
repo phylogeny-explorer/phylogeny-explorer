@@ -11,9 +11,10 @@ const Tree = ({ data, loading, handleLoadMore }) => {
   const router = useRouter();
   const [newId, setNewId] = useState(data.id);
   const d3Container = useRef(null);
-  const margin = { top: 32, right: 156, bottom: 32, left: 156 };
 
   useEffect(() => {
+    const margin = { top: 32, right: 156, bottom: 32, left: 156 };
+
     if (data && data.id === newId && d3Container.current) {
       // remove current group
       d3.select(d3Container.current).selectAll('g').remove();
@@ -173,7 +174,7 @@ const Tree = ({ data, loading, handleLoadMore }) => {
 
       update(root);
     }
-  }, [data, margin, d3Container, router, newId]);
+  }, [data, d3Container, router, newId]);
 
   return (
     <Wrapper>

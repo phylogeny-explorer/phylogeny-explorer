@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import jwt from 'jsonwebtoken';
 
-import backgroundImage from 'images/background-login.jpg';
 import { LoginContext } from 'context/LoginContext';
 import Page from 'components/Page';
 import Button from 'components/Button';
@@ -22,6 +21,7 @@ import {
   ErrorMessage,
 } from 'components/Form';
 import PageHeader from 'components/PageHeader';
+import backgroundImage from '../../public/images/background-login.jpg';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);

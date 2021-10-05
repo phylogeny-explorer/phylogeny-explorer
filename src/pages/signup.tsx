@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
-import backgroundImage from 'images/background-signup.jpg';
 import Page from 'components/Page';
 import PageHeader from 'components/PageHeader';
 import Button from 'components/Button';
@@ -21,6 +20,7 @@ import {
   ButtonWrapper,
   ErrorMessage,
 } from 'components/Form';
+import backgroundImage from '../../public/images/background-signup.jpg';
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);

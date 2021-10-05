@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 import styled from 'styled-components';
 
 import Tree from './Tree';
@@ -26,7 +27,7 @@ export default {
       ],
     },
   },
-};
+} as Meta;
 
 export const Simple = args => (
   <StoryRow>

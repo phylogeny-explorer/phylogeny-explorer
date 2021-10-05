@@ -15,7 +15,9 @@ const NavItem = ({ name }) => {
   };
   return (
     <Wrapper
-      onClick={() => router.push({ pathname: `/${name}`, query: { nodeId } })}
+      onClick={() =>
+        router.push({ pathname: `/${name}`, query: nodeId ? { nodeId } : null })
+      }
     >
       <Icon name={name} />
       <Title>{titles[name]}</Title>

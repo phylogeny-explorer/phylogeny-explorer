@@ -1,5 +1,6 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import reset from 'styled-reset';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
@@ -8,7 +9,7 @@ import theme from 'theme';
 import LoginProvider from 'context/LoginContext';
 import Toast from 'components/Toast';
 
-const env = process.env.REACT_APP_API_BASE || 'dev';
+const env = process.env.NEXT_PUBLIC_API_BASE || 'dev';
 
 export const APOLLO_LINK = {
   local: 'http://localhost:4000/',
@@ -44,10 +45,15 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <LoginProvider>
       <ApolloProvider client={client}>
+        <GlobalStyle />
         <ThemeProvider theme={theme}>
-          <GlobalStyle />
           <Toast />
-
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
+          </Head>
           <Component {...pageProps} />
         </ThemeProvider>
       </ApolloProvider>

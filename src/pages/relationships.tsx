@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
+import styled from 'styled-components';
 
 import Page from 'components/Page';
 import NavBar from 'components/NavBar';
 import Search from 'components/Search';
 import Button from 'components/Button';
 import { HeadingLarge } from 'components/Typography';
-import styled from 'styled-components';
+import MRCA from 'lib/graphql/mrca';
 
-// import { Wrapper } from "./Relationships.styled";
-import MRCA from '../../lib/graphql/mrca';
+const Wrapper = styled.div`
+  display: grid;
+  grid-gap: ${props => props.theme.xlargeSpacer}px;
+  padding: ${props => props.theme.xlargeSpacer}px;
+  max-width: 400px;
+`;
 
 const Relationships = () => {
   const { nodeId } = useRouter().query;
@@ -23,13 +28,6 @@ const Relationships = () => {
     skip,
     variables: { clade1, clade2 },
   });
-
-  const Wrapper = styled.div`
-    display: grid;
-    grid-gap: ${props => props.theme.xlargeSpacer}px;
-    padding: ${props => props.theme.xlargeSpacer}px;
-    max-width: 400px;
-  `;
 
   return (
     <Page>
