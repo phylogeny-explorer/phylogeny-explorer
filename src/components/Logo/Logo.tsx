@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import PEPLogo from './PEPLogo';
 import PEPLogoFull from './PEPLogoFull';
 import { Wrapper } from './Logo.styled';
@@ -10,9 +10,9 @@ export interface LogoProps {
 }
 
 const Logo = ({ size = 40, full = false }: LogoProps) => {
-  const history = useHistory();
+  const router = useRouter();
   return (
-    <Wrapper size={size} full={full} onClick={() => history.push('/ott93302')}>
+    <Wrapper size={size} full={full} onClick={() => router.push('/')}>
       {full ? <PEPLogoFull /> : <PEPLogo />}
     </Wrapper>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
@@ -24,7 +25,7 @@ import {
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const history = useHistory();
+  const router = useRouter();
 
   const onSubmit = ({ email, password }) => {
     setLoading(true);
@@ -38,11 +39,10 @@ const Signup = () => {
     })
       .then(() => {
         toast.success('Check your email for confirmation link.');
-        history.push(
-          `/login?email=${encodeURIComponent(
-            email
-          )}&password=${encodeURIComponent(password)}`
-        );
+        router.push({
+          pathname: '/login',
+          query: { email, password },
+        });
       })
       .catch(err => {
         setError(err.message);
@@ -70,14 +70,14 @@ const Signup = () => {
   });
 
   return (
-    <Page backgroundImage={backgroundImage}>
+    <Page backgroundImage={backgroundImage.src}>
       <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Sign up</Heading>
           <Text>
             {'or '}
-            <Link to="/login">log in in to your account</Link>
+            <Link href="/login">log in in to your account</Link>
           </Text>
         </Header>
 

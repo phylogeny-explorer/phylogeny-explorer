@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 import React, { useState, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import * as d3 from 'd3';
 
 import Button from 'components/Button';
@@ -8,7 +8,7 @@ import { Wrapper, ResetButton } from './Tree.styled';
 
 const Tree = ({ data, loading, handleLoadMore }) => {
   console.log({ loading, handleLoadMore });
-  const history = useHistory();
+  const router = useRouter();
   const [newId, setNewId] = useState(data.id);
   const d3Container = useRef(null);
   const margin = { top: 32, right: 156, bottom: 32, left: 156 };
@@ -110,7 +110,12 @@ const Tree = ({ data, loading, handleLoadMore }) => {
           .attr('x', d => (d.data.hasChildren ? -10 : 8))
           .on('click', d => {
             setNewId(d.depth === 0 ? d.data.parentId : d.data.id);
-            history.push(`/tree/${d.depth === 0 ? d.data.parentId : d.data.id}`);
+            router.push({
+              pathname: '/tree',
+              query: {
+                nodeId: d.depth === 0 ? d.data.parentId : d.data.id,
+              },
+            });
           })
           .text(d => d.data.name)
           .clone(true)
@@ -168,7 +173,7 @@ const Tree = ({ data, loading, handleLoadMore }) => {
 
       update(root);
     }
-  }, [data, margin, d3Container, history, newId]);
+  }, [data, margin, d3Container, router, newId]);
 
   return (
     <Wrapper>

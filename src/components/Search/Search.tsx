@@ -1,6 +1,6 @@
 import React, { useState, InputHTMLAttributes } from 'react';
 import { useQuery } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import { HeadingSmall, BodyText } from 'components/Typography';
 
@@ -14,7 +14,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Search = ({ initialValue = '', handleSelect, isContained }: Props) => {
-  const history = useHistory();
+  const router = useRouter();
   const [showResults, setShowResults] = useState(false);
   const [value, setValue] = useState(initialValue);
   const { loading, data } = useQuery(SEARCH, {
@@ -51,7 +51,10 @@ const Search = ({ initialValue = '', handleSelect, isContained }: Props) => {
                   handleSelect(result.id);
                 } else {
                   setValue('');
-                  history.push(`/tree/${result.id}`);
+                  router.push({
+                    pathname: '/tree',
+                    query: { nodeId: result.id },
+                  });
                 }
               }}
             >

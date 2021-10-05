@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
@@ -12,8 +12,7 @@ import Button from 'components/Button';
 import { Wrapper } from './NavBar.styled';
 
 const NavBar = () => {
-  const { pathname } = useLocation();
-  const history = useHistory();
+  const { pathname, ...router } = useRouter();
   const { removeItem } = useContext(LoginContext);
 
   const handleLogout = async e => {
@@ -21,7 +20,7 @@ const NavBar = () => {
     try {
       await Auth.signOut({ global: true }).then(() => {
         removeItem();
-        history.push('/');
+        router.push('/');
       });
     } catch (err) {
       toast.error(err.message);

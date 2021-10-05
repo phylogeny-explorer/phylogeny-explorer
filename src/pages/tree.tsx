@@ -1,17 +1,18 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import Page from 'components/Page';
 import NavBar from 'components/NavBar';
 import Cladogram from 'components/Cladogram';
 
 const Home = () => {
-  const { nodeId } = useParams<{ nodeId: string }>();
+  const router = useRouter();
+  const { nodeId } = router.query;
 
   return (
     <Page>
       <NavBar />
-      <Cladogram key={nodeId} nodeId={nodeId} />
+      <Cladogram key={nodeId as string} nodeId={nodeId as string} />
     </Page>
   );
 };

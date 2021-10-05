@@ -1,7 +1,14 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
+import React from 'react';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx:DocumentContext) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -11,7 +18,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
           <meta name="theme-color" content="#06C9AF" />
           <meta
             name="description"
@@ -43,7 +50,6 @@ class MyDocument extends Document {
           <meta name="application-name" content="Phylogeny Explorer" />
           <meta name="msapplication-TileColor" content="#06c9af" />
           <meta name="theme-color" content="#2b3034" />
-          <title>Phylogeny Explorer</title>
         </Head>
         <body>
           <Main />

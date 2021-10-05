@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import Logo from 'components/Logo';
 import Button from 'components/Button';
@@ -7,9 +7,8 @@ import Button from 'components/Button';
 import { Wrapper } from './PageHeader.styled';
 
 const PageHeader = () => {
-  const { pathname } = useLocation();
+  const { pathname, ...router } = useRouter();
   const isLoginPage = pathname === '/login';
-  const history = useHistory();
   return (
     <Wrapper>
       <Logo full />
@@ -17,7 +16,7 @@ const PageHeader = () => {
         dark
         squishy
         text={isLoginPage ? 'sign up' : 'log in'}
-        onClick={() => history.push(isLoginPage ? '/signup' : '/login')}
+        onClick={() => router.push(isLoginPage ? '/signup' : '/login')}
       />
     </Wrapper>
   );

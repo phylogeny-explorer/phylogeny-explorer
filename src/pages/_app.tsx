@@ -1,22 +1,11 @@
-import React, { useContext } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import React from 'react';
+import type { AppProps } from 'next/app';
 import reset from 'styled-reset';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import theme from 'theme';
-import LoginProvider, { LoginContext } from 'context/LoginContext';
-import Home from 'pages/Home';
-import Relationships from 'pages/Relationships';
-import DevSandbox from 'pages/DevSandbox';
-import ErrorPage from 'pages/Error';
-import Login from 'pages/Login';
-import Signup from 'pages/Signup';
+import LoginProvider from 'context/LoginContext';
 import Toast from 'components/Toast';
 
 const env = process.env.REACT_APP_API_BASE || 'dev';
@@ -51,35 +40,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Routes = () => {
-  const { isLoggedIn } = useContext(LoginContext);
-  return isLoggedIn ? (
-    <Switch>
-      <Route exact path="/dev" component={DevSandbox} />
-      <Route exact path="/relationships/:nodeId?" component={Relationships} />
-      <Route exact path="/tree/:nodeId?" component={Home} />
-      <Redirect from="/" to="/tree" />
-      <Route path="*" component={ErrorPage} />
-    </Switch>
-  ) : (
-    <Switch>
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
-      <Redirect from="/" to="/login" />
-    </Switch>
-  );
-};
-
-const App = () => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <LoginProvider>
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Toast />
-          <Router>
-            <Routes />
-          </Router>
+
+          <Component {...pageProps} />
         </ThemeProvider>
       </ApolloProvider>
     </LoginProvider>

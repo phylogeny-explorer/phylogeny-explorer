@@ -1,42 +1,42 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, createContext, useMemo } from 'react';
 
 import Amplify from 'aws-amplify';
 
 import { AUTH_USER_TOKEN_KEY } from 'consts';
-import awsconfig from '../aws-exports';
+import awsConfig from '../aws-exports';
 
 type LoginContextType = {
-  isLoggedIn: string;
+  isLoggedIn: boolean;
   setItem: (string) => void;
   removeItem: () => void;
 };
 
 export const LoginContext = createContext<LoginContextType>({
-  isLoggedIn: '',
+  isLoggedIn: false,
   setItem: () => {},
   removeItem: () => {},
 });
 
 const LoginProvider = ({ children }) => {
-  useEffect(() => {
-    Amplify.configure(awsconfig);
-  }, []);
+  const [item, setItem] = useState('initial');
 
-  const [item, setItem] = useState(
-    localStorage.getItem(AUTH_USER_TOKEN_KEY) || ''
-  );
+  useEffect(() => {
+    setItem(localStorage.getItem(AUTH_USER_TOKEN_KEY) || '');
+    Amplify.configure(awsConfig);
+  }, []);
 
   useEffect(() => {
     if (item === '') localStorage.removeItem(AUTH_USER_TOKEN_KEY);
     else localStorage.setItem(AUTH_USER_TOKEN_KEY, item);
   }, [item]);
 
+  const value = useMemo(
+    () => ({ isLoggedIn: !!item, setItem, removeItem: () => setItem('') }),
+    [item]
+  );
+
   return (
-    <LoginContext.Provider
-      value={{ isLoggedIn: item, setItem, removeItem: () => setItem('') }}
-    >
-      {children}
-    </LoginContext.Provider>
+    <LoginContext.Provider value={value}>{children}</LoginContext.Provider>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
@@ -25,8 +26,7 @@ import PageHeader from 'components/PageHeader';
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const history = useHistory();
-  const query = new URLSearchParams(useLocation().search);
+  const { query, ...router } = useRouter();
 
   const { setItem } = useContext(LoginContext);
 
@@ -41,7 +41,7 @@ const Login = () => {
 
         if (decoded['cognito:groups']?.includes('viewers')) {
           setItem(token);
-          history.push('/');
+          router.push('/');
         } else {
           throw new Error(
             'User is not approved to view. Contact dev team for beta access.'
@@ -60,14 +60,14 @@ const Login = () => {
   });
 
   return (
-    <Page backgroundImage={backgroundImage}>
+    <Page backgroundImage={backgroundImage.src}>
       <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Log in</Heading>
           <Text>
             {'or '}
-            <Link to="/signup">sign up for an account</Link>
+            <Link href="/signup">sign up for an account</Link>
           </Text>
         </Header>
 
@@ -78,8 +78,8 @@ const Login = () => {
 
         <Formik
           initialValues={{
-            email: query.get('email') || '',
-            password: query.get('password') || '',
+            email: query.email || '',
+            password: query.password || '',
           }}
           onSubmit={onSubmit}
           validationSchema={validationSchema}
@@ -105,7 +105,7 @@ const Login = () => {
           </Form>
         </Formik>
         <Text>
-          <Link to="/forgot-password">Forgot your password?</Link>
+          <Link href="/forgot-password">Forgot your password?</Link>
         </Text>
       </Wrapper>
     </Page>
