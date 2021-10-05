@@ -47,5 +47,6 @@ export const Authority = styled(SmallText)`
 export const Buttons = styled.div`
   display: grid;
   grid-auto-flow: column;
-  grid-gap: ${props => props.theme.largeSpacer}px;
+  padding: 0 ${props => props.theme.largeSpacer}px;
+  grid-gap: ${props => props.theme.xlargeSpacer}px;
 `;

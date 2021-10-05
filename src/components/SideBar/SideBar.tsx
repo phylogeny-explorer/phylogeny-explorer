@@ -1,7 +1,9 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
 import Icon from 'components/Icon';
 import { SubtitleSmall, Heading } from 'components/Typography';
 import Fab from 'components/Fab';
+import GET_CLADE from './graphql/get-clade';
 import {
   Wrapper,
   Header,
@@ -19,6 +21,15 @@ interface Props {
 }
 
 const SideBar = ({ cladeId, close }: Props) => {
+  console.log({ cladeId });
+
+  const { data } = useQuery(GET_CLADE, {
+    variables: { id: cladeId.substr(3) },
+  });
+
+  console.log(data);
+  const clade = data?.clade;
+
   return (
     <Wrapper>
       <Header>
@@ -26,13 +37,10 @@ const SideBar = ({ cladeId, close }: Props) => {
         <SubtitleSmall>Clade Info</SubtitleSmall>
         <Icon name="left" onClick={close} />
       </Header>
-      <Image
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Bird_Diversity_2013.png/800px-Bird_Diversity_2013.png"
-        alt="clade"
-      />
+      {clade?.imageUrl && <Image src={clade.imageUrl} alt="clade" />}
       <Content>
         <Section>
-          <Heading>Clade name</Heading>
+          <Heading>{clade?.name || ''}</Heading>
           <Authority>Name, Year</Authority>
         </Section>
         <Buttons>

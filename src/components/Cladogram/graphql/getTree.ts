@@ -1,14 +1,10 @@
 import { gql } from '@apollo/client';
 
 const GET_TREE = gql`
-  fragment clade on Clade {
+  fragment clade on Node {
     name
     attributes {
       id
-      extant
-      hasChildren
-      parentId
-      leaves
     }
   }
 

@@ -1,4 +1,4 @@
-/* eslint-disable react/button-has-type */
+// /* eslint-disable react/button-has-type */
 import React from 'react';
 import ReactTree from 'react-d3-tree';
 import { linkHorizontal } from 'd3';
