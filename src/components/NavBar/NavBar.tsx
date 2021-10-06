@@ -13,13 +13,13 @@ import { Wrapper } from './NavBar.styled';
 
 const NavBar = () => {
   const { pathname, ...router } = useRouter();
-  const { removeItem } = useContext(LoginContext);
+  const { removeSession } = useContext(LoginContext);
 
   const handleLogout = async e => {
     e.preventDefault();
     try {
       await Auth.signOut({ global: true }).then(() => {
-        removeItem();
+        removeSession();
         router.push('/login');
       });
     } catch (err) {

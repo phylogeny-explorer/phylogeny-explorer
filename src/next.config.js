@@ -4,7 +4,6 @@ module.exports = {
       {
         source: '/',
         destination: '/tree',
-        permanent: true,
       },
     ];
   },

@@ -28,7 +28,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const { query, ...router } = useRouter();
 
-  const { setItem } = useContext(LoginContext);
+  const { setSession } = useContext(LoginContext);
 
   const onSubmit = ({ email, password }) => {
     setError('');
@@ -40,7 +40,7 @@ const Login = () => {
         const decoded = jwt.decode(token);
 
         if (decoded['cognito:groups']?.includes('viewers')) {
-          setItem(token);
+          setSession(token);
           router.push('/');
         } else {
           throw new Error(

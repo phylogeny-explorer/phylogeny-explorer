@@ -7,32 +7,36 @@ import awsConfig from '../aws-exports';
 
 type LoginContextType = {
   isLoggedIn: boolean;
-  setItem: (string) => void;
-  removeItem: () => void;
+  setSession: (string) => void;
+  removeSession: () => void;
 };
 
 export const LoginContext = createContext<LoginContextType>({
   isLoggedIn: false,
-  setItem: () => {},
-  removeItem: () => {},
+  setSession: () => {},
+  removeSession: () => {},
 });
 
 const LoginProvider = ({ children }) => {
-  const [item, setItem] = useState('initial');
+  const [session, setSession] = useState('initial');
 
   useEffect(() => {
-    setItem(localStorage.getItem(AUTH_USER_TOKEN_KEY) || '');
+    setSession(localStorage.getItem(AUTH_USER_TOKEN_KEY) || '');
     Amplify.configure(awsConfig);
   }, []);
 
   useEffect(() => {
-    if (item === '') localStorage.removeItem(AUTH_USER_TOKEN_KEY);
-    else localStorage.setItem(AUTH_USER_TOKEN_KEY, item);
-  }, [item]);
+    if (session === '') localStorage.removeItem(AUTH_USER_TOKEN_KEY);
+    else localStorage.setItem(AUTH_USER_TOKEN_KEY, session);
+  }, [session]);
 
   const value = useMemo(
-    () => ({ isLoggedIn: !!item, setItem, removeItem: () => setItem('') }),
-    [item]
+    () => ({
+      isLoggedIn: !!session && session !== 'initial',
+      setSession,
+      removeSession: () => setSession(''),
+    }),
+    [session]
   );
 
   return (
