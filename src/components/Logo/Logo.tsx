@@ -12,7 +12,7 @@ export interface LogoProps {
 const Logo = ({ size = 40, full = false }: LogoProps) => {
   const router = useRouter();
   return (
-    <Wrapper size={size} full={full} onClick={() => router.push('/tree')}>
+    <Wrapper size={size} full={full} onClick={() => router.push('/')}>
       {full ? <PEPLogoFull /> : <PEPLogo />}
     </Wrapper>
   );

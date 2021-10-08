@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
+import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
 import PageHeader from 'components/PageHeader';
 import Button from 'components/Button';
@@ -23,6 +24,11 @@ import {
 import backgroundImage from '../../public/images/background-signup.jpg';
 
 const Signup = () => {
+  const { isLoggedIn, isLoadingUser } = useUser({
+    redirectTo: '/',
+    redirectIfFound: true,
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
@@ -68,6 +74,8 @@ const Signup = () => {
         ),
       }),
   });
+
+  if (isLoadingUser || isLoggedIn) return null;
 
   return (
     <Page backgroundImage={backgroundImage.src}>

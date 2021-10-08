@@ -8,16 +8,29 @@ import { Wrapper } from './PageHeader.styled';
 
 const PageHeader = () => {
   const { pathname, ...router } = useRouter();
-  const isLoginPage = pathname === '/login';
   return (
     <Wrapper>
       <Logo full />
-      <Button
-        dark
-        squishy
-        text={isLoginPage ? 'sign up' : 'log in'}
-        onClick={() => router.push(isLoginPage ? '/signup' : '/login')}
-      />
+      {pathname !== '/signup' && (
+        <Button
+          dark
+          squishy
+          text="sign up"
+          icon="account"
+          iconFirst
+          onClick={() => router.push('/signup')}
+        />
+      )}
+      {pathname !== '/login' && (
+        <Button
+          dark={pathname === '/signup'}
+          squishy
+          text="log in"
+          icon="login"
+          iconFirst
+          onClick={() => router.push('/login')}
+        />
+      )}
     </Wrapper>
   );
 };

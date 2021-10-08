@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { Formik } from 'formik';
@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import jwt from 'jsonwebtoken';
 
-import { LoginContext } from 'context/LoginContext';
+import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
 import Button from 'components/Button';
 // import SocialButton from 'components/SocialButton';
@@ -24,11 +24,14 @@ import PageHeader from 'components/PageHeader';
 import backgroundImage from '../../public/images/background-login.jpg';
 
 const Login = () => {
+  const { query } = useRouter();
+  const { isLoggedIn, isLoadingUser, setSession } = useUser({
+    redirectTo: '/',
+    redirectIfFound: true,
+  });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { query, ...router } = useRouter();
-
-  const { setSession } = useContext(LoginContext);
 
   const onSubmit = ({ email, password }) => {
     setError('');
@@ -41,7 +44,6 @@ const Login = () => {
 
         if (decoded['cognito:groups']?.includes('viewers')) {
           setSession(token);
-          router.push('/');
         } else {
           throw new Error(
             'User is not approved to view. Contact dev team for beta access.'
@@ -58,6 +60,8 @@ const Login = () => {
     email: Yup.string().email('Invalid email address').required('Required'),
     password: Yup.string().required('Please enter your password'),
   });
+
+  if (isLoadingUser || isLoggedIn) return null;
 
   return (
     <Page backgroundImage={backgroundImage.src}>

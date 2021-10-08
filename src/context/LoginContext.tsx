@@ -7,12 +7,14 @@ import awsConfig from '../aws-exports';
 
 type LoginContextType = {
   isLoggedIn: boolean;
+  isLoadingUser: boolean;
   setSession: (string) => void;
   removeSession: () => void;
 };
 
 export const LoginContext = createContext<LoginContextType>({
   isLoggedIn: false,
+  isLoadingUser: false,
   setSession: () => {},
   removeSession: () => {},
 });
@@ -21,7 +23,7 @@ const LoginProvider = ({ children }) => {
   const [session, setSession] = useState('initial');
 
   useEffect(() => {
-    setSession(localStorage.getItem(AUTH_USER_TOKEN_KEY) || '');
+    setSession(localStorage.getItem(AUTH_USER_TOKEN_KEY) || 'initial');
     Amplify.configure(awsConfig);
   }, []);
 
@@ -33,6 +35,7 @@ const LoginProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       isLoggedIn: !!session && session !== 'initial',
+      isLoadingUser: session === 'initial',
       setSession,
       removeSession: () => setSession(''),
     }),

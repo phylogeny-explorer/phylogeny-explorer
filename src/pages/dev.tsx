@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
+import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
 import {
   BodyText,
@@ -39,10 +41,14 @@ const Row = styled.div`
 `;
 
 const DevSandbox = () => {
+  const { isLoggedIn, isLoadingUser } = useUser({ redirectTo: '/' });
   const [background, setBackground] = useState('dark');
 
   const handleClick = () =>
     setBackground(background === 'light' ? 'dark' : 'light');
+
+  if (isLoadingUser || !isLoggedIn) return null;
+
   return (
     <Page>
       <Content background={background}>

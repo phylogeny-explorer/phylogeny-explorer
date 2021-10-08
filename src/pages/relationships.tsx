@@ -3,12 +3,13 @@ import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import styled from 'styled-components';
 
+import MRCA from 'lib/graphql/mrca';
+import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
 import NavBar from 'components/NavBar';
 import Search from 'components/Search';
 import Button from 'components/Button';
 import { HeadingLarge } from 'components/Typography';
-import MRCA from 'lib/graphql/mrca';
 
 const Wrapper = styled.div`
   display: grid;
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Relationships = () => {
+  const { isLoggedIn, isLoadingUser } = useUser({ redirectTo: '/' });
   const { nodeId } = useRouter().query;
 
   const [clade1, setClade1] = useState(nodeId);
@@ -28,6 +30,8 @@ const Relationships = () => {
     skip,
     variables: { clade1, clade2 },
   });
+
+  if (isLoadingUser || !isLoggedIn) return null;
 
   return (
     <Page>

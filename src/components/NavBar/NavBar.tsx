@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
-import { LoginContext } from 'context/LoginContext';
+import useUser from 'lib/hooks/useUser';
 import Logo from 'components/Logo';
 import NavItem from 'components/NavItem';
 import Search from 'components/Search';
@@ -13,14 +13,14 @@ import { Wrapper } from './NavBar.styled';
 
 const NavBar = () => {
   const { pathname, ...router } = useRouter();
-  const { removeSession } = useContext(LoginContext);
+  const { removeSession } = useUser();
 
   const handleLogout = async e => {
     e.preventDefault();
     try {
       await Auth.signOut({ global: true }).then(() => {
         removeSession();
-        router.push('/login');
+        router.push('/');
       });
     } catch (err) {
       toast.error(err as string);

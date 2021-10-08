@@ -1,18 +1,17 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 
+import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
 import NavBar from 'components/NavBar';
-import Cladogram from 'components/Cladogram';
+import PageHeader from 'components/PageHeader';
+import { HeadingXLarge } from 'components/Typography';
 
 const Home = () => {
-  const router = useRouter();
-  const nodeId = router.query.nodeId as string;
-
+  const { isLoggedIn } = useUser();
   return (
     <Page>
-      <NavBar />
-      <Cladogram key={nodeId} nodeId={nodeId} />
+      {isLoggedIn ? <NavBar /> : <PageHeader />}
+      <HeadingXLarge>Home</HeadingXLarge>
     </Page>
   );
 };
