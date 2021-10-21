@@ -5,7 +5,7 @@ const theme = {
   spacer: 8,
   smallSpacer: 4,
   largeSpacer: 16,
-  xlargeSpacer: 32,
+  xLargeSpacer: 32,
 
   // Radius
   borderRadius: 3,
@@ -42,7 +42,7 @@ const theme = {
 
   // Sizes
   iconSize: 24,
-  topbarHeight: 60,
+  topBarHeight: 60,
   buttonHeight: 36,
   buttonHeightSmall: 24,
   buttonMinWidth: 160,

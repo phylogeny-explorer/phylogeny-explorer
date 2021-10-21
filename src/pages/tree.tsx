@@ -10,7 +10,7 @@ const Tree = () => {
   const { isLoggedIn, isLoadingUser } = useUser({ redirectTo: '/' });
 
   const router = useRouter();
-  const nodeId = router.query.nodeId as string;
+  const nodeId = (router.query.nodeId as string) || 'ott93302';
 
   if (isLoadingUser || !isLoggedIn) return null;
 

@@ -9,7 +9,7 @@ import NavItem from 'components/NavItem';
 import Search from 'components/Search';
 import Button from 'components/Button';
 
-import { Wrapper } from './NavBar.styled';
+import { Wrapper, NavItems } from './NavBar.styled';
 
 const NavBar = () => {
   const { pathname, ...router } = useRouter();
@@ -31,8 +31,12 @@ const NavBar = () => {
     <Wrapper>
       <Logo />
       <Search />
-      {!pathname.includes('tree') && <NavItem name="tree" />}
-      {!pathname.includes('relationships') && <NavItem name="relationships" />}
+      <NavItems>
+        {!pathname.includes('tree') && <NavItem name="tree" />}
+        {!pathname.includes('relationships') && (
+          <NavItem name="relationships" />
+        )}
+      </NavItems>
       <Button dark squishy text="sign out" onClick={handleLogout} />
     </Wrapper>
   );

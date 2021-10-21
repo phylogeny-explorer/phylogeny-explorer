@@ -5,9 +5,9 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr auto auto;
   grid-gap: ${props => props.theme.spacer}px;
   align-items: center;
-  height: ${props => props.theme.topbarHeight}px;
+  height: ${props => props.theme.topBarHeight}px;
   padding: ${props => props.theme.spacer}px
-    ${props => props.theme.xlargeSpacer}px;
+    ${props => props.theme.xLargeSpacer}px;
   background: rgba(43, 48, 52, 0.92);
   box-sizing: border-box;
 `;

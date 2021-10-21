@@ -20,26 +20,29 @@ export const LoginContext = createContext<LoginContextType>({
 });
 
 const LoginProvider = ({ children }) => {
-  const [session, setSession] = useState('initial');
+  const [session, setSession] = useState('');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setSession(localStorage.getItem(AUTH_USER_TOKEN_KEY) || 'initial');
+    const item = localStorage.getItem(AUTH_USER_TOKEN_KEY);
+    if (item) setSession(item);
+    setLoading(false);
     Amplify.configure(awsConfig);
   }, []);
 
   useEffect(() => {
     if (session === '') localStorage.removeItem(AUTH_USER_TOKEN_KEY);
-    else localStorage.setItem(AUTH_USER_TOKEN_KEY, session);
+    localStorage.setItem(AUTH_USER_TOKEN_KEY, session);
   }, [session]);
 
   const value = useMemo(
     () => ({
-      isLoggedIn: !!session && session !== 'initial',
-      isLoadingUser: session === 'initial',
+      isLoggedIn: !!session && !loading,
+      isLoadingUser: loading,
       setSession,
       removeSession: () => setSession(''),
     }),
-    [session]
+    [session, loading]
   );
 
   return (

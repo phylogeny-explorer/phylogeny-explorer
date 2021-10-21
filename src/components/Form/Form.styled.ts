@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.largeSpacer}px;
   align-content: start;
-  padding: ${props => props.theme.xlargeSpacer}px;
+  padding: ${props => props.theme.xLargeSpacer}px;
   background: rgba(43, 48, 52, 0.96);
   color: ${props => props.theme.white};
   border-radius: 3px;

@@ -13,8 +13,8 @@ import { HeadingLarge } from 'components/Typography';
 
 const Wrapper = styled.div`
   display: grid;
-  grid-gap: ${props => props.theme.xlargeSpacer}px;
-  padding: ${props => props.theme.xlargeSpacer}px;
+  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  padding: ${props => props.theme.xLargeSpacer}px;
   max-width: 400px;
 `;
 

@@ -14,7 +14,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   h4 {
-    margin: ${props => props.theme.xlargeSpacer}px;
+    margin: ${props => props.theme.xLargeSpacer}px;
   }
 `;
 
