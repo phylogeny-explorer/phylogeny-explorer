@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeadingXLarge = styled.h3`
   font-size: 48px;
   line-height: 56px;
+  
 `;
 
 export const HeadingLarge = styled.h4`
