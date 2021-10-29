@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "tsc"
   ],
   "dependencies": {
     "@apollo/client": "^3.2.7",
