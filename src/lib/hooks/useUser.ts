@@ -21,7 +21,7 @@ const useUser = ({ redirectTo = '', redirectIfFound = false } = {}) => {
     ) {
       router.push(redirectTo);
     }
-  }, [isLoggedIn, isLoadingUser, redirectIfFound, redirectTo, router]);
+  }, [isLoggedIn, isLoadingUser, redirectIfFound, redirectTo]);
 
   return { isLoggedIn, isLoadingUser, setSession, removeSession };
 };
