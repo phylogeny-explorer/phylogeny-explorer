@@ -73,11 +73,12 @@
       "eslint --cache --fix",
       "prettier --write",
       "tsc"
-    ]
+    ],
+    "src/**/*.{ts,tsx}": "tsc"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc"
+      "pre-commit": "lint-staged"
     }
   }
 }
