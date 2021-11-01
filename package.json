@@ -40,7 +40,6 @@
     "react-spring": "^8.0.27",
     "react-toastify": "^7.0.3",
     "styled-components": "^5.3.1",
-    "styled-normalize": "^8.0.7",
     "styled-reset": "^4.3.1",
     "yup": "^0.32.9"
   },

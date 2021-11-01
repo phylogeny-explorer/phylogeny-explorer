@@ -11,12 +11,9 @@ const Home = () => {
   const { isLoggedIn } = useUser();
   return (
     <Page>
-
       {isLoggedIn ? <NavBar /> : <PageHeader />}
       <Hero />
-
     </Page>
-    
   );
 };
 
