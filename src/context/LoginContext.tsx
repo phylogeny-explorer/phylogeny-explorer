@@ -20,7 +20,7 @@ export const LoginContext = createContext<LoginContextType>({
 });
 
 const LoginProvider = ({ children }) => {
-  const [session, setSession] = useState('');
+  const [session, setSession] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -31,8 +31,8 @@ const LoginProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (session === '') localStorage.removeItem(AUTH_USER_TOKEN_KEY);
-    localStorage.setItem(AUTH_USER_TOKEN_KEY, session);
+    if (!session) localStorage.removeItem(AUTH_USER_TOKEN_KEY);
+    else localStorage.setItem(AUTH_USER_TOKEN_KEY, session);
   }, [session]);
 
   const value = useMemo(
@@ -40,7 +40,7 @@ const LoginProvider = ({ children }) => {
       isLoggedIn: !!session && !loading,
       isLoadingUser: loading,
       setSession,
-      removeSession: () => setSession(''),
+      removeSession: () => setSession(null),
     }),
     [session, loading]
   );
