@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   BlogCard,
@@ -7,19 +7,16 @@ import {
   GridContainer,
   HeaderThree,
   Hr,
-  Tag,
-  TagList,
   TitleContent,
   UtilityList,
   Img,
-} from "./MainSelectionStyles";
+} from './MainSelectionStyles';
 import {
   Section,
   SectionDivider,
   SectionTitle,
-  Button,
-} from "../../../styles/GlobalComponents";
-import { mainselection } from "../../../constants/mainselectionconstants";
+} from '../../../styles/GlobalComponents';
+import { mainselection } from '../../../constants/mainselectionconstants';
 
 const MainSelection = () => (
   <Section nopadding id="mainselection">
@@ -29,7 +26,7 @@ const MainSelection = () => (
     </SectionTitle>
     <GridContainer>
       {mainselection.map(
-        ({ id, image, title, description, tags, source, visit, frontend, backend, pm, framework, support }) => (
+        ({ id, image, title, description, source, visit, support }) => (
           <BlogCard key={id}>
             <Img src={image} />
             <TitleContent>
@@ -55,7 +52,6 @@ const MainSelection = () => (
               <ExternalLinks href={framework}>Framework</ExternalLinks>
               <ExternalLinks href={pm}>Project Management</ExternalLinks> */}
             </UtilityList>
-            
           </BlogCard>
         )
       )}
@@ -64,7 +60,6 @@ const MainSelection = () => (
 );
 
 export default MainSelection;
-
 
 // const MainSelection = () => (
 //   <Section nopadding id="mainselection">
@@ -90,7 +85,7 @@ export default MainSelection;
 //               </TagList>
 //               <TitleContent>Quick Links</TitleContent>
 //             </div>
-            
+
 //             <UtilityList>
 //               <ExternalLinks href={visit}>Quick Start</ExternalLinks>
 //               <ExternalLinks href={source}>Documentation</ExternalLinks>
@@ -100,7 +95,7 @@ export default MainSelection;
 //               <ExternalLinks href={framework}>Framework</ExternalLinks>
 //               <ExternalLinks href={pm}>Project Management</ExternalLinks> */}
 //             </UtilityList>
-            
+
 //           </BlogCard>
 //         )
 //       )}
