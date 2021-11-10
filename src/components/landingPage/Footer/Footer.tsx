@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { SOCIAL } from 'consts';
-import SocialIcon from 'components/SocialIcon';
+import SocialIcon, { SocialIconProps } from 'components/SocialIcon';
 import { Wrapper, Copyright, Icons } from './Footer.styled';
 
 const Footer = () => {
-  const icons = [
+  const icons: SocialIconProps[] = [
     {
       platform: SOCIAL.FACEBOOK,
       onClick: () =>
