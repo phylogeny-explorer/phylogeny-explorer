@@ -32,6 +32,10 @@ jobs:
           name: Run Lint
           command: npm run lint
 
+      - run:
+          name: Check Types
+          command: npm run tsc
+
 workflows:
   # Below is the definition of your workflow.
   # Inside the workflow, you provide the jobs you want to run, e.g this workflow runs the build-and-test job above.
