@@ -12,7 +12,6 @@ const NavItem = ({ name }) => {
     tree: 'Cladogram',
     relationships: 'Relationships',
     wiki: 'Wiki',
-    home: 'Home'
   };
   return (
     <Wrapper
