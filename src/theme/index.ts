@@ -6,6 +6,7 @@ const theme = {
   smallSpacer: 4,
   largeSpacer: 16,
   xLargeSpacer: 32,
+  xxLargeSpacer: 64,
 
   // Radius
   borderRadius: 3,
@@ -48,26 +49,6 @@ const theme = {
   buttonMinWidth: 160,
   buttonMinWidthSmall: 90,
   sidebarWidth: 416,
-
-  fonts: {
-    title: "Space Grotesk, sans-serif",
-    main: "Space Grotesk, sans-serif"
-  },
-  // Colors for layout
-  colors: {
-    primary1: "hsl(204,23.8%,95.9%)",
-    background1: "#00130a",
-    accent1: "hsl(34.9,98.6%,72.9%)",
-    button: "hsl(342.2,100%,7.3%)",
-    background2: "hsl(311.4,100%,7.3%)",
-  },
-  // Breakpoints for responsive design
-  breakpoints: {
-    sm: 'screen and (max-width: 640px)',
-    md: 'screen and (max-width: 768px)',
-    lg: 'screen and (max-width: 1024px)',
-    xl: 'screen and (max-width: 1280px)'
-  },
 };
 
 export default theme;

@@ -21,6 +21,6 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/styles/GlobalComponents/index.js", "**/*.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

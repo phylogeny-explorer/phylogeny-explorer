@@ -6,6 +6,7 @@ import barnacle from '../../../../public/images/barnacle.png';
 export const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - ${props => props.theme.topBarHeight}px);
+  flex-shrink: 0;
   padding: ${props => props.theme.xLargeSpacer}px;
   box-sizing: border-box;
   background: ${props => props.theme.black} url(${barnacle.src});
