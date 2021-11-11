@@ -24,6 +24,7 @@ const PageHeader = () => {
       {pathname !== '/login' && (
         <Button
           dark={pathname === '/signup'}
+          light={pathname !== '/signup'}
           squishy
           text="log in"
           icon="login"

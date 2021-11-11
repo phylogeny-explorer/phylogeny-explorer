@@ -1,7 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { HeadingXLarge, Heading } from 'components/Typography';
-import { Wrapper } from './About.styled';
+import { Wrapper, Images } from './About.styled';
 
 const About = () => {
   return (
@@ -15,6 +16,20 @@ const About = () => {
         out more information, including pictures, parent or child clades, and
         reference material.
       </Heading>
+      <Images>
+        <Image
+          src="/images/feature_tree.png"
+          alt=""
+          width={1440}
+          height={914}
+        />
+        <Image
+          src="/images/feature_wiki.png"
+          alt=""
+          width={1440}
+          height={914}
+        />
+      </Images>
     </Wrapper>
   );
 };

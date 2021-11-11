@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   flex-shrink: 0;
   padding: ${props => props.theme.xLargeSpacer}px;
   box-sizing: border-box;
-  background: ${props => props.theme.black} url(${barnacle.src});
+  background: #000 url(${barnacle.src});
   background-size: cover;
   color: ${props => props.theme.white};
   display: grid;

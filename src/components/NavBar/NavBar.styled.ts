@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { transparentize } from 'polished';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -9,7 +10,7 @@ export const Wrapper = styled.div`
   height: ${props => props.theme.topBarHeight}px;
   padding: ${props => props.theme.spacer}px
     ${props => props.theme.xLargeSpacer}px;
-  background: rgba(43, 48, 52, 0.96);
+  background: ${props => transparentize(0.05, props.theme.black)};
   box-sizing: border-box;
 `;
 

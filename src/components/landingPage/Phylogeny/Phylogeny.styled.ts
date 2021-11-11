@@ -8,4 +8,17 @@ export const Wrapper = styled.div`
   color: ${props => props.theme.white};
   display: grid;
   grid-gap: ${props => props.theme.xLargeSpacer}px;
+  grid-auto-flow: column;
+
+  img {
+    filter: invert(1);
+    mix-blend-mode: screen;
+  }
+`;
+
+export const Info = styled.div`
+  display: grid;
+  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  align-content: start;
+  max-width: 380px;
 `;

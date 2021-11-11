@@ -21,7 +21,7 @@ const Sections = styled.div`
 const Home = () => {
   const { isLoggedIn } = useUser();
   return (
-    <Page>
+    <Page isDark>
       {isLoggedIn ? <NavBar /> : <PageHeader />}
       <Sections>
         <Hero />

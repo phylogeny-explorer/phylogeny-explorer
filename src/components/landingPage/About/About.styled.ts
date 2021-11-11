@@ -9,3 +9,9 @@ export const Wrapper = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.xLargeSpacer}px;
 `;
+
+export const Images = styled.div`
+  display: grid;
+  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  grid-auto-flow: column;
+`;
