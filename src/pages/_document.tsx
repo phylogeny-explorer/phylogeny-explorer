@@ -70,6 +70,17 @@ class MyDocument extends Document {
           <meta name="application-name" content="Phylogeny Explorer" />
           <meta name="msapplication-TileColor" content="#06c9af" />
           <meta name="theme-color" content="#2b3034" />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700;800&family=Roboto:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

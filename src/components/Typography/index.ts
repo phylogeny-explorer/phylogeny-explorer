@@ -60,6 +60,7 @@ export const PlaceholderText = styled.span`
 `;
 
 export const InfographicXlarge = styled.h1`
+  font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   font-size: 3rem;
   line-height: 3rem;
@@ -68,6 +69,7 @@ export const InfographicXlarge = styled.h1`
 `;
 
 export const InfographicLarge = styled.h2`
+  font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   font-size: 1.5rem;
   line-height: 1.5rem;
@@ -76,6 +78,7 @@ export const InfographicLarge = styled.h2`
 `;
 
 export const Infographic = styled.span`
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   font-size: 1.25rem;
   line-height: 1.25rem;
@@ -84,6 +87,7 @@ export const Infographic = styled.span`
 `;
 
 export const InfographicSmall = styled.span`
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   font-size: 1.125rem;
   line-height: 1.125rem;
