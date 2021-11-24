@@ -9,20 +9,9 @@ import NavItem from 'components/NavItem';
 import Search from 'components/Search';
 import Button from 'components/Button';
 
-import { useMediaQuery } from 'react-responsive';
-import { MobileNavLinks } from './mobileNavLinks.jsx';
-
 import { Wrapper, NavItems } from './NavBar.styled';
 
-const DeviceSize = {
-  mobile: 784,
-  tablet: 992,
-  laptop: 1324,
-  desktop: 2024,
-}
-
 const NavBar = () => {
-  const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile })
   const { pathname, ...router } = useRouter();
   const { removeSession } = useUser();
 
@@ -38,19 +27,17 @@ const NavBar = () => {
     }
   };
 
-  
   return (
     <Wrapper>
       <Logo />
       <Search />
-      {!isMobile && <NavItems>
+      <NavItems>
         {!pathname.includes('tree') && <NavItem name="tree" />}
         {!pathname.includes('relationships') && (
           <NavItem name="relationships" />
         )}
-      </NavItems>}
-      {!isMobile && <Button dark squishy text="sign out" onClick={handleLogout} />}
-      {isMobile && <MobileNavLinks />}
+      </NavItems>
+      <Button dark squishy text="sign out" onClick={handleLogout} />
     </Wrapper>
   );
 };
