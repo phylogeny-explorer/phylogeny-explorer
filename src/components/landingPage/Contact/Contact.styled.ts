@@ -7,5 +7,5 @@ export const Wrapper = styled.div`
   background: ${props => props.theme.white};
   color: ${props => props.theme.black};
   display: grid;
-  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  grid-gap: ${props => props.theme.largeSpacer}px;
 `;

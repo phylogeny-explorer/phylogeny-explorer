@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
 export const Info = styled.div`
   display: grid;
-  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  grid-gap: ${props => props.theme.largeSpacer}px;
   align-content: start;
   max-width: 380px;
 `;

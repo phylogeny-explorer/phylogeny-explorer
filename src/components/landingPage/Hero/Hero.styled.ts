@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Button from 'components/Button';
-import { InfographicXlarge } from 'components/Typography';
+import { HeadingXLarge, Heading } from 'components/Typography';
 import barnacle from '../../../../public/images/barnacle.png';
 
 export const Wrapper = styled.div`
@@ -19,8 +19,15 @@ export const Wrapper = styled.div`
   text-align: center;
 `;
 
-export const Title = styled(InfographicXlarge)`
-  text-transform: capitalize;
+export const Title = styled(HeadingXLarge)`
+  text-transform: uppercase;
+  font-weight: 300;
+  text-shadow: black 2px 4px 5px;
+`;
+
+export const Subtitle = styled(Heading)`
+  font-weight: 300;
+  text-shadow: black 2px 4px 3px;
 `;
 
 export const LargeButton = styled(Button)`

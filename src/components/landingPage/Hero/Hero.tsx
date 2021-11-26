@@ -2,8 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import useUser from 'lib/hooks/useUser';
-import { InfographicLarge } from 'components/Typography';
-import { Wrapper, Title, LargeButton } from './Hero.styled';
+import { Wrapper, Title, Subtitle, LargeButton } from './Hero.styled';
 
 const Hero = () => {
   const router = useRouter();
@@ -11,10 +10,10 @@ const Hero = () => {
   return (
     <Wrapper>
       <Title>Explore The Beauty of Evolution</Title>
-      <InfographicLarge>
+      <Subtitle>
         A navigable, online encyclopedia, of the entire evolutionary tree of
         life
-      </InfographicLarge>
+      </Subtitle>
 
       <LargeButton
         onClick={() => router.push(isLoggedIn ? 'tree' : '/signup')}

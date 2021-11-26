@@ -37,6 +37,11 @@ export const ButtonText = styled.span`
   text-transform: uppercase;
 `;
 
+export const LargeText = styled.p`
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+`;
+
 export const BodyText = styled.p`
   font-size: 1rem;
   line-height: 1.5rem;

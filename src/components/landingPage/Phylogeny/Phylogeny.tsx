@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { HeadingXLarge, Heading } from 'components/Typography';
+import { HeadingXLarge, LargeText } from 'components/Typography';
 import { Wrapper, Info } from './Phylogeny.styled';
 
 const Phylogeny = () => {
@@ -9,11 +9,11 @@ const Phylogeny = () => {
     <Wrapper>
       <Info>
         <HeadingXLarge>What is Phylogeny?</HeadingXLarge>
-        <Heading>
+        <LargeText>
           Phylogeny concerns the evolutionary history and development of
           organisms, how they diverge and evolve from each other, and the
           relationships between them.
-        </Heading>
+        </LargeText>
       </Info>
       <Image
         src="https://upload.wikimedia.org/wikipedia/commons/1/19/Phylogenetic_Tree_of_Life.png"

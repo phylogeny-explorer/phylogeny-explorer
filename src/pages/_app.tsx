@@ -26,17 +26,16 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   a {
     color: ${theme.primary};
-    text-decoration: none;
+    text-decoration-color: transparent;
+    transition: text-decoration 500ms;
     &:hover {
-        text-decoration: underline;
+      text-decoration-color: ${theme.primary};
     }
   }
 `;
