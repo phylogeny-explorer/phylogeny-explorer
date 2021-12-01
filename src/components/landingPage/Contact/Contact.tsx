@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { HeadingXLarge, LargeText } from 'components/Typography';
-import { Wrapper } from './Contact.styled';
+import Section from '../Section';
 
 const Contact = () => {
   return (
-    <Wrapper>
+    <Section background="white">
       <HeadingXLarge>Contact Us</HeadingXLarge>
       <LargeText>
         If you would like more information about the Phylogeny Explorer Project,
@@ -20,7 +20,7 @@ const Contact = () => {
         </a>
         .
       </LargeText>
-    </Wrapper>
+    </Section>
   );
 };
 

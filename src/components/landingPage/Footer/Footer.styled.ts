@@ -11,6 +11,14 @@ export const Wrapper = styled.div`
   grid-gap: ${props => props.theme.xLargeSpacer}px;
   grid-template-columns: 1fr auto;
   align-items: center;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: unset;
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: unset;
+    padding: ${props => props.theme.xLargeSpacer}px;
+  }
 `;
 
 export const Copyright = styled(HeadingLabel)`
@@ -23,4 +31,8 @@ export const Icons = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.xLargeSpacer}px;
   grid-auto-flow: column;
+
+  @media screen and (max-width: 700px) {
+    justify-content: start;
+  }
 `;
