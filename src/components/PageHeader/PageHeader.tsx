@@ -2,9 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import Logo from 'components/Logo';
-import Button from 'components/Button';
 
-import { Wrapper } from './PageHeader.styled';
+import { Wrapper, AuthButton } from './PageHeader.styled';
 
 const PageHeader = () => {
   const { pathname, ...router } = useRouter();
@@ -12,23 +11,19 @@ const PageHeader = () => {
     <Wrapper>
       <Logo full />
       {pathname !== '/signup' && (
-        <Button
+        <AuthButton
           dark
-          squishy
           text="sign up"
           icon="account"
-          iconFirst
           onClick={() => router.push('/signup')}
         />
       )}
       {pathname !== '/login' && (
-        <Button
+        <AuthButton
           dark={pathname === '/signup'}
           light={pathname !== '/signup'}
-          squishy
           text="log in"
           icon="login"
-          iconFirst
           onClick={() => router.push('/login')}
         />
       )}

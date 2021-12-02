@@ -24,6 +24,11 @@ const client = new ApolloClient({
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  html {
+    @media screen and (max-width: 320px) {
+      font-size: 14px;
+    }
+  }
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;

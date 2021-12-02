@@ -4,6 +4,10 @@ export const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 interface InputProps {

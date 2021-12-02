@@ -35,4 +35,7 @@ export const Icons = styled.div`
   @media screen and (max-width: 700px) {
     justify-content: start;
   }
+  @media screen and (max-width: 300px) {
+    grid-gap: ${props => props.theme.largeSpacer}px;
+  }
 `;

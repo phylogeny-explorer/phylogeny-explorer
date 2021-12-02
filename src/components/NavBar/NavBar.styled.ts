@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
     ${props => props.theme.xLargeSpacer}px;
   background: ${props => transparentize(0.05, props.theme.black)};
   box-sizing: border-box;
+
+  @media screen and (max-width: 600px) {
+    grid-template-columns: auto 1fr auto;
+  }
 `;
 
 export const NavItems = styled.div`

@@ -17,6 +17,10 @@ export const Wrapper = styled.div`
   justify-items: center;
   align-content: center;
   text-align: center;
+
+  @media screen and (max-width: 320px) {
+    padding: ${props => props.theme.xLargeSpacer}px;
+  }
 `;
 
 export const Title = styled(HeadingXLarge)`
@@ -36,9 +40,22 @@ export const LargeButton = styled(Button)`
   padding: ${props => props.theme.largeSpacer}px
     ${props => props.theme.xLargeSpacer}px;
 
+  @media screen and (max-width: 320px) {
+    padding: ${props => props.theme.largeSpacer}px;
+  }
+
   span {
-    font-size: 32px;
+    font-size: 2rem;
     line-height: unset;
     letter-spacing: 2.5px;
+    @media screen and (max-width: 600px) {
+      font-size: 1.8rem;
+    }
+    @media screen and (max-width: 360px) {
+      font-size: 1.7rem;
+    }
+    @media screen and (max-width: 320px) {
+      font-size: 1.5rem;
+    }
   }
 `;
