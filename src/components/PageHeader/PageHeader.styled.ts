@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   grid-gap: ${props => props.theme.spacer}px;
   align-items: center;
   height: ${props => props.theme.topBarHeight}px;
+  min-height: ${props => props.theme.topBarHeight}px;
   padding: ${props => props.theme.spacer}px
     ${props => props.theme.xLargeSpacer}px;
   background: ${props => transparentize(0.05, props.theme.black)};

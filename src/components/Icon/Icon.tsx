@@ -43,6 +43,7 @@ import {
   mdiCheckboxBlankOutline,
   mdiCheckboxIntermediate,
   mdiCheckboxMarked,
+  mdiMenu,
 } from '@mdi/js';
 
 import { ClickWrapper } from './Icon.styled';
@@ -91,6 +92,7 @@ const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
     'link-off': mdiLinkOff,
     search: mdiMagnify,
     upload: mdiUpload,
+    menu: mdiMenu,
     // features
     tree: mdiGraph,
     'tree-outline': mdiGraphOutline,

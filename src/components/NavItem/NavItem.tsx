@@ -3,9 +3,14 @@ import { useRouter } from 'next/router';
 
 import Icon from 'components/Icon';
 
-import { Wrapper, Title } from './NavItem.styled';
+import { Wrapper, LargeTitle, Title } from './NavItem.styled';
 
-const NavItem = ({ name }) => {
+interface Props {
+  name: string;
+  isMobile?: boolean;
+}
+
+const NavItem = ({ name, isMobile }: Props) => {
   const router = useRouter();
   const { nodeId } = router.query;
   const titles = {
@@ -20,7 +25,11 @@ const NavItem = ({ name }) => {
       }
     >
       <Icon name={name} />
-      <Title>{titles[name]}</Title>
+      {isMobile ? (
+        <LargeTitle>{titles[name]}</LargeTitle>
+      ) : (
+        <Title>{titles[name]}</Title>
+      )}
     </Wrapper>
   );
 };
