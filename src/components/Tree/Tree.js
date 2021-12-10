@@ -21,7 +21,7 @@ const Tree = ({ data, loading, handleLoadMore }) => {
 
       const { width } = d3Container.current.getBoundingClientRect();
       const root = d3.hierarchy(data);
-      const dy = width / 3;
+      const dy = width >= 600 ? width / 3 : 200;
       const dx = 32;
       const tree = d3.tree().nodeSize([dx, dy]);
       const diagonal = d3

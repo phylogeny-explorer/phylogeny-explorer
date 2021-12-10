@@ -57,13 +57,6 @@ export const SmallText = styled.p`
   line-height: 1rem;
 `;
 
-export const PlaceholderText = styled.span`
-  font-style: italic;
-  font-weight: normal;
-  font-size: 0.75rem;
-  line-height: 1rem;
-`;
-
 export const InfographicXlarge = styled.h1`
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
