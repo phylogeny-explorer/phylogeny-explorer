@@ -9,6 +9,7 @@ const Hero = () => {
   const { isLoggedIn } = useUser();
   return (
     <Wrapper>
+      <Title>Phylogeny Explorer</Title>
       <Title>Explore The Beauty of Evolution</Title>
       <Subtitle>
         A navigable, online encyclopedia, of the entire evolutionary tree of
