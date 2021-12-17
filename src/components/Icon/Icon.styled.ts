@@ -10,6 +10,7 @@ export const ClickWrapper = styled.button`
   border-radius: 50%;
   padding: ${props => props.theme.spacer}px;
   margin: -${props => props.theme.spacer}px;
+  color: inherit;
 
   &:hover {
     outline: none;

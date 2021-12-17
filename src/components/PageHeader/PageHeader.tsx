@@ -1,24 +1,32 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import Logo from 'components/Logo';
-import Button from 'components/Button';
 
-import { Wrapper } from './PageHeader.styled';
+import { Wrapper, AuthButton } from './PageHeader.styled';
 
 const PageHeader = () => {
-  const { pathname } = useLocation();
-  const isLoginPage = pathname === '/login';
-  const history = useHistory();
+  const { pathname, ...router } = useRouter();
   return (
     <Wrapper>
       <Logo full />
-      <Button
-        dark
-        squishy
-        text={isLoginPage ? 'sign up' : 'log in'}
-        onClick={() => history.push(isLoginPage ? '/signup' : '/login')}
-      />
+      {pathname !== '/signup' && (
+        <AuthButton
+          dark
+          text="sign up"
+          icon="account"
+          onClick={() => router.push('/signup')}
+        />
+      )}
+      {pathname !== '/login' && (
+        <AuthButton
+          dark={pathname === '/signup'}
+          light={pathname !== '/signup'}
+          text="log in"
+          icon="login"
+          onClick={() => router.push('/login')}
+        />
+      )}
     </Wrapper>
   );
 };

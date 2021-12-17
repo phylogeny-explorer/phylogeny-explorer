@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 interface Props {
   backgroundImage?: string;
+  isDark?: boolean;
   children: ReactNode;
 }
 
@@ -11,13 +12,16 @@ const Main = styled.div<Props>`
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: ${props => props.theme.background};
+  background: ${props =>
+    props.isDark ? props.theme.foreground : props.theme.background};
   background-image: url(${props => props.backgroundImage});
   background-size: cover;
 `;
 
-const Page = ({ backgroundImage, children }: Props) => {
-  return <Main backgroundImage={backgroundImage}>{children}</Main>;
-};
+const Page = ({ backgroundImage, isDark, children }: Props) => (
+  <Main backgroundImage={backgroundImage} isDark={isDark}>
+    {children}
+  </Main>
+);
 
 export default Page;

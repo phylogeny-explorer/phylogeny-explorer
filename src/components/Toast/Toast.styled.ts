@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Toast = styled(ToastContainer)`
   padding: 0;
-  top: ${props => props.theme.xlargeSpacer}px;
+  top: ${props => props.theme.xLargeSpacer}px;
   width: unset;
   display: flex;
   flex-direction: column;

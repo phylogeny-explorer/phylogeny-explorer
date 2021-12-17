@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconProps } from './index';
 
-export default ({ isColour, tiled, ...props }: IconProps) => (
+const Icon = ({ isColour, tiled, ...props }: IconProps) => (
   <svg width="100%" height="100%" viewBox="0 0 512 512" {...props}>
     {tiled ? (
       <path
@@ -28,3 +28,5 @@ export default ({ isColour, tiled, ...props }: IconProps) => (
     )}
   </svg>
 );
+
+export default Icon;

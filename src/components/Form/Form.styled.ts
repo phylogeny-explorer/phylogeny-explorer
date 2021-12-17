@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { DescriptionText } from 'components/Typography';
+import { transparentize } from 'polished';
 import { Form as FormikForm } from 'formik';
+import { DescriptionText } from 'components/Typography';
 
 export const Wrapper = styled.div`
   box-sizing: border-box;
@@ -10,8 +11,8 @@ export const Wrapper = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.largeSpacer}px;
   align-content: start;
-  padding: ${props => props.theme.xlargeSpacer}px;
-  background: rgba(43, 48, 52, 0.96);
+  padding: ${props => props.theme.xLargeSpacer}px;
+  background: ${props => transparentize(0.05, props.theme.black)};
   color: ${props => props.theme.white};
   border-radius: 3px;
 `;

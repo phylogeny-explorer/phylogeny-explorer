@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 
 import { SOCIAL } from 'consts';
 import SocialButton from './SocialButton';
@@ -21,7 +22,7 @@ export default {
   argTypes: {
     platform: { control: { type: 'select', options: Object.values(SOCIAL) } },
   },
-};
+} as Meta;
 
 export const Simple = args => <SocialButton {...args} />;
 Simple.storyName = 'default';

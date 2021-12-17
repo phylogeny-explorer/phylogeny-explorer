@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
 import styled from 'styled-components';
 
 import * as Typography from './index';
@@ -9,12 +10,12 @@ const StoryRow = styled.div`
 
 export default {
   title: 'Typography',
-};
+} as Meta;
 
 export const All = () => (
   <>
     {Object.entries(Typography).map(([key, Component]) => (
-      <StoryRow>
+      <StoryRow key={key}>
         <Component>{key}</Component>
       </StoryRow>
     ))}

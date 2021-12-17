@@ -8,7 +8,7 @@ import Tree from 'components/Tree';
 import GET_TREE from './graphql/getTree';
 
 const Wrapper = styled.div`
-  height: calc(100% - ${props => props.theme.topbarHeight}px);
+  height: calc(100% - ${props => props.theme.topBarHeight}px);
   padding: ${props => props.theme.largeSpacer}px;
   position: relative;
 `;
