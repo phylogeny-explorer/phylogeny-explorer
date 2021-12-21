@@ -8,16 +8,11 @@ import awsConfig from '../aws-exports';
 type LoginContextType = {
   isLoggedIn: boolean;
   isLoadingUser: boolean;
-  setSession: (string) => void;
+  setSession: (session: string) => void;
   removeSession: () => void;
 };
 
-export const LoginContext = createContext<LoginContextType>({
-  isLoggedIn: false,
-  isLoadingUser: false,
-  setSession: () => {},
-  removeSession: () => {},
-});
+export const LoginContext = createContext({} as LoginContextType);
 
 const LoginProvider = ({ children }) => {
   const [session, setSession] = useState<string | null>(null);
