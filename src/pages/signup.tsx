@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
-import PageHeader from 'components/PageHeader';
 import Button from 'components/Button';
 // import SocialButton from 'components/SocialButton';
 import { Heading } from 'components/Typography';
@@ -79,7 +78,6 @@ const Signup = () => {
 
   return (
     <Page backgroundImage={backgroundImage.src}>
-      <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Sign up</Heading>

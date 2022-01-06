@@ -40,10 +40,11 @@ export const Inner = styled.div<InnerProps>`
 interface Props {
   background: 'dprimary' | 'dsecondary' | 'white';
   isRow?: boolean;
+  id?: string;
 }
 
 const Section: FC<Props> = props => (
-  <Wrapper background={props.background}>
+  <Wrapper background={props.background} id={props.id}>
     <Inner isRow={props.isRow}>{props.children}</Inner>
   </Wrapper>
 );

@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
-import NavBar from 'components/NavBar';
 import Cladogram from 'components/Cladogram';
 
 const Tree = () => {
@@ -16,7 +15,6 @@ const Tree = () => {
 
   return (
     <Page>
-      <NavBar />
       <Cladogram key={nodeId} nodeId={nodeId} />
     </Page>
   );

@@ -20,7 +20,6 @@ import {
   ButtonWrapper,
   ErrorMessage,
 } from 'components/Form';
-import PageHeader from 'components/PageHeader';
 import backgroundImage from '../../public/images/background-login.jpg';
 
 const Login = () => {
@@ -65,7 +64,6 @@ const Login = () => {
 
   return (
     <Page backgroundImage={backgroundImage.src}>
-      <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Log in</Heading>
