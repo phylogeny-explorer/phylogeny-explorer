@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { getContributorsPage } from 'lib/api/strapi';
 import Page from 'components/Page';
-
-import Hero from 'components/contributorsPage/Hero';
-import TeamA from 'components/contributorsPage/teamA';
-import TeamB from 'components/contributorsPage/teamB';
-import Footer from 'components/contributorsPage/Footer';
+import Header, { HeaderProps } from 'components/contributorsPage/Header';
+import Management, {
+  ManagementProps,
+} from 'components/contributorsPage/Management';
+import DevTeam, { DevTeamProps } from 'components/contributorsPage/DevTeam';
+import Footer, { FooterProps } from 'components/landingPage/Footer';
 
 const Sections = styled.div`
   display: flex;
@@ -14,15 +16,31 @@ const Sections = styled.div`
   overflow: auto;
 `;
 
-const Contributors = () => (
+interface Props {
+  content: {
+    header: HeaderProps;
+    footer: FooterProps;
+    management: ManagementProps;
+    devTeam: DevTeamProps;
+  };
+}
+
+const Contributors = ({ content }: Props) => (
   <Page isDark>
     <Sections>
-      <Hero />
-      <TeamA />
-      <TeamB />
-      <Footer />
+      <Header {...content.header} />
+      <Management {...content.management} />
+      <DevTeam {...content.devTeam} />
+      <Footer {...content.footer} />
     </Sections>
   </Page>
 );
 
 export default Contributors;
+
+export async function getStaticProps() {
+  const content = await getContributorsPage();
+  console.log(content);
+
+  return { props: { content } };
+}

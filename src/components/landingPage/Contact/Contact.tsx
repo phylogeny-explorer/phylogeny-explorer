@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 
 import { HeadingXLarge, LargeText } from 'components/Typography';
 import Section from '../Section';
@@ -15,7 +16,12 @@ const SERVICE_ID = 'service_096y1mn';
 const TEMPLATE_ID = 'template_v1ctwus';
 const USER_ID = 'user_lBkWUG1XdnTeZWL2QnHi6';
 
-const Contact = () => {
+export interface Props {
+  title: string;
+  text: string;
+}
+
+const Contact = ({ title, text }: Props) => {
   const [error, setError] = useState('');
 
   const validationSchema = Yup.object({
@@ -26,7 +32,7 @@ const Contact = () => {
 
   return (
     <Section background="white">
-      <HeadingXLarge>Contact Us</HeadingXLarge>
+      <HeadingXLarge>{title}</HeadingXLarge>
 
       <Content>
         <Formik
@@ -52,21 +58,14 @@ const Contact = () => {
           </Form>
         </Formik>
         <Info>
+          <ReactMarkdown
+            components={{ p: pProps => <LargeText {...pProps} /> }}
+            linkTarget="_blank"
+          >
+            {text}
+          </ReactMarkdown>
           <LargeText>
-            If you would like more information about the Phylogeny Explorer
-            Project, please contact one of our admins, or apply to become a
-            member in our Facebook group,{' '}
-            <a
-              href="https://www.facebook.com/groups/phylogenyexplorerdevelopment/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Phylogeny Explorer Development
-            </a>
-            .
-          </LargeText>
-          <LargeText>
-            <Link href="contributors">Meet the team behind the project</Link>.
+            <Link href="/contributors">Meet the team behind the project</Link>.
           </LargeText>
         </Info>
       </Content>

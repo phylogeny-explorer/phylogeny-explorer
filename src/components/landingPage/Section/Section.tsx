@@ -4,6 +4,7 @@ import { readableColor } from 'polished';
 
 interface WrapperProps {
   background: 'dprimary' | 'dsecondary' | 'white';
+  isFullWidth?: boolean;
 }
 
 const Wrapper = styled.div<WrapperProps>`
@@ -19,10 +20,13 @@ const Wrapper = styled.div<WrapperProps>`
   @media screen and (max-width: 600px) {
     padding: ${props => props.theme.xLargeSpacer}px;
   }
+
+  ${props => props.isFullWidth && `justify-content: unset;`}
 `;
 
 interface InnerProps {
   isRow?: boolean;
+  isFullWidth?: boolean;
 }
 
 export const Inner = styled.div<InnerProps>`
@@ -34,17 +38,25 @@ export const Inner = styled.div<InnerProps>`
 
   @media screen and (max-width: 700px) {
     grid-auto-flow: row;
+    grid-template-columns: unset;
   }
+
+  ${props => props.isFullWidth && 'max-width: unset;'}
+  ${props =>
+    props.isRow && props.isFullWidth && 'grid-template-columns: auto 1fr;'}
 `;
 
 interface Props {
   background: 'dprimary' | 'dsecondary' | 'white';
   isRow?: boolean;
+  isFullWidth?: boolean;
 }
 
-const Section: FC<Props> = props => (
-  <Wrapper background={props.background}>
-    <Inner isRow={props.isRow}>{props.children}</Inner>
+const Section: FC<Props> = ({ background, isRow, isFullWidth, children }) => (
+  <Wrapper background={background} isFullWidth={isFullWidth}>
+    <Inner isRow={isRow} isFullWidth={isFullWidth}>
+      {children}
+    </Inner>
   </Wrapper>
 );
 
