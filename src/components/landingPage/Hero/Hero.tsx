@@ -1,23 +1,28 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
+import { getStrapiMedia } from 'lib/api/strapi';
+import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import { Wrapper, Title, Subtitle, LargeButton } from './Hero.styled';
 
-const Hero = () => {
+export interface Props {
+  title: string;
+  subtitle: string;
+  cta: string;
+  background: MediaItem;
+}
+
+const Hero = ({ title, subtitle, cta, background }: Props) => {
   const router = useRouter();
   const { isLoggedIn } = useUser();
   return (
-    <Wrapper>
-      <Title>Explore The Beauty of Evolution</Title>
-      <Subtitle>
-        A navigable, online encyclopedia, of the entire evolutionary tree of
-        life
-      </Subtitle>
-
+    <Wrapper backgroundUrl={getStrapiMedia(background.data)}>
+      <Title>{title}</Title>
+      <Subtitle>{subtitle}</Subtitle>
       <LargeButton
         onClick={() => router.push(isLoggedIn ? 'tree' : '/signup')}
-        text="Get started!"
+        text={cta}
       ></LargeButton>
     </Wrapper>
   );

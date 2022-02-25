@@ -1,5 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
+import useUser from 'lib/hooks/useUser';
+import NavBar from 'components/NavBar';
+import PageHeader from 'components/PageHeader';
 
 interface Props {
   backgroundImage?: string;
@@ -18,10 +21,14 @@ const Main = styled.div<Props>`
   background-size: cover;
 `;
 
-const Page = ({ backgroundImage, isDark, children }: Props) => (
-  <Main backgroundImage={backgroundImage} isDark={isDark}>
-    {children}
-  </Main>
-);
+const Page = ({ backgroundImage, isDark, children }: Props) => {
+  const { isLoggedIn } = useUser();
+  return (
+    <Main backgroundImage={backgroundImage} isDark={isDark}>
+      {isLoggedIn ? <NavBar /> : <PageHeader />}
+      {children}
+    </Main>
+  );
+};
 
 export default Page;

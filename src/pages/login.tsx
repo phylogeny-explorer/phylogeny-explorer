@@ -20,7 +20,6 @@ import {
   ButtonWrapper,
   ErrorMessage,
 } from 'components/Form';
-import PageHeader from 'components/PageHeader';
 import backgroundImage from '../../public/images/background-login.jpg';
 
 const Login = () => {
@@ -46,7 +45,7 @@ const Login = () => {
           setSession(token);
         } else {
           throw new Error(
-            'User is not approved to view. Contact dev team for beta access.'
+            'This user is not a Beta tester. Beta is currently full.'
           );
         }
       })
@@ -65,7 +64,6 @@ const Login = () => {
 
   return (
     <Page backgroundImage={backgroundImage.src}>
-      <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Log in</Heading>
@@ -83,7 +81,7 @@ const Login = () => {
         <Formik
           initialValues={{
             email: query.email || '',
-            password: query.password || '',
+            password: '',
           }}
           onSubmit={onSubmit}
           validationSchema={validationSchema}

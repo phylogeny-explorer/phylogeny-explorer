@@ -1,15 +1,18 @@
 import styled from 'styled-components';
 import Button from 'components/Button';
 import { HeadingXLarge, Heading } from 'components/Typography';
-import barnacle from '../../../../public/images/barnacle.png';
 
-export const Wrapper = styled.div`
+interface Props {
+  backgroundUrl: string;
+}
+
+export const Wrapper = styled.div<Props>`
   width: 100%;
   height: calc(100vh - ${props => props.theme.topBarHeight}px);
   flex-shrink: 0;
   padding: ${props => props.theme.xLargeSpacer}px;
   box-sizing: border-box;
-  background: #000 url(${barnacle.src});
+  background: #000 url(${props => props.backgroundUrl});
   background-size: cover;
   color: ${props => props.theme.white};
   display: grid;
