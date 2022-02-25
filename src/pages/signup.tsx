@@ -43,10 +43,12 @@ const Signup = () => {
       },
     })
       .then(() => {
-        toast.success('Check your email for confirmation link.');
+        toast.success(
+          'Check your email for confirmation link. This will not grant you access to the Beta.'
+        );
         router.push({
           pathname: '/login',
-          query: { email, password },
+          query: { email },
         });
       })
       .catch(err => {
@@ -129,6 +131,10 @@ const Signup = () => {
             </Form>
           )}
         </Formik>
+        <ErrorMessage>
+          We are currently not accepting new sign ups as we have enough Beta
+          testers.
+        </ErrorMessage>
       </Wrapper>
     </Page>
   );

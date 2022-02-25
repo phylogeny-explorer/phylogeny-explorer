@@ -3,7 +3,7 @@ import { send } from 'emailjs-com';
 import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import Link from 'next/link';
+// import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 
 import { HeadingXLarge, LargeText } from 'components/Typography';
@@ -64,9 +64,9 @@ const Contact = ({ title, text }: Props) => {
           >
             {text}
           </ReactMarkdown>
-          <LargeText>
+          {/* <LargeText>
             <Link href="/contributors">Meet the team behind the project</Link>.
-          </LargeText>
+          </LargeText> */}
         </Info>
       </Content>
     </Section>
