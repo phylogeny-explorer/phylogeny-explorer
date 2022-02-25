@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import MRCA from 'lib/graphql/mrca';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
-import NavBar from 'components/NavBar';
 import Search from 'components/Search';
 import Button from 'components/Button';
 import { HeadingLarge } from 'components/Typography';
@@ -35,7 +34,6 @@ const Relationships = () => {
 
   return (
     <Page>
-      <NavBar />
       <Wrapper>
         <HeadingLarge>Most Recent Common Ancestor</HeadingLarge>
         <Search value={clade1} handleSelect={id => setClade1(id)} isContained />

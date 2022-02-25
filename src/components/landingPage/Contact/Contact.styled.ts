@@ -12,3 +12,9 @@ export const Content = styled.div`
     grid-template-columns: unset;
   }
 `;
+
+export const Info = styled.div`
+  display: grid;
+  grid-gap: ${props => props.theme.xLargeSpacer}px;
+  grid-template-rows: min-content;
+`;

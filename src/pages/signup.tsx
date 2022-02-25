@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/Page';
-import PageHeader from 'components/PageHeader';
 import Button from 'components/Button';
 // import SocialButton from 'components/SocialButton';
 import { Heading } from 'components/Typography';
@@ -44,10 +43,12 @@ const Signup = () => {
       },
     })
       .then(() => {
-        toast.success('Check your email for confirmation link.');
+        toast.success(
+          'Check your email for confirmation link. This will not grant you access to the Beta.'
+        );
         router.push({
           pathname: '/login',
-          query: { email, password },
+          query: { email },
         });
       })
       .catch(err => {
@@ -79,7 +80,6 @@ const Signup = () => {
 
   return (
     <Page backgroundImage={backgroundImage.src}>
-      <PageHeader />
       <Wrapper>
         <Header>
           <Heading>Sign up</Heading>
@@ -131,6 +131,10 @@ const Signup = () => {
             </Form>
           )}
         </Formik>
+        <ErrorMessage>
+          We are currently not accepting new sign ups as we have enough Beta
+          testers.
+        </ErrorMessage>
       </Wrapper>
     </Page>
   );
