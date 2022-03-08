@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconProps } from './index';
 
-export default ({ isColour, ...props }: IconProps) => (
+const Icon = ({ isColour, ...props }: IconProps) => (
   <svg width="100%" height="100%" viewBox="0 0 160 160" fill="none" {...props}>
     <path
       d="M87.53 69.86L63.69 56.3v47.65l1.6-.92A47910.68 47910.68 0 0 1 98.27 84.3a570 570 0 0 1 5.38-3.05c.97-.54 1.76-1.04 1.76-1.1 0-.08-.8-.58-1.76-1.12-.97-.53-3.4-1.9-5.38-3.04-1.98-1.14-6.82-3.9-10.74-6.12z"
@@ -14,3 +14,5 @@ export default ({ isColour, ...props }: IconProps) => (
     />
   </svg>
 );
+
+export default Icon;

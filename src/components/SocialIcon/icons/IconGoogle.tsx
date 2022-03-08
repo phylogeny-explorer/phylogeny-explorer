@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconProps } from './index';
 
-export default ({ isColour, ...props }: IconProps) => (
+const Icon = ({ isColour, ...props }: IconProps) => (
   <svg width="100%" height="100%" viewBox="0 0 512 512" fill="none" {...props}>
     <path
       fill={isColour ? '#FBBB00' : 'currentColor'}
@@ -22,3 +22,5 @@ export default ({ isColour, ...props }: IconProps) => (
     />
   </svg>
 );
+
+export default Icon;

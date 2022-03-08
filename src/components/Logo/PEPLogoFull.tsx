@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default props => (
+const Logo = props => (
   <svg width="100%" height="100%" viewBox="0 0 5504 512" {...props}>
     <path
       fill="#AF996B"
@@ -16,3 +16,5 @@ export default props => (
     />
   </svg>
 );
+
+export default Logo;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import Page from 'components/Page';
 import Logo from 'components/Logo';
 import { HeadingLarge } from 'components/Typography';
@@ -14,7 +14,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   h4 {
-    margin: ${props => props.theme.xlargeSpacer}px;
+    margin: ${props => props.theme.xLargeSpacer}px;
   }
 `;
 
@@ -24,14 +24,14 @@ const Code = styled.code`
 `;
 
 const ErrorPage = () => {
-  const location = useLocation();
+  const router = useRouter();
   return (
     <Page>
       <Content>
         <Logo />
         <HeadingLarge>
           {`No match for `}
-          <Code>{location.pathname}</Code>
+          <Code>{router.pathname}</Code>
         </HeadingLarge>
       </Content>
     </Page>

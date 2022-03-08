@@ -1,13 +1,18 @@
 import React from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useRouter } from 'next/router';
 
 import Icon from 'components/Icon';
 
-import { Wrapper, Title } from './NavItem.styled';
+import { Wrapper, LargeTitle, Title } from './NavItem.styled';
 
-const NavItem = ({ name }) => {
-  const { nodeId } = useParams<{ nodeId: string }>();
-  const history = useHistory();
+interface Props {
+  name: string;
+  isMobile?: boolean;
+}
+
+const NavItem = ({ name, isMobile }: Props) => {
+  const router = useRouter();
+  const { nodeId } = router.query;
   const titles = {
     tree: 'Cladogram',
     relationships: 'Relationships',
@@ -15,10 +20,16 @@ const NavItem = ({ name }) => {
   };
   return (
     <Wrapper
-      onClick={() => history.push(`/${name}${nodeId ? `/${nodeId}` : ''}`)}
+      onClick={() =>
+        router.push({ pathname: `/${name}`, query: nodeId ? { nodeId } : null })
+      }
     >
       <Icon name={name} />
-      <Title>{titles[name]}</Title>
+      {isMobile ? (
+        <LargeTitle>{titles[name]}</LargeTitle>
+      ) : (
+        <Title>{titles[name]}</Title>
+      )}
     </Wrapper>
   );
 };

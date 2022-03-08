@@ -1,19 +1,11 @@
 {
   "compilerOptions": {
-    "outDir": "./lib",
     "module": "esnext",
     "target": "es5",
-    "lib": [
-      "es5",
-      "es6",
-      "es7",
-      "es2017",
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "baseUrl": "./src",
     "noImplicitAny": false,
@@ -27,12 +19,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "strict": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "incremental": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

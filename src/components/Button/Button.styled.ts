@@ -84,13 +84,13 @@ export const Content = styled.div<ContentProps>`
   ${props =>
     props.iconLast &&
     `margin-right: ${
-      props.small ? props.theme.spacer : props.theme.largeSpacer
+      props.small ? props.theme.smallSpacer : props.theme.spacer
     }px;`}
   ${props =>
     props.iconFirst &&
     `order: 1;
     margin-left: ${
-      props.small ? props.theme.spacer : props.theme.largeSpacer
+      props.small ? props.theme.smallSpacer : props.theme.spacer
     }px;`}
 `;
 

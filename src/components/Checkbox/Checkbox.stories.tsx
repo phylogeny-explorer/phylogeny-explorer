@@ -1,4 +1,6 @@
 import React from 'react';
+import { Meta } from '@storybook/react';
+
 import Checkbox from './Checkbox';
 
 export default {
@@ -8,7 +10,7 @@ export default {
   argTypes: {
     onChange: { action: 'onChange' },
   },
-};
+} as Meta;
 
 export const Simple = args => <Checkbox {...args} />;
 Simple.storyName = 'default';

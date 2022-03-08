@@ -1,11 +1,13 @@
-import { COLOURS, SOCIAL } from 'consts';
+import { DefaultTheme } from 'styled-components';
+import { COLOURS } from 'consts';
 
-const theme = {
+const theme: DefaultTheme = {
   // Spacers
   spacer: 8,
   smallSpacer: 4,
   largeSpacer: 16,
-  xlargeSpacer: 32,
+  xLargeSpacer: 32,
+  xxLargeSpacer: 64,
 
   // Radius
   borderRadius: 3,
@@ -32,17 +34,14 @@ const theme = {
   vvdgrey: COLOURS.vvdgrey,
   offBlack: COLOURS.offBlack,
   black: COLOURS.black,
-  facebookBlue: COLOURS[SOCIAL.FACEBOOK],
-  twitterBlue: COLOURS[SOCIAL.TWITTER],
-  instagramPink: COLOURS[SOCIAL.INSTAGRAM],
 
   // Shadows
-  shadows: `1px 2px 4px rgba(0, 0, 0, 0.12)`,
+  shadow: `1px 2px 4px rgba(0, 0, 0, 0.12)`,
   darkShadow: `0px 0px ${16}px rgba(0, 0, 0, 0.6)`,
 
   // Sizes
   iconSize: 24,
-  topbarHeight: 60,
+  topBarHeight: 60,
   buttonHeight: 36,
   buttonHeightSmall: 24,
   buttonMinWidth: 160,

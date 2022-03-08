@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Meta } from '@storybook/react';
 
 import Icon from './Icon';
 import { StoryRow, StoryTitle, StoryItem, StoryItemName } from './Icon.styled';
@@ -99,7 +100,7 @@ export default {
     },
     color: { control: { type: 'color' } },
   },
-};
+} as Meta;
 
 export const Simple = args => <Icon {...args} />;
 Simple.storyName = 'default';

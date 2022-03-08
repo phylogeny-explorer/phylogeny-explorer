@@ -15,13 +15,14 @@ import {
   IconYoutube,
 } from './icons';
 
-import { Tile } from './SocialIcon.styled';
+import { Tile, ClickWrapper } from './SocialIcon.styled';
 
 export interface SocialIconProps {
   platform?: string;
   variant?: 'circle' | 'square' | 'colour' | 'outline';
   size?: number;
   color?: string;
+  onClick?: () => void;
 }
 
 const SocialIcon = ({
@@ -53,18 +54,21 @@ const SocialIcon = ({
       ? '60%'
       : '66%';
 
-  return variant === 'square' || variant === 'circle' ? (
-    <Tile size={size} color={COLOURS[platform]} shape={variant} {...props}>
-      <SVG width={tileSize} height={tileSize} tiled="true" color="#fff" />
-    </Tile>
-  ) : (
-    <SVG
-      isColour={variant === 'colour'}
-      width={size}
-      height={size}
-      {...props}
-    />
-  );
+  const Icon =
+    variant === 'square' || variant === 'circle' ? (
+      <Tile size={size} color={COLOURS[platform]} shape={variant} {...props}>
+        <SVG width={tileSize} height={tileSize} tiled="true" color="#fff" />
+      </Tile>
+    ) : (
+      <SVG
+        isColour={variant === 'colour'}
+        width={size}
+        height={size}
+        {...props}
+      />
+    );
+
+  return props.onClick ? <ClickWrapper>{Icon}</ClickWrapper> : Icon;
 };
 
 export default SocialIcon;
