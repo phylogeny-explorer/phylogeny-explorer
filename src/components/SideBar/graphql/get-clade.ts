@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const GET_CLADE = gql`
   query getClade($id: ID!) {
-    clade(id: $id) {
+    clade2(id: $id) {
       id
       name
       rank

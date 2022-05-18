@@ -29,7 +29,6 @@ const Tree = () => {
 
   if (isLoadingUser || !isLoggedIn) return null;
 
-
   return (
     <Page>
       <Content>

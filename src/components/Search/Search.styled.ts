@@ -34,7 +34,8 @@ export const Results = styled.div`
   top: 37px;
   left: 0;
   background: ${props => props.theme.white};
-  z-index: 1;
+  color: ${props => props.theme.black};
+  z-index: 2;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.12);
   width: 328px;
   max-height: 300px;

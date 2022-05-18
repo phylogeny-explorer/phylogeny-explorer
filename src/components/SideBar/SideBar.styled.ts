@@ -2,7 +2,15 @@ import styled from 'styled-components';
 import Icon from 'components/Icon';
 import { SmallText } from 'components/Typography';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  isOpen: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+  position: absolute;
+  z-index: 1;
+  width: 300px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: ${props => props.theme.black};
@@ -26,16 +34,11 @@ export const HeaderIcon = styled(Icon)`
   color: ${props => props.theme.black};
 `;
 
-export const Image = styled.img`
-  width: 300px;
-  align-self: center;
-`;
-
 export const Content = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.largeSpacer}px;
   padding: ${props => props.theme.largeSpacer}px
-    ${props => props.theme.xlargeSpacer}px;
+    ${props => props.theme.xLargeSpacer}px;
 `;
 
 export const Section = styled.div``;
@@ -47,6 +50,4 @@ export const Authority = styled(SmallText)`
 export const Buttons = styled.div`
   display: grid;
   grid-auto-flow: column;
-  padding: 0 ${props => props.theme.largeSpacer}px;
-  grid-gap: ${props => props.theme.xlargeSpacer}px;
 `;

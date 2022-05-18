@@ -11,13 +11,14 @@ export const Wrapper = styled.div`
     stroke-width: 2px;
   }
 
-  .rd3t-node {
+  .rd3t-node,
+  .node__branch {
     fill: ${props => props.theme.white};
     stroke: ${props => props.theme.primary};
     stroke-width: 2.5px;
   }
 
-  .rd3t-leaf-node {
+  .node__leaf {
     fill: ${props => props.theme.primary};
     stroke: none;
   }

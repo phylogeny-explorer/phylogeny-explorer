@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
 
@@ -52,7 +52,12 @@ interface Props {
   isFullWidth?: boolean;
 }
 
-const Section: FC<Props> = ({ background, isRow, isFullWidth, children }) => (
+const Section = ({
+  background,
+  isRow,
+  isFullWidth,
+  children,
+}: PropsWithChildren<Props>) => (
   <Wrapper background={background} isFullWidth={isFullWidth}>
     <Inner isRow={isRow} isFullWidth={isFullWidth}>
       {children}

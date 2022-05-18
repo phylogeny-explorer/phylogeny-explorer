@@ -48,7 +48,7 @@ export const MenuWrapper = styled.div<MenuProps>`
   box-sizing: border-box;
   padding-top: ${props => props.theme.smallSpacer}px;
   background-color: ${props => props.theme.offBlack};
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
   transition: height 300ms, opacity 100ms;
   pointer-events: none;
