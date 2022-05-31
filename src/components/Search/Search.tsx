@@ -22,7 +22,7 @@ const Search = ({ initialValue = '', handleSelect, isContained }: Props) => {
     variables: { value },
   });
 
-  const results = data?.search2 || [];
+  const results = data?.search || [];
 
   return (
     <Wrapper>

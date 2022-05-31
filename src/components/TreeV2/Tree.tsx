@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import ReactTree from 'react-d3-tree';
 import { linkHorizontal } from 'd3';
 import {
@@ -13,12 +14,13 @@ import { Wrapper } from './Tree.styled';
 interface Props {
   data: Clade;
   isVertical?: boolean;
-  appendNode: (id: string) => void;
+  // appendNode: (id: string) => void;
   onClickNode: (id: string) => void;
 }
 
-const Tree = ({ data, isVertical, appendNode, onClickNode }: Props) => {
-  const { translate, containerRef } = useCenteredTree();
+const Tree = ({ data, isVertical, onClickNode }: Props) => {
+  const router = useRouter();
+  const { translate, dimensions, containerRef } = useCenteredTree();
   const nodeSize = { x: 350, y: 24 };
 
   const renderCustomNodeElement: RenderCustomNodeElementFn = ({
@@ -29,12 +31,21 @@ const Tree = ({ data, isVertical, appendNode, onClickNode }: Props) => {
     const hasChildren = nodeDatum.attributes?.hasChildren;
     const hasChildrenData = nodeDatum.children && nodeDatum.children.length > 0;
     const className = hasChildren ? 'node__branch' : 'node__leaf';
+
+    const updateQuery = nodeId =>
+      router.push({ pathname: '/tree', query: { nodeId } }, undefined, {
+        shallow: true,
+      });
+
+    const onClickCircle = () => {
+      if (id === data.id) updateQuery(nodeDatum.attributes?.lineage[0]);
+      else if (hasChildrenData) toggleNode();
+      else updateQuery(id);
+    };
+
     return (
       <g width={nodeSize.x} height={nodeSize.y} className={className}>
-        <circle
-          r={5}
-          onClick={hasChildrenData ? toggleNode : () => appendNode(id)}
-        />
+        <circle r={5} onClick={onClickCircle} />
 
         <text dy="0.31em" x={12} className="rd3t-label__title overlay">
           {nodeDatum.name}
@@ -42,8 +53,10 @@ const Tree = ({ data, isVertical, appendNode, onClickNode }: Props) => {
         <text
           dy="0.31em"
           x={12}
-          className="rd3t-label__title"
-          onClick={() => onClickNode(id)}
+          className={`rd3t-label__title ${
+            id.includes('mrca') ? 'disabled' : ''
+          }`}
+          onClick={id.includes('mrca') ? undefined : () => onClickNode(id)}
         >
           {nodeDatum.name}
         </text>
@@ -62,10 +75,11 @@ const Tree = ({ data, isVertical, appendNode, onClickNode }: Props) => {
   };
 
   return (
-    <Wrapper id="treeWrapper" ref={containerRef}>
+    <Wrapper id="treeWrapper" key={data.id} ref={containerRef}>
       <ReactTree
         data={data as RawNodeDatum}
         translate={translate}
+        dimensions={dimensions}
         nodeSize={nodeSize}
         separation={{ siblings: 1, nonSiblings: 2 }}
         orientation={isVertical ? 'vertical' : 'horizontal'}

@@ -27,11 +27,11 @@ export const Wrapper = styled.div`
     fill: ${props => props.theme.offBlack};
     stroke: none;
     font-size: 14px;
+    font-weight: 500;
 
-    &.overlay {
-      stroke-linejoin: round;
-      stroke-width: 5;
-      stroke: ${props => props.theme.white};
+    &.disabled {
+      fill: ${props => props.theme.grey};
+      cursor: default;
     }
   }
 `;

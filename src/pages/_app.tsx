@@ -13,7 +13,7 @@ const env = process.env.NEXT_PUBLIC_API_BASE || 'dev';
 
 export const APOLLO_LINK = {
   local: 'http://localhost:4000/',
-  dev: 'https://api.phylogenyexplorerproject.co.uk/',
+  dev: 'https://dev-api.phylogenyexplorerproject.co.uk/',
   prod: 'https://api.phylogenyexplorerproject.co.uk/',
 }[env];
 

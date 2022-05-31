@@ -35,7 +35,7 @@ const SideBar = ({ cladeId, close }: Props) => {
   console.log({ cladeId });
 
   const { data, loading } = useQuery(GET_CLADE, {
-    variables: { id: cladeId },
+    variables: { id: cladeId?.slice(3) },
     skip: !cladeId,
   });
 
@@ -70,7 +70,7 @@ const SideBar = ({ cladeId, close }: Props) => {
             <Fab
               icon="tree-outline"
               text="Tree"
-              onClick={() => router.push(`/tree?nodeId=${clade.id}`)}
+              onClick={() => router.push(`/tree?nodeId=ott${clade.id}`)}
             />
             <Fab
               icon="edit"
