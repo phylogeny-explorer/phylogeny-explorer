@@ -21,8 +21,18 @@ export const HeadingSmall = styled.h6`
   line-height: 1.5rem;
 `;
 
-export const HeadingLabel = styled.h6`
+export const Subtitle = styled.span`
+  font-size: 16px;
+  letter-spacing: 0.15px;
+`;
+
+export const SubtitleSmall = styled.span`
   font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+`;
+
+export const HeadingLabel = styled.span`
   font-size: 0.625rem;
   line-height: 0.625rem;
   letter-spacing: 0.09rem;
@@ -34,6 +44,14 @@ export const ButtonText = styled.span`
   font-size: 0.875rem;
   line-height: 1rem;
   letter-spacing: 0.08rem;
+  text-transform: uppercase;
+`;
+
+export const ButtonTextSmall = styled.span`
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
   text-transform: uppercase;
 `;
 

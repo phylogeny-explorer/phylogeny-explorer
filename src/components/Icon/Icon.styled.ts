@@ -2,20 +2,24 @@ import styled from 'styled-components';
 import { transparentize } from 'polished';
 import { Heading, BodyText } from 'components/Typography';
 
-export const ClickWrapper = styled.button`
+interface ClickProps {
+  size: number;
+}
+
+export const ClickWrapper = styled.button<ClickProps>`
   cursor: pointer;
   display: flex;
   background: none;
   border: 0;
   border-radius: 50%;
-  padding: ${props => props.theme.spacer}px;
-  margin: -${props => props.theme.spacer}px;
+  padding: ${props => props.theme.spacer * props.size}px;
+  margin: -${props => props.theme.spacer * props.size}px;
   color: inherit;
 
   &:hover {
     outline: none;
-    background: ${props => transparentize(0.95, props.theme.vdgrey)};
-    box-shadow: 0 0 0 3px ${props => transparentize(0.95, props.theme.vdgrey)};
+    background: ${props => transparentize(0.95, props.theme.dgrey)};
+    box-shadow: 0 0 0 3px ${props => transparentize(0.95, props.theme.dgrey)};
   }
 
   &:focus {

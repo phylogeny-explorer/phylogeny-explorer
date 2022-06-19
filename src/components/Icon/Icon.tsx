@@ -51,6 +51,7 @@ import { ClickWrapper } from './Icon.styled';
 export interface IconProps extends Omit<MdiIconProps, 'path'> {
   name: string;
   onClick?: () => void;
+  size?: number;
 }
 
 const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
@@ -108,7 +109,7 @@ const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
 
   if (onClick)
     return (
-      <ClickWrapper onClick={onClick}>
+      <ClickWrapper onClick={onClick} size={size}>
         <MdiIcon
           path={paths[name] || mdiHelp}
           rotate={rotations[name] || rotate}
