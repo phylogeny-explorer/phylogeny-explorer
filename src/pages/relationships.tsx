@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import MRCA from 'lib/graphql/mrca';
 import useUser from 'lib/hooks/useUser';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import Search from 'components/Search';
 import Button from 'components/Button';
 import { HeadingLarge } from 'components/Typography';

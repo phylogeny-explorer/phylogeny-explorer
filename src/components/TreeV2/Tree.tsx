@@ -7,12 +7,12 @@ import {
   RenderCustomNodeElementFn,
 } from 'react-d3-tree/lib/types/common';
 
-import { Clade } from 'lib/types';
+import { Node } from 'lib/types';
 import { useCenteredTree } from './useCenteredTree';
 import { Wrapper } from './Tree.styled';
 
 interface Props {
-  data: Clade;
+  data: Node;
   isVertical?: boolean;
   // appendNode: (id: string) => void;
   onClickNode: (id: string) => void;

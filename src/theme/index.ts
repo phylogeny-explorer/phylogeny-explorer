@@ -9,8 +9,16 @@ const theme: DefaultTheme = {
   xLargeSpacer: 32,
   xxLargeSpacer: 64,
 
+  spacers: {
+    sm: 4,
+    md: 8,
+    lg: 16,
+    xl: 32,
+    xxl: 64,
+  },
+
   // Radius
-  borderRadius: 3,
+  borderRadius: 4,
 
   // Colors
   background: COLOURS.white,

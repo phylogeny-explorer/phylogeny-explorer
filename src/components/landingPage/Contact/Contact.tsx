@@ -9,7 +9,8 @@ import ReactMarkdown from 'react-markdown';
 import { HeadingXLarge, LargeText } from 'components/Typography';
 import Section from '../Section';
 import Button from 'components/Button';
-import { Form, Field, ButtonWrapper, ErrorMessage } from 'components/Form';
+import { Form, ButtonWrapper, ErrorMessage } from 'components/Form';
+import Field from 'components/Field';
 import { Content, Info } from './Contact.styled';
 
 const SERVICE_ID = 'service_096y1mn';

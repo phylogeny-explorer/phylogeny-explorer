@@ -1,14 +1,4 @@
 import styled, { css } from 'styled-components';
-import { HeadingLabel, DescriptionText } from 'components/Typography';
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Label = styled(HeadingLabel)`
-  margin-bottom: ${props => props.theme.spacer}px;
-`;
 
 export const sharedInputStyle = css`
   font-family: inherit;
@@ -26,14 +16,10 @@ export const sharedInputStyle = css`
     font-weight: normal;
     font-size: 0.875rem;
     line-height: 1.25rem;
+    color: ${props => props.theme.grey};
   }
 `;
 
 export const StyledInput = styled.input`
   ${sharedInputStyle}
-`;
-
-export const ErrorMessage = styled(DescriptionText)`
-  margin-top: ${props => props.theme.smallSpacer}px;
-  color: ${props => props.theme.secondary};
 `;

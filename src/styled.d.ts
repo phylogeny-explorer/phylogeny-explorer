@@ -9,6 +9,14 @@ declare module 'styled-components' {
     xLargeSpacer: number;
     xxLargeSpacer: number;
 
+    spacers: {
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+      xxl: number;
+    };
+
     // Radius
     borderRadius: number;
 

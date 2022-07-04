@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import useUser from 'lib/hooks/useUser';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import {
   BodyText,
   Heading,

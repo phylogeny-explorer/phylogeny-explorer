@@ -44,6 +44,10 @@ import {
   mdiCheckboxIntermediate,
   mdiCheckboxMarked,
   mdiMenu,
+  mdiFileDocument,
+  mdiFileDocumentOutline,
+  mdiRadioboxMarked,
+  mdiRadioboxBlank,
 } from '@mdi/js';
 
 import { ClickWrapper } from './Icon.styled';
@@ -61,6 +65,8 @@ const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
     checkbox: mdiCheckboxBlankOutline,
     'checkbox-indeterminate': mdiCheckboxIntermediate,
     'checkbox-marked': mdiCheckboxMarked,
+    radio: mdiRadioboxBlank,
+    'radio-marked': mdiRadioboxMarked,
     copy: mdiContentCopy,
     cog: mdiCog,
     crosshairs: mdiCrosshairsGps,
@@ -94,6 +100,8 @@ const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
     search: mdiMagnify,
     upload: mdiUpload,
     menu: mdiMenu,
+    file: mdiFileDocument,
+    'file-outline': mdiFileDocumentOutline,
     // features
     tree: mdiGraph,
     'tree-outline': mdiGraphOutline,
@@ -109,7 +117,7 @@ const Icon = ({ name, onClick, size = 1, rotate, ...props }: IconProps) => {
 
   if (onClick)
     return (
-      <ClickWrapper onClick={onClick} size={size}>
+      <ClickWrapper onClick={onClick} size={size} className={props.className}>
         <MdiIcon
           path={paths[name] || mdiHelp}
           rotate={rotations[name] || rotate}

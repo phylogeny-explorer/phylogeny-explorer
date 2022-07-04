@@ -9,6 +9,7 @@ export interface CheckboxProps {
   disabled?: boolean;
   indeterminate?: boolean;
   text?: string;
+  type?: 'checkbox' | 'radio';
   onChange: (name: string, checked: boolean) => void;
 }
 
@@ -19,6 +20,7 @@ const Checkbox = ({
   indeterminate,
   onChange,
   text,
+  type = 'checkbox',
   ...props
 }: CheckboxProps) => {
   return (
@@ -33,8 +35,8 @@ const Checkbox = ({
         <Icon
           name={
             checked
-              ? `checkbox-${indeterminate ? 'indeterminate' : 'marked'}`
-              : 'checkbox'
+              ? `${type}-${indeterminate ? 'indeterminate' : 'marked'}`
+              : type
           }
         />
       </Check>

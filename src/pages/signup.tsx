@@ -7,7 +7,7 @@ import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
 import useUser from 'lib/hooks/useUser';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import Button from 'components/Button';
 // import SocialButton from 'components/SocialButton';
 import { Heading } from 'components/Typography';
@@ -16,10 +16,10 @@ import {
   Form,
   Header,
   Text,
-  Field,
   ButtonWrapper,
   ErrorMessage,
 } from 'components/Form';
+import Field from 'components/Field';
 import backgroundImage from '../../public/images/background-signup.jpg';
 
 const Signup = () => {
