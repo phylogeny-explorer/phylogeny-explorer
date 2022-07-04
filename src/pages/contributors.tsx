@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { getContributorsPage } from 'lib/api/strapi';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import Header, { HeaderProps } from 'components/contributorsPage/Header';
 import Management, {
   ManagementProps,

@@ -1,0 +1,10 @@
+[
+  { "value": "domain", "label": "Domain" },
+  { "value": "kingdom", "label": "Kingdom" },
+  { "value": "phylum", "label": "Phylum" },
+  { "value": "class", "label": "Class" },
+  { "value": "order", "label": "Order" },
+  { "value": "family", "label": "Family" },
+  { "value": "genus", "label": "Genus" },
+  { "value": "species", "label": "Species" }
+]

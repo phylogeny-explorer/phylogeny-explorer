@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import useUser from 'lib/hooks/useUser';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import SideBar from 'components/SideBar';
 import Cladogram from 'components/Cladogram';
 

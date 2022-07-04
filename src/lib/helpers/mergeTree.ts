@@ -1,14 +1,14 @@
-import { Clade } from 'lib/types';
+import { Node } from 'lib/types';
 
-type Crumb = { lineage: string[]; target: Clade };
+type Crumb = { lineage: string[]; target: Node };
 
-const predicate = (dir: Clade, b: string) => dir.id === b;
-const mutation = (item: Clade, target: Clade) =>
+const predicate = (dir: Node, b: string) => dir.id === b;
+const mutation = (item: Node, target: Node) =>
   item.id === target.id ? Object.assign({}, item, target) : item;
 
-function mergeTree(obj: Clade, crumbs: Crumb[]) {
+function mergeTree(obj: Node, crumbs: Crumb[]) {
   //We don't change obj
-  let currentItem: Clade | undefined;
+  let currentItem: Node | undefined;
 
   //find the crumbs which predicate() true on this sub-tree
   const matchedParentCrumbs = crumbs.filter(

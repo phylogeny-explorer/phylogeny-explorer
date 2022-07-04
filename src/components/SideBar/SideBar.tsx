@@ -3,9 +3,11 @@ import { useQuery } from '@apollo/client';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import { Clade } from 'lib/types';
 import Icon from 'components/Icon';
-import { SubtitleSmall, Heading, BodyText } from 'components/Typography';
+import Loader from 'components/Loader';
 import Fab from 'components/Fab';
+import { SubtitleSmall, Heading, BodyText } from 'components/Typography';
 import GET_CLADE from './graphql/get-clade';
 import {
   Wrapper,
@@ -17,14 +19,6 @@ import {
   Buttons,
 } from './SideBar.styled';
 
-interface Clade {
-  id: string;
-  name: string;
-  parentId: string;
-  imageUrl?: string;
-  characteristics?: { name: string; value: string }[];
-}
-
 interface Props {
   cladeId?: string;
   close: () => void;
@@ -34,13 +28,13 @@ const SideBar = ({ cladeId, close }: Props) => {
   const router = useRouter();
   console.log({ cladeId });
 
-  const { data, loading } = useQuery(GET_CLADE, {
+  const { data, loading } = useQuery<{ clade2: Clade }>(GET_CLADE, {
     variables: { id: cladeId?.slice(3) },
     skip: !cladeId,
   });
 
   console.log(data);
-  const clade: Clade = data?.clade2;
+  const clade = data?.clade2;
 
   return (
     <Wrapper isOpen={!!cladeId}>
@@ -49,7 +43,11 @@ const SideBar = ({ cladeId, close }: Props) => {
         <SubtitleSmall>Clade Info</SubtitleSmall>
         <Icon name="left" onClick={close} />
       </Header>
-      {loading && 'Loading...'}
+      {loading && (
+        <Content>
+          <Loader color="light" message="loading clade" />
+        </Content>
+      )}
 
       {clade?.imageUrl && (
         <Image
@@ -75,19 +73,20 @@ const SideBar = ({ cladeId, close }: Props) => {
             <Fab
               icon="edit"
               text="Edit"
-              onClick={() => router.push(`/clade/edit?cladeId=${clade.id}`)}
+              onClick={() => router.push(`/clades/${clade.id}/edit/basic`)}
             />
-            <Fab icon="plus" text="Add" />
-            <Fab icon="dots-h" text="More" />
+            <Fab icon="plus" text="Add" disabled />
+            <Fab icon="dots-h" text="More" disabled />
           </Buttons>
 
           <BodyText>{`ID: ${clade.id}`}</BodyText>
           <BodyText>{`Parent ID: ${clade.parentId}`}</BodyText>
-          {clade.characteristics?.map(characteristic => (
+          {/* {clade.characteristics?.map(characteristic => (
             <BodyText
               key={characteristic.name}
             >{`${characteristic.name}: ${characteristic.value}`}</BodyText>
-          ))}
+          ))} */}
+          <BodyText>~ Under construction ~</BodyText>
         </Content>
       )}
     </Wrapper>

@@ -13,8 +13,8 @@ interface Props {
 const Main = styled.div<Props>`
   height: 100vh;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   background: ${props =>
     props.isDark ? props.theme.foreground : props.theme.background};
   background-image: url(${props => props.backgroundImage});

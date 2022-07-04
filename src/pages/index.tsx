@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { getLandingPage } from 'lib/api/strapi';
-import Page from 'components/Page';
+import Page from 'components/layout/Page';
 import Hero, { HeroProps } from 'components/landingPage/Hero';
 import Phylogeny, { PhylogenyProps } from 'components/landingPage/Phylogeny';
 import About, { AboutProps } from 'components/landingPage/About';

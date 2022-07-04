@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
 
-import { Clade } from 'lib/types';
+import { Node } from 'lib/types';
 // import mergeTree from 'lib/helpers/mergeTree';
 import { HeadingLarge } from 'components/Typography';
 import Tree from 'components/TreeV2';
@@ -25,7 +25,7 @@ interface Props {
 }
 
 const Clades = ({ nodeId = 'ott93302', onClickNode }: Props) => {
-  const { loading, error, data } = useQuery<{ tree: Clade }>(GET_TREE, {
+  const { loading, error, data } = useQuery<{ tree: Node }>(GET_TREE, {
     fetchPolicy: 'no-cache',
     variables: { id: nodeId },
   });
