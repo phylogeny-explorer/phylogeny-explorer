@@ -106,9 +106,9 @@ const Login = () => {
             </ButtonWrapper>
           </Form>
         </Formik>
-        <Text>
+        {/* <Text>
           <Link href="/forgot-password">Forgot your password?</Link>
-        </Text>
+        </Text> */}
       </Wrapper>
     </Page>
   );

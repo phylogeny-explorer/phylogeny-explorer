@@ -11,7 +11,11 @@ export const Wrapper = styled.div`
     stroke-width: 2px;
   }
 
-  .rd3t-node,
+  .node_root {
+    fill: ${props => props.theme.secondary};
+    stroke: none;
+  }
+
   .node__branch {
     fill: ${props => props.theme.white};
     stroke: ${props => props.theme.primary};
@@ -21,6 +25,10 @@ export const Wrapper = styled.div`
   .node__leaf {
     fill: ${props => props.theme.primary};
     stroke: none;
+
+    circle {
+      pointer-events: none;
+    }
   }
 
   .rd3t-label__title {

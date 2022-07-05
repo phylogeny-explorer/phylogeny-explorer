@@ -30,6 +30,7 @@ const Tree = ({ data, isVertical, onClickNode }: Props) => {
     const id = nodeDatum.attributes?.id.toString() || '';
     const hasChildren = nodeDatum.attributes?.hasChildren;
     const hasChildrenData = nodeDatum.children && nodeDatum.children.length > 0;
+    const parent = nodeDatum.attributes?.lineage?.[0];
     const className = hasChildren ? 'node__branch' : 'node__leaf';
 
     const updateQuery = nodeId =>
@@ -38,14 +39,22 @@ const Tree = ({ data, isVertical, onClickNode }: Props) => {
       });
 
     const onClickCircle = () => {
-      if (id === data.id) updateQuery(nodeDatum.attributes?.lineage[0]);
-      else if (hasChildrenData) toggleNode();
+      if (hasChildrenData) toggleNode();
       else updateQuery(id);
     };
 
+    const goToParent = () => updateQuery(parent);
+
     return (
-      <g width={nodeSize.x} height={nodeSize.y} className={className}>
-        <circle r={5} onClick={onClickCircle} />
+      <g
+        width={nodeSize.x}
+        height={nodeSize.y}
+        className={id === data.id ? 'node_root' : className}
+      >
+        {parent && id === data.id && (
+          <polygon points="5,5 -5,0 5,-5" onClick={goToParent} />
+        )}
+        {id !== data.id && <circle r={5} onClick={onClickCircle} />}
 
         <text dy="0.31em" x={12} className="rd3t-label__title overlay">
           {nodeDatum.name}
