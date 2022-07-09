@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
@@ -39,15 +39,15 @@ const Login = () => {
     Auth.signIn(email, password)
       .then(user => {
         const token = user.signInUserSession.accessToken.jwtToken;
-        // const decoded = jwt.decode(token);
+        const decoded = jwt.decode(token);
 
-        // if (decoded['cognito:groups']?.includes('viewers')) {
-        setSession(token);
-        // } else {
-        //   throw new Error(
-        //     'This user is not a Beta tester. Beta is currently full.'
-        //   );
-        // }
+        if (decoded['cognito:groups']?.includes('viewers')) {
+          setSession(token);
+        } else {
+          throw new Error(
+            'This user is not a Beta tester. Beta is currently full.'
+          );
+        }
       })
       .catch(err => {
         setError(err.message);

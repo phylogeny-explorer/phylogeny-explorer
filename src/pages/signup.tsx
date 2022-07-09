@@ -131,10 +131,10 @@ const Signup = () => {
             </Form>
           )}
         </Formik>
-        {/* <ErrorMessage>
+        <ErrorMessage>
           We are currently not accepting new sign ups as we have enough Beta
           testers.
-        </ErrorMessage> */}
+        </ErrorMessage>
       </Wrapper>
     </Page>
   );
