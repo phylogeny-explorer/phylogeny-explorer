@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
-import GET_CLADE from 'components/SideBar/graphql/get-clade';
+import GET_CLADE from 'components/CladeInfo/graphql/get-clade';
 import Loader from 'components/Loader';
 
 const Content = styled.div`

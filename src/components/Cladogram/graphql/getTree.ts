@@ -7,6 +7,7 @@ const GET_TREE = gql`
     attributes {
       id
       hasChildren
+      extant
     }
   }
 

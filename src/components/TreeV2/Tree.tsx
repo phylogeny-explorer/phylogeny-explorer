@@ -1,77 +1,24 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import ReactTree from 'react-d3-tree';
 import { linkHorizontal } from 'd3';
-import {
-  RawNodeDatum,
-  RenderCustomNodeElementFn,
-} from 'react-d3-tree/lib/types/common';
+import { RawNodeDatum } from 'react-d3-tree/lib/types/common';
 
-import { Node } from 'lib/types';
+import { Node as Data } from 'lib/types';
+import Node from 'components/Node';
 import { useCenteredTree } from './useCenteredTree';
 import { Wrapper } from './Tree.styled';
 
 interface Props {
-  data: Node;
+  data: Data;
   isVertical?: boolean;
   // appendNode: (id: string) => void;
   onClickNode: (id: string) => void;
+  selectedNodeId?: string;
 }
 
-const Tree = ({ data, isVertical, onClickNode }: Props) => {
-  const router = useRouter();
+const Tree = ({ data, isVertical, onClickNode, selectedNodeId }: Props) => {
   const { translate, dimensions, containerRef } = useCenteredTree();
   const nodeSize = { x: 350, y: 24 };
-
-  const renderCustomNodeElement: RenderCustomNodeElementFn = ({
-    nodeDatum,
-    toggleNode,
-  }) => {
-    const id = nodeDatum.attributes?.id.toString() || '';
-    const hasChildren = nodeDatum.attributes?.hasChildren;
-    const hasChildrenData = nodeDatum.children && nodeDatum.children.length > 0;
-    const parent = nodeDatum.attributes?.lineage?.[0];
-    const className = hasChildren ? 'node__branch' : 'node__leaf';
-
-    const updateQuery = nodeId =>
-      router.push({ pathname: '/tree', query: { nodeId } }, undefined, {
-        shallow: true,
-      });
-
-    const onClickCircle = () => {
-      if (hasChildrenData) toggleNode();
-      else updateQuery(id);
-    };
-
-    const goToParent = () => updateQuery(parent);
-
-    return (
-      <g
-        width={nodeSize.x}
-        height={nodeSize.y}
-        className={id === data.id ? 'node_root' : className}
-      >
-        {parent && id === data.id && (
-          <polygon points="5,5 -5,0 5,-5" onClick={goToParent} />
-        )}
-        {id !== data.id && <circle r={5} onClick={onClickCircle} />}
-
-        <text dy="0.31em" x={12} className="rd3t-label__title overlay">
-          {nodeDatum.name}
-        </text>
-        <text
-          dy="0.31em"
-          x={12}
-          className={`rd3t-label__title ${
-            id.includes('mrca') ? 'disabled' : ''
-          }`}
-          onClick={id.includes('mrca') ? undefined : () => onClickNode(id)}
-        >
-          {nodeDatum.name}
-        </text>
-      </g>
-    );
-  };
 
   const straightPathFunc = linkDatum => {
     const { source, target } = linkDatum;
@@ -92,9 +39,17 @@ const Tree = ({ data, isVertical, onClickNode }: Props) => {
         nodeSize={nodeSize}
         separation={{ siblings: 1, nonSiblings: 2 }}
         orientation={isVertical ? 'vertical' : 'horizontal'}
-        renderCustomNodeElement={renderCustomNodeElement}
+        renderCustomNodeElement={nodeProps => (
+          <Node
+            {...nodeProps}
+            nodeSize={nodeSize}
+            onClickNode={onClickNode}
+            rootId={data.id}
+            selectedNodeId={selectedNodeId}
+          />
+        )}
         pathFunc={straightPathFunc}
-        initialDepth={2}
+        initialDepth={1}
       />
     </Wrapper>
   );

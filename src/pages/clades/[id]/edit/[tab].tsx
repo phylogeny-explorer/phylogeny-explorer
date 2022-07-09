@@ -6,7 +6,7 @@ import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import PageContent from 'components/layout/PageContent';
 import VerticalNav from 'components/layout/VerticalNav';
-import GET_CLADE from 'components/SideBar/graphql/get-clade';
+import GET_CLADE from 'components/CladeInfo/graphql/get-clade';
 import Loader from 'components/Loader';
 import { BodyText, Heading } from 'components/Typography';
 import EditBasicDetails from 'components/clades/EditBasicDetails';

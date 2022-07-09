@@ -10,6 +10,13 @@ const Grid = styled.div<GridStyles>`
   ${props => props.ji && `justify-items: ${props.ji};`}
   ${props => props.ac && `align-content: ${props.ac};`}
   ${props => props.ai && `align-items: ${props.ai};`}
+
+  ${props => props.p && `padding: ${props.theme.spacers[props.p]}px;`}
+  ${props =>
+    (props.px || props.py) &&
+    `padding: 
+      ${props.py ? props.theme.spacers[props.py] : 0}px
+      ${props.px ? props.theme.spacers[props.px] : 0}px;`}
 `;
 
 export default Grid;

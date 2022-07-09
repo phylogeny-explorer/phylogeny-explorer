@@ -12,6 +12,7 @@ const GET_CLADE = gql`
         name
         value
       }
+      extant
     }
   }
 `;

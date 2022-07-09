@@ -4,27 +4,17 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { Clade } from 'lib/types';
-import Icon from 'components/Icon';
 import Loader from 'components/Loader';
 import Fab from 'components/Fab';
-import { SubtitleSmall, Heading, BodyText } from 'components/Typography';
+import { Heading, BodyText } from 'components/Typography';
 import GET_CLADE from './graphql/get-clade';
-import {
-  Wrapper,
-  Header,
-  HeaderIcon,
-  Content,
-  Section,
-  Authority,
-  Buttons,
-} from './SideBar.styled';
+import { Content, Section, Authority, Buttons } from './CladeInfo.styled';
 
 interface Props {
   cladeId?: string;
-  close: () => void;
 }
 
-const SideBar = ({ cladeId, close }: Props) => {
+const CladeInfo = ({ cladeId }: Props) => {
   const router = useRouter();
   console.log({ cladeId });
 
@@ -36,19 +26,15 @@ const SideBar = ({ cladeId, close }: Props) => {
   console.log(data);
   const clade = data?.clade2;
 
-  return (
-    <Wrapper isOpen={!!cladeId}>
-      <Header>
-        <HeaderIcon name="info-circle" size={0.75} />
-        <SubtitleSmall>Clade Info</SubtitleSmall>
-        <Icon name="left" onClick={close} />
-      </Header>
-      {loading && (
-        <Content>
-          <Loader color="light" message="loading clade" />
-        </Content>
-      )}
+  if (loading)
+    return (
+      <Content>
+        <Loader color="light" message="loading clade" />
+      </Content>
+    );
 
+  return (
+    <>
       {clade?.imageUrl && (
         <Image
           src={clade.imageUrl}
@@ -89,8 +75,8 @@ const SideBar = ({ cladeId, close }: Props) => {
           <BodyText>~ Under construction ~</BodyText>
         </Content>
       )}
-    </Wrapper>
+    </>
   );
 };
 
-export default SideBar;
+export default CladeInfo;
