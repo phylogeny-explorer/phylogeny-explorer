@@ -6,6 +6,8 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
+import { getSignupPage, getStrapiMedia } from 'lib/api/strapi';
+import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import Button from 'components/Button';
@@ -20,9 +22,14 @@ import {
   ErrorMessage,
 } from 'components/Form';
 import Field from 'components/Field';
-import backgroundImage from '../../public/images/background-signup.jpg';
 
-const Signup = () => {
+interface Props {
+  background: MediaItem;
+  successMessage: string;
+  errorMessage?: string;
+}
+
+const Signup = ({ background, successMessage, errorMessage }: Props) => {
   const { isLoggedIn, isLoadingUser } = useUser({
     redirectTo: '/',
     redirectIfFound: true,
@@ -43,9 +50,7 @@ const Signup = () => {
       },
     })
       .then(() => {
-        toast.success(
-          'Check your email for confirmation link. This will not grant you access to the Beta.'
-        );
+        toast.success(successMessage);
         router.push({
           pathname: '/login',
           query: { email },
@@ -79,7 +84,7 @@ const Signup = () => {
   if (isLoadingUser || isLoggedIn) return null;
 
   return (
-    <Page backgroundImage={backgroundImage.src}>
+    <Page backgroundImage={getStrapiMedia(background.data)}>
       <Wrapper>
         <Header>
           <Heading>Sign up</Heading>
@@ -131,13 +136,16 @@ const Signup = () => {
             </Form>
           )}
         </Formik>
-        <ErrorMessage>
-          We are currently not accepting new sign ups as we have enough Beta
-          testers.
-        </ErrorMessage>
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       </Wrapper>
     </Page>
   );
 };
 
 export default Signup;
+
+export async function getStaticProps() {
+  const content = await getSignupPage();
+
+  return { props: { ...content } };
+}
