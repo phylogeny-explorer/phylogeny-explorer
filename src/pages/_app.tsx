@@ -46,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const MATOMO_URL = 'analytics.phylogenyexplorerproject.org/matomo.php';
+const MATOMO_URL = 'analytics.phylogenyexplorerproject.org';
 const MATOMO_SITE_ID = '2';
 
 const App = ({ Component, pageProps }: AppProps) => {
