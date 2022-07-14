@@ -11,7 +11,7 @@ export interface Props {
   profiles: ProfileProps[];
 }
 
-const Management = ({ title, text, profiles }) => (
+const Management = ({ title, text, profiles }: Props) => (
   <Section background="white" isFullWidth>
     <Info>
       <HeadingXLarge>{title}</HeadingXLarge>

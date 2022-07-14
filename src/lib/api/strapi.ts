@@ -58,3 +58,13 @@ export async function getContributorsPage() {
   );
   return { ...landingPageData.attributes, ...contributorsPageData.attributes };
 }
+
+export async function getLoginPage() {
+  const data = await fetchAPI('login-page?populate=background');
+  return data.attributes;
+}
+
+export async function getSignupPage() {
+  const data = await fetchAPI('signup-page?populate=background');
+  return data.attributes;
+}

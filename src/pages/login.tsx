@@ -6,6 +6,8 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import jwt from 'jsonwebtoken';
 
+import { getLoginPage, getStrapiMedia } from 'lib/api/strapi';
+import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import Button from 'components/Button';
@@ -20,9 +22,13 @@ import {
   ErrorMessage,
 } from 'components/Form';
 import Field from 'components/Field';
-import backgroundImage from '../../public/images/background-login.jpg';
 
-const Login = () => {
+interface Props {
+  background: MediaItem;
+  errorMessage?: string;
+}
+
+const Login = ({ background, errorMessage }: Props) => {
   const { query } = useRouter();
   const { isLoggedIn, isLoadingUser, setSession } = useUser({
     redirectTo: '/',
@@ -44,9 +50,7 @@ const Login = () => {
         if (decoded['cognito:groups']?.includes('viewers')) {
           setSession(token);
         } else {
-          throw new Error(
-            'This user is not a Beta tester. Beta is currently full.'
-          );
+          throw new Error(errorMessage);
         }
       })
       .catch(err => {
@@ -63,7 +67,7 @@ const Login = () => {
   if (isLoadingUser || isLoggedIn) return null;
 
   return (
-    <Page backgroundImage={backgroundImage.src}>
+    <Page backgroundImage={getStrapiMedia(background.data)}>
       <Wrapper>
         <Header>
           <Heading>Log in</Heading>
@@ -115,3 +119,9 @@ const Login = () => {
 };
 
 export default Login;
+
+export async function getStaticProps() {
+  const content = await getLoginPage();
+
+  return { props: { ...content } };
+}

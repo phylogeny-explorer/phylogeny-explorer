@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import reset from 'styled-reset';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { init } from '@socialgouv/matomo-next';
 
 import theme from 'theme';
 import LoginProvider from 'context/LoginContext';
@@ -45,7 +46,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const MATOMO_URL = 'https://analytics.phylogenyexplorerproject.org';
+const MATOMO_SITE_ID = '2';
+
 const App = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    init({ url: MATOMO_URL, siteId: MATOMO_SITE_ID });
+  }, []);
+
   return (
     <LoginProvider>
       <ApolloProvider client={client}>
