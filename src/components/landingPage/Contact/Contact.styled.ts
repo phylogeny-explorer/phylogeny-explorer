@@ -4,7 +4,7 @@ export const Content = styled.div`
   display: grid;
   grid-gap: ${props => props.theme.xxLargeSpacer}px;
   grid-auto-flow: column;
-  grid-template-columns: minmax(300px, 400px) 1fr;
+  grid-template-columns: minmax(300px, 360px) 1fr;
 
   @media screen and (max-width: 600px) {
     grid-gap: ${props => props.theme.xLargeSpacer}px;

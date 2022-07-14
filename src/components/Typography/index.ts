@@ -58,11 +58,19 @@ export const ButtonTextSmall = styled.span`
 export const LargeText = styled.p`
   font-size: 1.25rem;
   line-height: 1.5rem;
+
+  strong {
+    font-weight: 500;
+  }
 `;
 
 export const BodyText = styled.p`
   font-size: 1rem;
   line-height: 1.5rem;
+
+  strong {
+    font-weight: 500;
+  }
 `;
 
 export const DescriptionText = styled.p`

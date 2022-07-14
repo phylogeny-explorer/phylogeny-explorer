@@ -4,13 +4,13 @@ import { toast } from 'react-toastify';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 // import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
 
-import { HeadingXLarge, LargeText } from 'components/Typography';
+import { HeadingXLarge } from 'components/Typography';
 import Section from '../Section';
 import Button from 'components/Button';
 import { Form, ButtonWrapper, ErrorMessage } from 'components/Form';
 import Field from 'components/Field';
+import { Markdown } from 'components/Markdown';
 import { Content, Info } from './Contact.styled';
 
 const SERVICE_ID = 'service_096y1mn';
@@ -59,12 +59,7 @@ const Contact = ({ title, text }: Props) => {
           </Form>
         </Formik>
         <Info>
-          <ReactMarkdown
-            components={{ p: pProps => <LargeText {...pProps} /> }}
-            linkTarget="_blank"
-          >
-            {text}
-          </ReactMarkdown>
+          <Markdown>{text}</Markdown>
           {/* <LargeText>
             <Link href="/contributors">Meet the team behind the project</Link>.
           </LargeText> */}
