@@ -13,7 +13,7 @@ export interface Props {
 }
 
 const Phylogeny = ({ title, text, image }: Props) => (
-  <Section background="dprimary" isRow>
+  <Section background="foreground" isRow id="phylogeny">
     <Info>
       <HeadingXLarge>{title}</HeadingXLarge>
       <LargeText>{text}</LargeText>

@@ -4,7 +4,9 @@ import Button from 'components/Button';
 
 export const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-auto-flow: column;
+  grid-template-columns: auto 1fr auto auto;
+  justify-items: start;
   grid-gap: ${props => props.theme.spacer}px;
   align-items: center;
   height: ${props => props.theme.topBarHeight}px;

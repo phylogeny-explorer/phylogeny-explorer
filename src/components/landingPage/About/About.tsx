@@ -14,7 +14,7 @@ export interface Props {
 }
 
 const About = ({ title, text, images }: Props) => (
-  <Section background="dsecondary">
+  <Section background="dprimary" id="about">
     <HeadingXLarge>{title}</HeadingXLarge>
     <LargeText>{text}</LargeText>
     <Images>

@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const DevTeam = ({ title, text, profiles }: Props) => (
-  <Section background="dsecondary" isRow isFullWidth>
+  <Section background="secondary" isRow isFullWidth>
     <Info>
       <HeadingXLarge>{title}</HeadingXLarge>
       <LargeText>{text}</LargeText>

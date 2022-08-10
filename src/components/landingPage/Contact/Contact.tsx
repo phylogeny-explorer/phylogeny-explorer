@@ -32,7 +32,7 @@ const Contact = ({ title, text }: Props) => {
   });
 
   return (
-    <Section background="white">
+    <Section background="white" id="contact">
       <HeadingXLarge>{title}</HeadingXLarge>
 
       <Content>

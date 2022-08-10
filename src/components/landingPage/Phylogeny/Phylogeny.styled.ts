@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Img from 'next/image';
 
 export const Image = styled(Img)`
-  mix-blend-mode: multiply;
+  mix-blend-mode: plus-lighter;
+  filter: invert(1);
 `;
 
 export const Info = styled.div`

@@ -10,6 +10,7 @@ const PageHeader = () => {
   return (
     <Wrapper>
       <Logo full />
+      <AuthButton dark text="Donate" onClick={() => router.push('#donate')} />
       {pathname !== '/signup' && (
         <AuthButton
           dark

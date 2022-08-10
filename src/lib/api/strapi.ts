@@ -27,6 +27,7 @@ export async function getLandingPage() {
         'phylogeny.image',
         'about',
         'about.images',
+        'donate',
         'contact',
         'footer',
         'footer.icons',

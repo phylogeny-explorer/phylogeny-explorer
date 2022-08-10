@@ -1,9 +1,10 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { readableColor } from 'polished';
+import useScrollObserver from 'lib/hooks/useScrollObserver';
 
 interface WrapperProps {
-  background: 'dprimary' | 'dsecondary' | 'white';
+  background: 'dprimary' | 'secondary' | 'white' | 'foreground';
   isFullWidth?: boolean;
 }
 
@@ -33,7 +34,7 @@ export const Inner = styled.div<InnerProps>`
   max-width: 1200px;
   display: grid;
   grid-auto-flow: ${props => (props.isRow ? 'column' : 'row')};
-  grid-gap: ${props => props.theme.largeSpacer}px;
+  grid-gap: ${props => props.theme.spacers.xl}px;
   grid-template-columns: 1fr;
 
   @media screen and (max-width: 700px) {
@@ -47,22 +48,27 @@ export const Inner = styled.div<InnerProps>`
 `;
 
 interface Props {
-  background: 'dprimary' | 'dsecondary' | 'white';
+  id?: string;
+  background: 'dprimary' | 'secondary' | 'white' | 'foreground';
   isRow?: boolean;
   isFullWidth?: boolean;
 }
 
 const Section = ({
+  id,
   background,
   isRow,
   isFullWidth,
   children,
-}: PropsWithChildren<Props>) => (
-  <Wrapper background={background} isFullWidth={isFullWidth}>
-    <Inner isRow={isRow} isFullWidth={isFullWidth}>
-      {children}
-    </Inner>
-  </Wrapper>
-);
+}: PropsWithChildren<Props>) => {
+  useScrollObserver(id);
+  return (
+    <Wrapper id={id} background={background} isFullWidth={isFullWidth}>
+      <Inner isRow={isRow} isFullWidth={isFullWidth}>
+        {children}
+      </Inner>
+    </Wrapper>
+  );
+};
 
 export default Section;

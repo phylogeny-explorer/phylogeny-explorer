@@ -17,7 +17,7 @@ const Hero = ({ title, subtitle, cta, background }: Props) => {
   const router = useRouter();
   const { isLoggedIn } = useUser();
   return (
-    <Wrapper backgroundUrl={getStrapiMedia(background.data)}>
+    <Wrapper backgroundUrl={getStrapiMedia(background.data)} id="hero">
       <Title>{title}</Title>
       <Subtitle>{subtitle}</Subtitle>
       <LargeButton
