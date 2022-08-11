@@ -26,9 +26,12 @@ import Field from 'components/Field';
 interface Props {
   background: MediaItem;
   errorMessage?: string;
+  devErrorMessage?: string;
 }
 
-const Login = ({ background, errorMessage }: Props) => {
+const env = process.env.NEXT_PUBLIC_API_BASE || 'dev';
+
+const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
   const { query } = useRouter();
   const { isLoggedIn, isLoadingUser, setSession } = useUser({
     redirectTo: '/',
@@ -47,10 +50,19 @@ const Login = ({ background, errorMessage }: Props) => {
         const token = user.signInUserSession.accessToken.jwtToken;
         const decoded = jwt.decode(token);
 
-        if (decoded['cognito:groups']?.includes('viewers')) {
+        const groups: string[] = decoded['cognito:groups'];
+
+        const canLoginToDev = new Set(['devTeam', 'admin']);
+        const canLoginToProd = new Set(['viewers', ...canLoginToDev]);
+
+        if (
+          groups.filter(group =>
+            (env === 'prod' ? canLoginToProd : canLoginToDev).has(group)
+          ).length > 0
+        ) {
           setSession(token);
         } else {
-          throw new Error(errorMessage);
+          throw new Error(env === 'prod' ? errorMessage : devErrorMessage);
         }
       })
       .catch(err => {
