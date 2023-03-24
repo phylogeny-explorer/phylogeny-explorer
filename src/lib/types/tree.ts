@@ -1,19 +1,14 @@
-type Characteristic = {
-  name: string;
-  value: boolean;
-};
-
 type Attributes = {
   id: string;
   rank: string;
   extant: boolean;
   hasChildren: boolean;
   leaves: number;
-  synonyms: string[];
+  // synonyms: string[];
   lineage: string[];
   parentId: string;
-  sources: string[];
-  characteristics: Characteristic[];
+  // sources: string[];
+  // characteristics: Characteristic[];
 };
 
 export type Node = {
@@ -21,6 +16,23 @@ export type Node = {
   name: string;
   children?: Node[];
   attributes?: Attributes;
+};
+
+type Source = {
+  id: string;
+  name: string;
+};
+
+type Characteristic = {
+  name: string;
+  value: boolean;
+};
+
+export type Authorship = {
+  name?: string;
+  year?: string;
+  isOriginalAuthor?: boolean;
+  sources?: string[];
 };
 
 export type Clade = {
@@ -34,7 +46,10 @@ export type Clade = {
   synonyms?: string[];
   commonNames?: string[];
   lineage?: Clade[];
-  sources?: string[];
+  dataSources?: string[];
+  sources?: Source[];
   imageUrl?: string;
-  characteristics?: { name: string; value: string }[];
+  characteristics?: Characteristic[];
+  children?: { id: string; name: string }[];
+  authorship?: Authorship;
 };

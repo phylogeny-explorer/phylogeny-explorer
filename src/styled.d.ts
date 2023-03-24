@@ -10,6 +10,7 @@ declare module 'styled-components' {
     xxLargeSpacer: number;
 
     spacers: {
+      xs: number;
       sm: number;
       md: number;
       lg: number;
@@ -31,6 +32,7 @@ declare module 'styled-components' {
     lsecondary: string;
     success: string;
     warning: string;
+    error: string;
     white: string;
     offWhite: string;
     vvlgrey: string;

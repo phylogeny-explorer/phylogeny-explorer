@@ -1,14 +1,18 @@
-import React from 'react';
-import { useField, FieldConfig } from 'formik';
+import React, { ReactNode } from 'react';
+import { useField } from 'formik';
 import { Spacers } from 'lib/types';
+import Checkbox, { CheckboxProps } from 'components/Checkbox';
 import Input, { InputProps } from 'components/Input';
 import TextArea, { TextAreaProps } from 'components/TextArea';
 import { HeadingLabel } from 'components/Typography';
 import { Wrapper, InputWrapper, ErrorMessage } from './Field.styled';
 
-interface Props extends FieldConfig {
+interface Props {
+  name: string;
+  type?: string;
   label?: string;
   px?: Spacers;
+  children?: ReactNode;
 }
 
 const Field = ({
@@ -16,8 +20,8 @@ const Field = ({
   px,
   children,
   ...props
-}: Props & (InputProps | TextAreaProps)) => {
-  const [field, meta] = useField(props);
+}: Props & (InputProps | TextAreaProps | Omit<CheckboxProps, 'onChange'>)) => {
+  const [field, meta, helpers] = useField(props);
   const errorMessage = meta.touched && meta.error ? meta.error : '';
   return (
     <Wrapper px={px}>
@@ -29,7 +33,14 @@ const Field = ({
       {props.type === 'textarea' && (
         <TextArea {...field} {...(props as TextAreaProps)} />
       )}
-      {props.type !== 'textarea' && (
+      {props.type === 'checkbox' && (
+        <Checkbox
+          {...field}
+          {...(props as CheckboxProps)}
+          onChange={checked => helpers.setValue(checked)}
+        />
+      )}
+      {props.type !== 'textarea' && props.type !== 'checkbox' && (
         <InputWrapper>
           <Input {...field} {...(props as InputProps)} />
           {children}

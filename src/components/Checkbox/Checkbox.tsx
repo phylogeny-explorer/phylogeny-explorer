@@ -10,7 +10,7 @@ export interface CheckboxProps {
   indeterminate?: boolean;
   text?: string;
   type?: 'checkbox' | 'radio';
-  onChange: (name: string, checked: boolean) => void;
+  onChange: (checked: boolean) => void;
 }
 
 const Checkbox = ({
@@ -28,7 +28,7 @@ const Checkbox = ({
       <Input
         name={name}
         defaultChecked={checked}
-        onChange={e => onChange(e.target.name, e.target.checked)}
+        onChange={e => onChange(e.target.checked)}
         disabled={disabled}
       />
       <Check checked={checked} disabled={disabled}>

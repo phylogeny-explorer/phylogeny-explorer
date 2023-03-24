@@ -4,7 +4,7 @@ import { RawNodeDatum } from 'react-d3-tree/lib/types/common';
 
 import { G, Text } from './Node.styled';
 
-interface Props {
+export interface Props {
   nodeSize: { x: number; y: number };
   rootId?: string;
   onClickNode?: (id: string) => void;
@@ -38,7 +38,7 @@ const Node = ({
     else updateQuery(id);
   };
 
-  const goToParent = () => updateQuery(parent);
+  const goToParent = () => updateQuery(parent.id);
 
   return (
     <G

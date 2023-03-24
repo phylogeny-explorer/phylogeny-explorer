@@ -13,6 +13,7 @@ export type Colors =
   | 'lsecondary'
   | 'success'
   | 'warning'
+  | 'error'
   | 'white'
   | 'offWhite'
   | 'vvlgrey'
@@ -45,16 +46,18 @@ export interface BoxStyles {
 
 export interface GridStyles extends BoxStyles {
   gap?: Spacers;
-  templateColumns?: string;
+  templateCols?: string;
   templateRows?: string;
   templateAreas?: string;
   autoFlow?: string;
-  autoColumns?: string;
+  autoCols?: string;
   autoRows?: string;
-  columnGap?: Spacers;
+  colGap?: Spacers;
   rowGap?: Spacers;
   ac?: Alignments;
   ai?: Alignments;
   jc?: Alignments | 'space-between' | 'space-around';
   ji?: Alignments;
+  w?: string;
+  h?: string;
 }

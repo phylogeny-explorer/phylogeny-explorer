@@ -10,6 +10,7 @@ const theme: DefaultTheme = {
   xxLargeSpacer: 64,
 
   spacers: {
+    xs: 2,
     sm: 4,
     md: 8,
     lg: 16,
@@ -30,6 +31,7 @@ const theme: DefaultTheme = {
   dsecondary: COLOURS.dsecondary,
   lsecondary: COLOURS.lsecondary,
   warning: COLOURS.warning,
+  error: COLOURS.error,
   success: COLOURS.success,
   white: COLOURS.white,
   offWhite: COLOURS.offWhite,

@@ -1,4 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Colors } from 'lib/types';
+
+const colorCss = css<{ colorName?: Colors }>`
+  ${({ theme, colorName }) => colorName && `color: ${theme[colorName]};`}
+`;
 
 export const HeadingXLarge = styled.h3`
   font-size: 3rem;
@@ -22,19 +27,21 @@ export const HeadingSmall = styled.h6`
 `;
 
 export const Subtitle = styled.span`
-  font-size: 16px;
-  letter-spacing: 0.15px;
+  font-size: 1rem;
+  letter-spacing: 0.009rem;
+  ${colorCss}
 `;
 
 export const SubtitleSmall = styled.span`
   font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.1px;
+  font-size: 0.9rem;
+  letter-spacing: 0.006rem;
+  ${colorCss}
 `;
 
 export const HeadingLabel = styled.span`
-  font-size: 0.625rem;
-  line-height: 0.625rem;
+  font-size: 0.6rem;
+  line-height: 0.6rem;
   letter-spacing: 0.09rem;
   text-transform: uppercase;
 `;
@@ -62,6 +69,8 @@ export const LargeText = styled.p`
   strong {
     font-weight: 500;
   }
+
+  ${colorCss}
 `;
 
 export const BodyText = styled.p`
@@ -71,16 +80,24 @@ export const BodyText = styled.p`
   strong {
     font-weight: 500;
   }
+
+  em {
+    font-style: italic;
+  }
+
+  ${colorCss}
 `;
 
 export const DescriptionText = styled.p`
   font-size: 0.875rem;
   line-height: 1.25rem;
+  ${colorCss}
 `;
 
 export const SmallText = styled.p`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 1rem;
+  ${colorCss}
 `;
 
 export const InfographicXlarge = styled.h1`

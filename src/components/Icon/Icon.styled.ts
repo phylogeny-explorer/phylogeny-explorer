@@ -6,7 +6,7 @@ interface ClickProps {
   size: number;
 }
 
-export const ClickWrapper = styled.button<ClickProps>`
+export const ClickWrapper = styled.button.attrs({ type: 'button' })<ClickProps>`
   cursor: pointer;
   display: flex;
   background: none;

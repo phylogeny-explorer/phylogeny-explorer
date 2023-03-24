@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { isEqual, isEmpty } from 'lodash';
 
 import { Clade } from 'lib/types';
 import ranks from 'lib/config/ranks.json';
@@ -12,94 +13,163 @@ import FieldGroup from 'components/FieldGroup';
 import Select from 'components/Select';
 import Checkbox from 'components/Checkbox';
 import Grid from 'components/Grid';
-import { HeadingSmall } from 'components/Typography';
+import { BodyText, HeadingSmall } from 'components/Typography';
+import Button from 'components/Button';
+
+const getChangedValues = (values, initialValues) => {
+  return Object.entries(values).reduce((acc, [key, value]) => {
+    if (!isEqual(initialValues[key], value)) {
+      acc[key] = value;
+    }
+    return acc;
+  }, {});
+};
 
 interface Props {
   clade: Clade;
+  onSubmit: (values: Partial<Clade>) => void;
 }
 
-const EditBasicDetails = ({ clade }: Props) => {
+const EditBasicDetails = ({ clade, onSubmit }: Props) => {
+  const status = clade.extant === false ? 'extinct' : undefined;
+  const initialValues = {
+    scientificName: clade.name || '',
+    synonyms: clade.synonyms || [''],
+    commonNames: clade.commonNames || [''],
+    rank: clade.rank || '',
+    status: clade.extant ? 'extant' : status,
+    authorship: {
+      name: clade.authorship?.name || '',
+      year: clade.authorship?.year || '',
+      isOriginalAuthor: clade.authorship?.isOriginalAuthor || false,
+      source: clade.authorship?.sources?.[0] || '',
+    },
+  };
+
   return (
     <Formik
-      initialValues={{
-        scientificName: clade.name,
-        synonyms: clade.synonyms || [''],
-        commonNames: clade.commonNames || [''],
-        rank: clade.rank,
-        status: clade.extant ? 'extant' : 'extinct',
-      }}
+      initialValues={initialValues}
       onSubmit={values => {
-        console.log(values);
+        const changedValues = getChangedValues(values, initialValues);
+        onSubmit({
+          ...changedValues,
+          name: values.scientificName,
+          extant:
+            values.status === undefined
+              ? undefined
+              : values.status === 'extant',
+        });
       }}
     >
-      {({ values }) => (
-        <Form>
-          <Field
-            name="scientificName"
-            label="scientific name"
-            placeholder="Scientific name"
-            px="lg"
-          >
-            <Source name="scientific name" source="" />
-          </Field>
-          <FieldArray
-            name="synonyms"
-            label="synonyms"
-            values={values.synonyms}
-            placeholder="Add synonym"
-          />
-          <FieldArray
-            name="commonNames"
-            label="common names"
-            values={values.commonNames}
-            placeholder="Add common name"
-          />
+      {({ values, handleReset }) => (
+        <Form $justifyEnd>
+          <Grid w="100%">
+            <Field
+              name="scientificName"
+              label="scientific name"
+              placeholder="Scientific name"
+              px="lg"
+            >
+              <Source name="scientific name" source="" />
+            </Field>
+            <FieldArray
+              name="synonyms"
+              label="synonyms"
+              values={values.synonyms}
+              placeholder="Add synonym"
+            />
+            <FieldArray
+              name="commonNames"
+              label="common names"
+              values={values.commonNames}
+              placeholder="Add common name"
+            />
 
-          <FieldGroup name="rank" label="rank">
-            {({ value, setValue }) => (
-              <Select
-                options={ranks}
-                value={ranks.find(option => option.value === value)}
-                onChange={option => setValue(option?.value)}
-              />
-            )}
-          </FieldGroup>
-          <FieldGroup name="status" label="status">
-            {({ value, setValue }) => (
-              <>
-                <Checkbox
-                  type="radio"
-                  name="status"
-                  text="Extant"
-                  checked={value === 'extant'}
-                  onChange={value => setValue(value ? 'extant' : 'extinct')}
+            <FieldGroup name="rank" label="rank">
+              {({ value, setValue }) => (
+                <Select
+                  options={ranks}
+                  value={ranks.find(option => option.value === value)}
+                  onChange={option => setValue(option?.value)}
                 />
-                <Checkbox
-                  type="radio"
-                  name="status"
-                  text="Extinct"
-                  checked={value === 'extinct'}
-                  onChange={value => setValue(value ? 'extinct' : 'extant')}
+              )}
+            </FieldGroup>
+            <FieldGroup name="status" label="status">
+              {({ value, setValue }) => (
+                <>
+                  <Checkbox
+                    type="radio"
+                    name="status"
+                    text="Extant"
+                    checked={value === 'extant'}
+                    onChange={value => setValue(value ? 'extant' : 'extinct')}
+                  />
+                  <Checkbox
+                    type="radio"
+                    name="status"
+                    text="Extinct"
+                    checked={value === 'extinct'}
+                    onChange={value => setValue(value ? 'extinct' : 'extant')}
+                  />
+                </>
+              )}
+            </FieldGroup>
+            <Card gap="lg">
+              <Grid autoFlow="column" ai="center">
+                <HeadingSmall>Authorship</HeadingSmall>
+                <Source name="citation" source="" />
+              </Grid>
+              <Grid autoFlow="column">
+                <Field
+                  name="authorship.name"
+                  label="name"
+                  placeholder="First name on paper"
                 />
-              </>
-            )}
-          </FieldGroup>
-          <Card gap="lg">
-            <Grid autoFlow="column" ai="center">
-              <HeadingSmall>First Described</HeadingSmall>
-              <Source name="citation" source="" />
-            </Grid>
-            <Field
-              name="attribution.date"
-              label="date"
-              placeholder="Paper publish date"
+                <Field
+                  name="authorship.year"
+                  label="year"
+                  placeholder="Paper publish year"
+                  type="number"
+                  min={1753}
+                  max={new Date().getFullYear()}
+                />
+              </Grid>
+              {(!values.rank || values.rank === 'species') && (
+                <Field
+                  name="authorship.isOriginalAuthor"
+                  label="Include original author in parentheses"
+                  type="checkbox"
+                />
+              )}
+              <BodyText>
+                <strong>Will display as: </strong>
+                <em>{values.scientificName}</em>{' '}
+                {values.authorship?.name && (
+                  <>
+                    {values.authorship?.isOriginalAuthor && '('}
+                    {values.authorship?.name}
+                    {values.authorship?.year && `, ${values.authorship.year}`}
+                    {values.authorship?.isOriginalAuthor && ')'}
+                  </>
+                )}
+              </BodyText>
+            </Card>
+          </Grid>
+          <Grid autoFlow="column">
+            <Button
+              onClick={handleReset}
+              text="Reset"
+              squishy
+              dark
+              disabled={isEmpty(getChangedValues(values, initialValues))}
             />
-            <Field
-              name="attribution.name"
-              label="by"
-              placeholder="First name on paper"
+            <Button
+              type="submit"
+              text="Save"
+              squishy
+              disabled={isEmpty(getChangedValues(values, initialValues))}
             />
-          </Card>
+          </Grid>
         </Form>
       )}
     </Formik>
