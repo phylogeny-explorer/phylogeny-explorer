@@ -4,6 +4,7 @@ import { isEqual, isEmpty } from 'lodash';
 
 import { Clade } from 'lib/types';
 import ranks from 'lib/config/ranks.json';
+import formatAuthorship from 'lib/helpers/formatAuthorship';
 import { Form } from 'components/Form';
 import Field from 'components/Field';
 import Source from 'components/Source';
@@ -143,15 +144,8 @@ const EditBasicDetails = ({ clade, onSubmit }: Props) => {
               )}
               <BodyText>
                 <strong>Will display as: </strong>
-                <em>{values.scientificName}</em>{' '}
-                {values.authorship?.name && (
-                  <>
-                    {values.authorship?.isOriginalAuthor && '('}
-                    {values.authorship?.name}
-                    {values.authorship?.year && `, ${values.authorship.year}`}
-                    {values.authorship?.isOriginalAuthor && ')'}
-                  </>
-                )}
+                <em>{`${values.scientificName} `}</em>
+                {formatAuthorship(values.authorship)}
               </BodyText>
             </Card>
           </Grid>
