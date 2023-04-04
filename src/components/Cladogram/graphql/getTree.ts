@@ -15,7 +15,10 @@ const GET_TREE = gql`
     tree(id: $id, depth: 5) {
       ...clade
       attributes {
-        lineage
+        lineage {
+          id
+          name
+        }
       }
       children {
         ...clade

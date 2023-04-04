@@ -1,15 +1,18 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { useRouter } from 'next/router';
 
+import { Clade } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import PageContent from 'components/layout/PageContent';
 import VerticalNav from 'components/layout/VerticalNav';
 import GET_CLADE from 'components/CladeInfo/graphql/get-clade';
+import UPDATE_CLADE from 'components/CladeInfo/graphql/update-clade';
 import Loader from 'components/Loader';
 import { BodyText, Heading } from 'components/Typography';
 import EditBasicDetails from 'components/clades/EditBasicDetails';
+import EditImages from 'components/clades/EditImages';
 
 const CladeEdit = () => {
   const { isLoggedIn, isLoadingUser } = useUser({ redirectTo: '/' });
@@ -18,10 +21,23 @@ const CladeEdit = () => {
   const cladeId = router.query.id;
   console.log(cladeId);
 
-  const { data, loading } = useQuery(GET_CLADE, {
+  const { data, loading } = useQuery<{ clade: Clade }>(GET_CLADE, {
     variables: { id: cladeId },
     skip: !cladeId,
   });
+
+  const [mutateClade] = useMutation(UPDATE_CLADE, {
+    onCompleted: res => {
+      console.log('onCompleted');
+      console.log(res);
+    },
+    refetchQueries: ['getClade'],
+  });
+
+  const onSubmit = (data: Partial<Clade>) => {
+    console.log('onSubmit', data);
+    mutateClade({ variables: { id: cladeId, data } });
+  };
 
   console.log(data);
 
@@ -34,7 +50,7 @@ const CladeEdit = () => {
 
         {data && (
           <VerticalNav
-            heading={data.clade2.name}
+            heading={data.clade.name}
             subheading="Edit clade details"
           >
             <VerticalNav.Item
@@ -47,7 +63,19 @@ const CladeEdit = () => {
                 },
               ]}
             >
-              <EditBasicDetails clade={data.clade2} />
+              <EditBasicDetails clade={data.clade} onSubmit={onSubmit} />
+            </VerticalNav.Item>
+            <VerticalNav.Item
+              slug="images"
+              label="Images"
+              info={[
+                {
+                  heading: 'Cover Image',
+                  text: 'Here you can choose an image to represent the clade.',
+                },
+              ]}
+            >
+              <EditImages clade={data.clade} onSubmit={onSubmit} />
             </VerticalNav.Item>
             <VerticalNav.Item slug="characteristics" label="Characteristics">
               <Heading>Characteristics</Heading>

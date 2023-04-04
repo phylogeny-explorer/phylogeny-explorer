@@ -71,24 +71,24 @@ const DevSandbox = () => {
         <Row>
           <Checkbox
             name="light"
-            onChange={(_, checked) => setBackground(checked ? 'light' : 'dark')}
+            onChange={checked => setBackground(checked ? 'light' : 'dark')}
             checked={background === 'light'}
           />
           <Checkbox
             name="dark"
-            onChange={(_, checked) => setBackground(checked ? 'dark' : 'light')}
+            onChange={checked => setBackground(checked ? 'dark' : 'light')}
             checked={background === 'dark'}
           />
           <Checkbox
             name="indeterminate"
-            onChange={(_, checked) => setBackground(checked ? 'dark' : 'light')}
+            onChange={checked => setBackground(checked ? 'dark' : 'light')}
             checked={background === 'dark'}
             indeterminate
           />
         </Row>
         <Checkbox
           name="text"
-          onChange={(_, checked) => setBackground(checked ? 'dark' : 'light')}
+          onChange={checked => setBackground(checked ? 'dark' : 'light')}
           checked={background === 'dark'}
           text="with text"
         />

@@ -1,4 +1,5 @@
 [
+  { "value": "unranked", "label": "Unranked" },
   { "value": "domain", "label": "Domain" },
   { "value": "kingdom", "label": "Kingdom" },
   { "value": "phylum", "label": "Phylum" },
@@ -6,5 +7,6 @@
   { "value": "order", "label": "Order" },
   { "value": "family", "label": "Family" },
   { "value": "genus", "label": "Genus" },
-  { "value": "species", "label": "Species" }
+  { "value": "species", "label": "Species" },
+  { "value": "subspecies", "label": "Subspecies" }
 ]

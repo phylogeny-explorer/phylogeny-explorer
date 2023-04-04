@@ -17,7 +17,7 @@ const Clade = () => {
   const { isLoggedIn, isLoadingUser } = useUser({ redirectTo: '/' });
 
   const router = useRouter();
-  const cladeId = (router.query.id as string) || '93302';
+  const cladeId = router.query.id as string | undefined;
 
   const { data, loading } = useQuery(GET_CLADE, {
     variables: { id: cladeId },
@@ -30,7 +30,7 @@ const Clade = () => {
     <Page>
       <Content>
         {loading && <Loader message="Loading" />}
-        {data && data.clade2.name}
+        {data && data.clade.name}
       </Content>
     </Page>
   );

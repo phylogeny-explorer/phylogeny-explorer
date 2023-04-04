@@ -24,9 +24,15 @@ export const Header = styled.div`
 
 export const Text = styled(DescriptionText)``;
 
-export const Form = styled(FormikForm)`
+interface FormProps {
+  $justifyEnd?: boolean;
+}
+
+export const Form = styled(FormikForm)<FormProps>`
   display: grid;
   grid-gap: ${props => props.theme.largeSpacer}px;
+
+  ${props => props.$justifyEnd && `justify-items: end;`}
 `;
 
 export const ButtonWrapper = styled.div`

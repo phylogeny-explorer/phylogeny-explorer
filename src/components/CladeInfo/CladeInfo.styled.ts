@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { SmallText } from 'components/Typography';
 
 export const Content = styled.div`
   display: grid;
@@ -11,11 +10,12 @@ export const Content = styled.div`
 
 export const Section = styled.div``;
 
-export const Authority = styled(SmallText)`
-  color: ${props => props.theme.vlgrey};
-`;
-
 export const Buttons = styled.div`
   display: grid;
   grid-auto-flow: column;
+`;
+
+export const Line = styled.div`
+  height: 1px;
+  background: ${props => props.theme.dgrey};
 `;
