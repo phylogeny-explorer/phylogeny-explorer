@@ -16,9 +16,11 @@ import {
 } from './icons';
 
 import { Tile, ClickWrapper } from './SocialIcon.styled';
+import Link from 'next/link';
 
 export interface SocialIconProps {
   platform?: string;
+  url?: string;
   variant?: 'circle' | 'square' | 'colour' | 'outline';
   size?: number;
   color?: string;
@@ -68,7 +70,7 @@ const SocialIcon = ({
       />
     );
 
-  return props.onClick ? <ClickWrapper>{Icon}</ClickWrapper> : Icon;
+  return props.url ? <a target="_blank" href={props.url}>{Icon}</a> : Icon;
 };
 
 export default SocialIcon;

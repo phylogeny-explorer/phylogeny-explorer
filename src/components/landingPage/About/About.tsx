@@ -1,16 +1,15 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import { MediaItems } from 'lib/types';
 import { HeadingXLarge, LargeText } from 'components/Typography';
 import Section from '../Section';
 import { Images } from './About.styled';
-import { getStrapiMedia } from 'lib/api/strapi';
 
 export interface Props {
   title: string;
   text: string;
-  images: MediaItems;
+  images: string[];
 }
 
 const About = ({ title, text, images }: Props) => (
@@ -18,10 +17,10 @@ const About = ({ title, text, images }: Props) => (
     <HeadingXLarge>{title}</HeadingXLarge>
     <LargeText>{text}</LargeText>
     <Images>
-      {images.data.map(image => (
+      {images.map((image, i) => (
         <Image
-          key={image.id}
-          src={getStrapiMedia(image)}
+          key={i}
+          src={image}
           alt=""
           width={1440}
           height={914}

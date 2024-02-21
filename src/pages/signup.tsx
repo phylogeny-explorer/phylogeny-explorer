@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
-import { getSignupPage, getStrapiMedia } from 'lib/api/strapi';
 import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
@@ -22,9 +21,10 @@ import {
   ErrorMessage,
 } from 'components/Form';
 import Field from 'components/Field';
+import { signupContent } from 'static/signup';
 
 interface Props {
-  background: MediaItem;
+  background: string;
   successMessage: string;
   errorMessage?: string;
 }
@@ -84,7 +84,7 @@ const Signup = ({ background, successMessage, errorMessage }: Props) => {
   if (isLoadingUser || isLoggedIn) return null;
 
   return (
-    <Page backgroundImage={getStrapiMedia(background.data)}>
+    <Page backgroundImage={background}>
       <Wrapper>
         <Header>
           <Heading>Sign up</Heading>
@@ -145,7 +145,6 @@ const Signup = ({ background, successMessage, errorMessage }: Props) => {
 export default Signup;
 
 export async function getStaticProps() {
-  const content = await getSignupPage();
-
-  return { props: { ...content } };
+  
+  return { props: { ...signupContent } };
 }

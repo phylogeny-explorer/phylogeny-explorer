@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ProfilerProps } from 'react';
 import styled from 'styled-components';
 
 import { getContributorsPage } from 'lib/api/strapi';
@@ -9,6 +9,8 @@ import Management, {
 } from 'components/contributorsPage/Management';
 import DevTeam, { DevTeamProps } from 'components/contributorsPage/DevTeam';
 import Footer, { FooterProps } from 'components/landingPage/Footer';
+import Profile, { ProfileProps } from 'components/contributorsPage/Profile';
+import { contributorsContent } from 'static/contributors';
 
 const Sections = styled.div`
   display: flex;
@@ -39,8 +41,6 @@ const Contributors = ({ content }: Props) => (
 export default Contributors;
 
 export async function getStaticProps() {
-  const content = await getContributorsPage();
-  console.log(content);
 
-  return { props: { content } };
+  return { props: { ...contributorsContent } };
 }
