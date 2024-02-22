@@ -1,7 +1,5 @@
-import React, { ProfilerProps } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
-import { getContributorsPage } from 'lib/api/strapi';
 import Page from 'components/layout/Page';
 import Header, { HeaderProps } from 'components/contributorsPage/Header';
 import Management, {
@@ -9,7 +7,6 @@ import Management, {
 } from 'components/contributorsPage/Management';
 import DevTeam, { DevTeamProps } from 'components/contributorsPage/DevTeam';
 import Footer, { FooterProps } from 'components/landingPage/Footer';
-import Profile, { ProfileProps } from 'components/contributorsPage/Profile';
 import { contributorsContent } from 'static/contributors';
 
 const Sections = styled.div`

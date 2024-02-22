@@ -1,7 +1,6 @@
 import React from 'react';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 
-import { MediaItems } from 'lib/types';
 import { HeadingXLarge, LargeText } from 'components/Typography';
 import Section from '../Section';
 import { Images } from './About.styled';

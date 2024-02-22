@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { SOCIAL } from 'consts';
 import SocialIcon, { SocialIconProps } from 'components/SocialIcon';
 import { Wrapper, Copyright, Icons } from './Footer.styled';
 

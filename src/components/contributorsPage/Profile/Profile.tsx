@@ -1,7 +1,4 @@
 import React from 'react';
-
-import { MediaItem } from 'lib/types';
-import { getStrapiMedia } from 'lib/api/strapi';
 import { BodyText } from 'components/Typography';
 import Avatar from 'components/Avatar';
 import { Wrapper, Name, Info } from './Profile.styled';

@@ -1,7 +1,5 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
-import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import { Wrapper, Title, Subtitle, LargeButton } from './Hero.styled';
 

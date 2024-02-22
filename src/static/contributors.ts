@@ -13,19 +13,19 @@ const headerContent: HeaderProps = {
 
 const profileManagementContent: ProfileProps[] = [{
     id: "1",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Aron Ra is the creator and founder of the Phylogeny Explorer. He is a science educator, author, international speaker, political activist, and Texas State and US National Leader for American Atheists.",
     name: "Aron Ra"
 },
 {
     id: "2",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Project Manager",
     name: "Steve Owen"
 },
 {
     id: "3",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Operation Manager",
     name: "Jeroen Pil"
 }]
@@ -43,25 +43,25 @@ const footerContent: FooterProps = {
 const profileDevTeamContent: ProfileProps[] = [
 {
     id: "4",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Lead Developer",
     name: "Isaac Raskin"
 },
 {
     id: "5",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Chief Bit-twiddler",
     name: "David Ihnen"
 },
 {
     id: "6",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Data Scientist",
     name: "Nikola Georgiev"
 },
 {
     id: "7",
-    image: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png",
+    image: "/images/barnacle.png",
     bio: "Front End Developer",
     name: "Neill Hewitt"
 }]

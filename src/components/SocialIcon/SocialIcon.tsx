@@ -15,8 +15,7 @@ import {
   IconYoutube,
 } from './icons';
 
-import { Tile, ClickWrapper } from './SocialIcon.styled';
-import Link from 'next/link';
+import { Tile } from './SocialIcon.styled';
 
 export interface SocialIconProps {
   platform?: string;

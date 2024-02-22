@@ -1,5 +1,4 @@
 import React from 'react';
-import { MediaItem } from 'lib/types';
 
 import { Wrapper, Title, Subtitle } from './Header.styled';
 

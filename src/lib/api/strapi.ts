@@ -49,26 +49,31 @@ export async function getLandingPage() {
 }
 
 export async function getContributorsPage() {
-  const landingPageData = await fetchAPI(
-    `landing-page?populate=${encodeURIComponent(
-      ['footer', 'footer.icons'].toString()
-    )}`
-  );
-  const contributorsPageData = await fetchAPI(
-    `contributors-page?populate=${encodeURIComponent(
-      [
-        'header',
-        'header.background',
-        'management',
-        'management.profiles',
-        'management.profiles.image',
-        'devTeam',
-        'devTeam.profiles',
-        'devTeam.profiles.image',
-      ].toString()
-    )}`
-  );
-  return { ...landingPageData.attributes, ...contributorsPageData.attributes };
+  try {
+    const landingPageData = await fetchAPI(
+      `landing-page?populate=${encodeURIComponent(
+        ['footer', 'footer.icons'].toString()
+      )}`
+    );
+    const contributorsPageData = await fetchAPI(
+      `contributors-page?populate=${encodeURIComponent(
+        [
+          'header',
+          'header.background',
+          'management',
+          'management.profiles',
+          'management.profiles.image',
+          'devTeam',
+          'devTeam.profiles',
+          'devTeam.profiles.image',
+        ].toString()
+      )}`
+    );
+    return { ...landingPageData.attributes, ...contributorsPageData.attributes };
+  }
+  catch (e) {
+    console.error(e)
+  }
 }
 
 export async function getLoginPage() {

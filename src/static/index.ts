@@ -13,7 +13,7 @@ const heroContent: HeroProps = {
 }
 
 const phylogenyContent: PhylogenyProps = {
-  image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Phylogenetic_Tree_of_Life.png",
+  image: "/images/Phylogenetic_Tree_of_Life.png",
   title: "What is Phylogeny?",
   text: "Phylogeny concerns the evolutionary history and development of \
   organisms, how they diverge and evolve from each other, and the \
