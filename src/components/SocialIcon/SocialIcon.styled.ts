@@ -28,6 +28,7 @@ export const ClickWrapper = styled.span`
   transition: transform 0.2s;
   position: relative;
   border-radius: 50%;
+  color: inherit;
 
   &:hover {
     transform: scale(1.1);

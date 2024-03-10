@@ -73,7 +73,7 @@ const SocialIcon = ({
 
   if (url)
     return (
-      <ClickWrapper as="a" target="_blank" href={url}>
+      <ClickWrapper as="a" target="_blank" rel="noreferrer" href={url}>
         {Icon}
       </ClickWrapper>
     );
