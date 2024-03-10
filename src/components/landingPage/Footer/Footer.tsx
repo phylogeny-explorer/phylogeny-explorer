@@ -1,11 +1,10 @@
 import React from 'react';
-
-import SocialIcon from 'components/SocialIcon';
+import SocialIcon, { SocialIconProps } from 'components/SocialIcon';
 import { Wrapper, Copyright, Icons } from './Footer.styled';
 
 export interface Props {
   copyright: string;
-  icons: { id: number; platform: string; url: string }[];
+  icons: SocialIconProps[];
 }
 
 const Footer = ({ copyright, icons }: Props) => (
@@ -14,12 +13,7 @@ const Footer = ({ copyright, icons }: Props) => (
 
     <Icons>
       {icons.map(icon => (
-        <SocialIcon
-          key={icon.id}
-          platform={icon.platform}
-          onClick={() => window.open(icon.url, '_blank')}
-          size={40}
-        />
+        <SocialIcon key={icon.platform} size={40} {...icon} />
       ))}
     </Icons>
   </Wrapper>

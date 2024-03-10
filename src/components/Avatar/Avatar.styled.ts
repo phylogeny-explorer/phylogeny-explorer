@@ -14,4 +14,8 @@ export const Main = styled.div<MainProps>`
   box-sizing: border-box;
   flex-shrink: 0;
   ${props => !!props.onClick && 'cursor: pointer'};
+
+  img {
+    object-fit: cover;
+  }
 `;

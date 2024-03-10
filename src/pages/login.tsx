@@ -6,8 +6,6 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import jwt from 'jsonwebtoken';
 
-import { getLoginPage, getStrapiMedia } from 'lib/api/strapi';
-import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import Button from 'components/Button';
@@ -22,16 +20,13 @@ import {
   ErrorMessage,
 } from 'components/Form';
 import Field from 'components/Field';
+import { loginContent } from 'static/login';
 
-interface Props {
-  background: MediaItem;
-  errorMessage?: string;
-  devErrorMessage?: string;
-}
+const { background, errorMessage, devErrorMessage } = loginContent;
 
 const env = process.env.NEXT_PUBLIC_API_BASE || 'dev';
 
-const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
+const Login = () => {
   const { query } = useRouter();
   const { isLoggedIn, isLoadingUser, setSession } = useUser({
     redirectTo: '/',
@@ -79,7 +74,7 @@ const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
   if (isLoadingUser || isLoggedIn) return null;
 
   return (
-    <Page backgroundImage={getStrapiMedia(background.data)}>
+    <Page backgroundImage={background}>
       <Wrapper>
         <Header>
           <Heading>Log in</Heading>
@@ -131,9 +126,3 @@ const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
 };
 
 export default Login;
-
-export async function getStaticProps() {
-  const content = await getLoginPage();
-
-  return { props: { ...content } };
-}

@@ -23,12 +23,15 @@ export interface SocialIconProps {
   size?: number;
   color?: string;
   onClick?: () => void;
+  url?: string;
 }
 
 const SocialIcon = ({
   platform = 'beatchain',
   variant = 'outline',
   size = 24,
+  onClick,
+  url,
   ...props
 }: SocialIconProps) => {
   const icons = {
@@ -68,7 +71,14 @@ const SocialIcon = ({
       />
     );
 
-  return props.onClick ? <ClickWrapper>{Icon}</ClickWrapper> : Icon;
+  if (url)
+    return (
+      <ClickWrapper as="a" target="_blank" rel="noreferrer" href={url}>
+        {Icon}
+      </ClickWrapper>
+    );
+
+  return onClick ? <ClickWrapper onClick={onClick}>{Icon}</ClickWrapper> : Icon;
 };
 
 export default SocialIcon;
