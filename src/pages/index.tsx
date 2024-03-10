@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Page from 'components/layout/Page';
-import Hero, { HeroProps } from 'components/landingPage/Hero';
-import Phylogeny, { PhylogenyProps } from 'components/landingPage/Phylogeny';
-import About, { AboutProps } from 'components/landingPage/About';
-import Contact, { ContactProps } from 'components/landingPage/Contact';
-import Footer, { FooterProps } from 'components/landingPage/Footer';
-import { indexContent } from 'static';
+import Hero from 'components/landingPage/Hero';
+import Phylogeny from 'components/landingPage/Phylogeny';
+import About from 'components/landingPage/About';
+import Contact from 'components/landingPage/Contact';
+import Footer from 'components/landingPage/Footer';
+import { content } from 'static';
 
 const Sections = styled.div`
   display: flex;
@@ -14,18 +14,8 @@ const Sections = styled.div`
   overflow: auto;
 `;
 
-interface Props {
-  content: {
-    hero: HeroProps;
-    phylogeny: PhylogenyProps;
-    about: AboutProps;
-    contact: ContactProps;
-    footer: FooterProps;
-  };
-}
-
-const Home = ({content}: Props) => (
-  <Page isDark >
+const Home = () => (
+  <Page isDark>
     <Sections>
       <Hero {...content.hero} />
       <Phylogeny {...content.phylogeny} />
@@ -37,8 +27,3 @@ const Home = ({content}: Props) => (
 );
 
 export default Home;
-
-export async function getStaticProps() {
-
-  return { props: { ...indexContent } };
-}

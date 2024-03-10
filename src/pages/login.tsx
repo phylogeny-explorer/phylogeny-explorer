@@ -22,15 +22,11 @@ import {
 import Field from 'components/Field';
 import { loginContent } from 'static/login';
 
-interface Props {
-  background: string;
-  errorMessage?: string;
-  devErrorMessage?: string;
-}
+const { background, errorMessage, devErrorMessage } = loginContent;
 
 const env = process.env.NEXT_PUBLIC_API_BASE || 'dev';
 
-const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
+const Login = () => {
   const { query } = useRouter();
   const { isLoggedIn, isLoadingUser, setSession } = useUser({
     redirectTo: '/',
@@ -130,8 +126,3 @@ const Login = ({ background, errorMessage, devErrorMessage }: Props) => {
 };
 
 export default Login;
-
-export async function getStaticProps() {
-
-  return { props: { ...loginContent } };
-}

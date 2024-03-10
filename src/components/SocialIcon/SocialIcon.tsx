@@ -15,21 +15,23 @@ import {
   IconYoutube,
 } from './icons';
 
-import { Tile } from './SocialIcon.styled';
+import { Tile, ClickWrapper } from './SocialIcon.styled';
 
 export interface SocialIconProps {
   platform?: string;
-  url?: string;
   variant?: 'circle' | 'square' | 'colour' | 'outline';
   size?: number;
   color?: string;
   onClick?: () => void;
+  url?: string;
 }
 
 const SocialIcon = ({
   platform = 'beatchain',
   variant = 'outline',
   size = 24,
+  onClick,
+  url,
   ...props
 }: SocialIconProps) => {
   const icons = {
@@ -69,7 +71,14 @@ const SocialIcon = ({
       />
     );
 
-  return props.url ? <a target="_blank" href={props.url}>{Icon}</a> : Icon;
+  if (url)
+    return (
+      <ClickWrapper as="a" target="_blank" href={url}>
+        {Icon}
+      </ClickWrapper>
+    );
+
+  return onClick ? <ClickWrapper onClick={onClick}>{Icon}</ClickWrapper> : Icon;
 };
 
 export default SocialIcon;

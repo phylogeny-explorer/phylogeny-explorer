@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 import { Auth } from 'aws-amplify';
 import { toast } from 'react-toastify';
 
-import { MediaItem } from 'lib/types';
 import useUser from 'lib/hooks/useUser';
 import Page from 'components/layout/Page';
 import Button from 'components/Button';
@@ -23,13 +22,9 @@ import {
 import Field from 'components/Field';
 import { signupContent } from 'static/signup';
 
-interface Props {
-  background: string;
-  successMessage: string;
-  errorMessage?: string;
-}
+const { background, successMessage, errorMessage } = signupContent;
 
-const Signup = ({ background, successMessage, errorMessage }: Props) => {
+const Signup = () => {
   const { isLoggedIn, isLoadingUser } = useUser({
     redirectTo: '/',
     redirectIfFound: true,
@@ -143,8 +138,3 @@ const Signup = ({ background, successMessage, errorMessage }: Props) => {
 };
 
 export default Signup;
-
-export async function getStaticProps() {
-  
-  return { props: { ...signupContent } };
-}

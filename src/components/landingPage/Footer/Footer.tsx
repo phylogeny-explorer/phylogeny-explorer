@@ -7,19 +7,16 @@ export interface Props {
   icons: SocialIconProps[];
 }
 
-const Footer = ({ copyright, icons }: Props) => {
-  
-  return (
-    <Wrapper>
-      <Copyright>{copyright}</Copyright>
+const Footer = ({ copyright, icons }: Props) => (
+  <Wrapper>
+    <Copyright>{copyright}</Copyright>
 
-      <Icons>
-        {icons.map(icon => (
-          <SocialIcon key={icon.platform} size={40} variant='outline' {...icon} />
-        ))}
-      </Icons>
-    </Wrapper>
-  );
-};
+    <Icons>
+      {icons.map(icon => (
+        <SocialIcon key={icon.platform} size={40} {...icon} />
+      ))}
+    </Icons>
+  </Wrapper>
+);
 
 export default Footer;
